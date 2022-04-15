@@ -38,6 +38,7 @@ namespace PlayerBehaviour
                     if (hit.transform.tag == "Dis")
                     {
                         asama1._touchPosition = hit.point;
+                        asama1._hit = hit;
                         asama1.DisMacunuCikar();
                     }
                 }

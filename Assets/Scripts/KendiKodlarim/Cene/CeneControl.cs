@@ -12,28 +12,21 @@ public class CeneControl : MonoBehaviour
     [Header("MirasIslemleri")]
     private CeneHaraket ceneHaraket;
 
-    private WaitForSeconds beklemeSuresi0 = new WaitForSeconds(.2f);
 
     void Start()
     {
         ceneHaraket = new CeneHaraket(transform, hedefRot);
-        StartCoroutine(OyunKontrol());
     }
 
-    IEnumerator OyunKontrol()
+    void Update()
     {
-        while(true)
+        if (GameController.instance.openMouth)
         {
-            if(GameController.instance.openMouth)
-            {
-                ceneHaraket.OpenMouth();
-            }
-            else if(GameController.instance.closeMouth)
-            {
-                ceneHaraket.CloseMouth();
-            }
-
-            yield return beklemeSuresi0;
+            ceneHaraket.OpenMouth();
+        }
+        else if (GameController.instance.closeMouth)
+        {
+            ceneHaraket.CloseMouth();
         }
     }
 }

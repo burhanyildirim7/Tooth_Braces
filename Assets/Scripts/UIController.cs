@@ -51,6 +51,8 @@ public class UIController : MonoBehaviour
         SetLevelText(LevelController.instance.totalLevelNo);
         SetGamePlayScoreText();
 
+        GameController.instance.openMouth = true;
+        GameController.instance.asamaSayisi = 1;
     }
 
     // RESTART TUSUNA BASILDISINDA  --- LOOSE EKRANINDA

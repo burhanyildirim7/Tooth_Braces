@@ -11,7 +11,6 @@ namespace DisMacunu
         public RaycastHit _hit;
 
         [Header("DisMacunuIslemleri")]
-        public GameObject _disMacunu;
         public ParticleSystem _disMacunuEfekt;
 
         private PlayerControl playerControl;
@@ -21,29 +20,19 @@ namespace DisMacunu
             playerControl = GameObject.FindObjectOfType<PlayerControl>();
 
             //_disMacunu = playerControl.disMacunu;
-            
+
         }
 
         public void DisMacunuEfektBaslat()
         {
-            if(_disMacunuEfekt == null)
-            {
-                _disMacunuEfekt = Instantiate(playerControl.disMacunu, _hit.point,Quaternion.identity).GetComponent<ParticleSystem>();
-                _disMacunuEfekt.transform.position = _hit.point;
-                _disMacunuEfekt.Play();
-            }
-            else
-            {
-                _disMacunuEfekt.transform.position = _hit.point;
-                _disMacunuEfekt.Play();
-            }
-
-            
+            _disMacunuEfekt = Instantiate(playerControl.disMacunu, _hit.point, Quaternion.identity).GetComponent<ParticleSystem>();
+            _disMacunuEfekt.transform.position = _hit.point;
+            _disMacunuEfekt.Play();
         }
 
         public void DisMacunuCikar()
         {
-            _disMacunuEfekt.transform.position = _touchPosition;
+            _disMacunuEfekt.transform.position = _hit.point;
         }
 
         public void DisMacunuEfektBitir()

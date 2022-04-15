@@ -14,18 +14,23 @@ public class GameController : MonoBehaviour
     [Header("Asamalar")]
     public bool closeMouth;
     public bool openMouth;
+    public int asamaSayisi;
 
 
     private void Awake()
     {
         if (instance == null) instance = this;
         //else Destroy(this);
-
     }
 
     void Start()
     {
         isContinue = false;
+    }
+
+    public void AsamaAtla()
+    {
+        
     }
 
 

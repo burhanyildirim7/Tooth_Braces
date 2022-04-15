@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace CeneBehaviour
 {
@@ -12,7 +13,7 @@ namespace CeneBehaviour
 
         Transform _transform;
 
-        public CeneHaraket(Transform transform,float hedefRot)
+        public CeneHaraket(Transform transform, float hedefRot)
         {
             _transform = transform;
             _hedefRot = hedefRot;
@@ -21,26 +22,19 @@ namespace CeneBehaviour
 
         public void OpenMouth()
         {
-            while (Mathf.Abs(_transform.rotation.eulerAngles.x - _hedefRot) >= 1f)
+            if (Mathf.Abs(_transform.rotation.eulerAngles.x - _hedefRot) >= 1f)
             {
-                _transform.rotation = Quaternion.Slerp(_transform.rotation, Quaternion.Euler(Vector3.right * _hedefRot), Time.deltaTime * 20);
-                yield return null;
+                _transform.DORotate(Vector3.right * _hedefRot, 1, RotateMode.Fast);
             }
         }
 
         public void CloseMouth()
         {
-            while (Mathf.Abs(_transform.rotation.eulerAngles.x - 0) >= 1f)
+            if (Mathf.Abs(_transform.rotation.eulerAngles.x - 0) >= 1f)
             {
-                _transform.rotation = Quaternion.Slerp(_transform.rotation, Quaternion.Euler(Vector3.right * 0), Time.deltaTime * 20);
-                yield return null;
+                _transform.DORotate(Vector3.right * 0, 1, RotateMode.Fast);
             }
-
         }
-
-        
-
-
     }
 
 }
