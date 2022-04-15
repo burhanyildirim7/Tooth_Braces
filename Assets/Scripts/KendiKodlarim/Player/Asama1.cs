@@ -18,9 +18,6 @@ namespace DisMacunu
         public Asama1()
         {
             playerControl = GameObject.FindObjectOfType<PlayerControl>();
-
-            //_disMacunu = playerControl.disMacunu;
-
         }
 
         public void DisMacunuEfektBaslat()
@@ -32,12 +29,20 @@ namespace DisMacunu
 
         public void DisMacunuCikar()
         {
-            _disMacunuEfekt.transform.position = _hit.point;
+            if(_hit.transform.gameObject.CompareTag("Dis"))
+            {
+                _disMacunuEfekt.transform.position = _hit.point;
+            }
+            else
+            {
+                _disMacunuEfekt = null;
+            }
         }
 
         public void DisMacunuEfektBitir()
         {
             _disMacunuEfekt?.Stop();
+            _disMacunuEfekt = null;
         }
     }
 }

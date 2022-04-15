@@ -10,8 +10,10 @@ public class PlayerControl : MonoBehaviour
     private PlayerTouch playerTouch;
 
     [Header("Asama1")]
-    //public GameObject disMacunu;
     public ParticleSystem disMacunu;
+
+    [Header("Asama2")]
+    public ParticleSystem disFircasi;
 
 
     void Start()

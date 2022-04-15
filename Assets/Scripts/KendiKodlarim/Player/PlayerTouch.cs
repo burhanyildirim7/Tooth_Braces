@@ -14,9 +14,6 @@ namespace PlayerBehaviour
         public Asama1 asama1;
 
 
-        int sayi;
-
-
         public PlayerTouch()
         {
             asama1 = new Asama1();
