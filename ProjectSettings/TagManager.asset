@@ -11,6 +11,10 @@ TagManager:
   - finish
   - collectible
   - elmas
+  - DegersizEsya
+  - Missile
+  - ENGEL
+  - Dis
   layers:
   - Default
   - TransparentFX
