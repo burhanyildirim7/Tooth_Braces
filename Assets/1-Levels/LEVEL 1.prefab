@@ -1400,6 +1400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8540179672462092117}
+  - component: {fileID: 8406763977240126829}
   m_Layer: 0
   m_Name: CeneAlt
   m_TagString: Untagged
@@ -1434,6 +1435,19 @@ Transform:
   m_Father: {fileID: 5478103007536066117}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8406763977240126829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631070100668994792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41a8619a9634164bb3f3fddac38cc1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hedefRot: -20
 --- !u!1 &3785572044437162636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 840281814788902253}
+  - component: {fileID: 8180189348303070261}
   m_Layer: 0
   m_Name: CeneUst
   m_TagString: Untagged
@@ -2059,6 +2074,19 @@ Transform:
   m_Father: {fileID: 5478103007536066117}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8180189348303070261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594351408686775232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41a8619a9634164bb3f3fddac38cc1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hedefRot: 20
 --- !u!1 &7039941757035162837
 GameObject:
   m_ObjectHideFlags: 0
