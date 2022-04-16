@@ -13,6 +13,9 @@ namespace DisMacunu
         [Header("DisMacunuIslemleri")]
         public ParticleSystem _disMacunuEfekt;
 
+        [Header("Ihtimaller")]
+        private bool isAsama1;
+        
         private PlayerControl playerControl;
 
         public Asama1()
@@ -22,20 +25,24 @@ namespace DisMacunu
 
         public void DisMacunuEfektBaslat()
         {
-            _disMacunuEfekt = Instantiate(playerControl.disMacunu, _hit.point, Quaternion.identity).GetComponent<ParticleSystem>();
-            _disMacunuEfekt.transform.position = _hit.point;
-            _disMacunuEfekt.Play();
+            if (_hit.transform.gameObject.CompareTag("Dis"))
+            {
+                _disMacunuEfekt = Instantiate(playerControl.disMacunu, _hit.point, Quaternion.identity).GetComponent<ParticleSystem>();
+                _disMacunuEfekt.transform.position = _hit.point;
+                _disMacunuEfekt.Play();
+                isAsama1 = true;
+            }
         }
 
         public void DisMacunuCikar()
         {
-            if(_hit.transform.gameObject.CompareTag("Dis"))
+            if(_hit.transform.gameObject.CompareTag("Dis") && isAsama1)
             {
                 _disMacunuEfekt.transform.position = _hit.point;
             }
-            else
+            else if(!isAsama1)
             {
-                _disMacunuEfekt = null;
+                DisMacunuEfektBaslat();
             }
         }
 
@@ -43,6 +50,7 @@ namespace DisMacunu
         {
             _disMacunuEfekt?.Stop();
             _disMacunuEfekt = null;
+            isAsama1 = false;
         }
     }
 }

@@ -13,6 +13,9 @@ namespace PlayerBehaviour
         [Header("MirasAlmaIslemleri")]
         public Asama1 asama1;
 
+        [Header("Durumlar")]
+        public int caseNumber;
+
 
         public PlayerTouch()
         {
@@ -21,9 +24,9 @@ namespace PlayerBehaviour
 
         public void Touch()
         {
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                asama1.DisMacunuEfektBaslat();
+                // asama1.DisMacunuEfektBaslat();
             }
 
 
@@ -34,16 +37,48 @@ namespace PlayerBehaviour
                 {
                     if (hit.transform.tag == "Dis")
                     {
-                        asama1._touchPosition = hit.point;
-                        asama1._hit = hit;
-                        asama1.DisMacunuCikar();
+                        switch (caseNumber)
+                        {
+                            case 1:
+                                asama1._touchPosition = hit.point;
+                                asama1._hit = hit;
+                                asama1.DisMacunuCikar();
+                                break;
+                            case 2:
+                                asama1._touchPosition = hit.point;
+                                asama1._hit = hit;
+                                asama1.DisMacunuCikar();
+                                break;
+                        }
                     }
+                }
+                else
+                {
+                    switch (caseNumber)
+                    {
+                        case 1:
+                            asama1.DisMacunuEfektBitir();
+                            break;
+                        case 2:
+
+                            break;
+                    }
+
                 }
             }
 
             if (Input.GetMouseButtonUp(0))
             {
-                asama1.DisMacunuEfektBitir();
+                switch (caseNumber)
+                {
+                    case 1:
+                        asama1.DisMacunuEfektBitir();
+                        break;
+                    case 2:
+
+                        break;
+                }
+
             }
         }
     }

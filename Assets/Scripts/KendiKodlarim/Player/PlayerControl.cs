@@ -19,6 +19,8 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         playerTouch = new PlayerTouch();
+
+        playerTouch.caseNumber = 1;
         Application.targetFrameRate = 60;
     }
 
@@ -28,6 +30,15 @@ public class PlayerControl : MonoBehaviour
         if (GameController.instance.isContinue)
         {
             playerTouch.Touch();
+        }
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            playerTouch.caseNumber = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            playerTouch.caseNumber = 1;
         }
     }
 }
