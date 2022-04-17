@@ -15,6 +15,7 @@ TagManager:
   - Missile
   - ENGEL
   - Dis
+  - ToothBrush
   layers:
   - Default
   - TransparentFX

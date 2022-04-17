@@ -12,6 +12,7 @@ namespace DisFircasi
 
         private GameObject _disFircasi;
         private ParticleSystem _bubbleEffect;
+        private int _numberStartingEffect;
 
         private Transform _pointToothBrush;
 
