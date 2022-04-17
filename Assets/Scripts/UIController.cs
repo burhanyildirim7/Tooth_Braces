@@ -12,12 +12,19 @@ public class UIController : MonoBehaviour
     public Animator ScoreTextAnim;
 
 
+    [Header("Controllerler")]
+    private PlayerControl playerControl;
+
+    [Header("Objeler")]
+    [SerializeField] private GameObject changePanel;
 
     // singleton yapisi burada kuruluyor.
     private void Awake()
     {
         if (instance == null) instance = this;
         //else Destroy(this);
+
+        playerControl = GameObject.FindObjectOfType<PlayerControl>();
     }
 
     private void Start()
@@ -43,6 +50,8 @@ public class UIController : MonoBehaviour
     // TAPTOSTART TUSUNA BASILDISINDA  --- GIRIS EKRANINDA VE LEVEL BASLARINDA
     public void TapToStartButtonClick()
     {
+        changePanel.SetActive(true);
+
 
         GameController.instance.isContinue = true;
         //PlayerController.instance.SetArmForGaming();
@@ -230,4 +239,8 @@ public class UIController : MonoBehaviour
 
 
 
+    public void ChangeCaseButton(int numberOfCase)
+    {
+        playerControl.ChangeCase(numberOfCase);
+    }
 }

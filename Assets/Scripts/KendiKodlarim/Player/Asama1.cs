@@ -2,56 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-namespace DisMacunu
+namespace DisFircasi
 {
-    public class Asama1 : MonoBehaviour
+    public class Asama1
     {
         public Vector3 _touchPosition { get; set; }
         public RaycastHit _hit;
 
-        [Header("DisMacunuIslemleri")]
-        public ParticleSystem _disMacunuEfekt;
 
-        [Header("Ihtimaller")]
-        private bool isAsama1;
-        
-        private PlayerControl playerControl;
+        private GameObject _disFircasi;
+        private ParticleSystem _bubbleEffect;
+
+        private Transform _pointToothBrush;
+
 
         public Asama1()
         {
-            playerControl = GameObject.FindObjectOfType<PlayerControl>();
+            _disFircasi = GameObject.FindObjectOfType<PlayerControl>().disFircasi;
+            _bubbleEffect = GameObject.FindObjectOfType<PlayerControl>().bubbleEffect;
+
+            _pointToothBrush = _disFircasi.transform.GetChild(0).transform.GetChild(0).transform;
         }
 
-        public void DisMacunuEfektBaslat()
+        public void ActiveToothBrush()
         {
-            if (_hit.transform.gameObject.CompareTag("Dis"))
+            _disFircasi.transform.position = _hit.point;
+            _disFircasi.SetActive(true);
+
+            var emission = _bubbleEffect.emission;
+            emission.rateOverTime = 20;
+
+
+        }
+
+        public void MoveToothBrush()
+        {
+            if (_disFircasi.activeSelf)
             {
-                _disMacunuEfekt = Instantiate(playerControl.disMacunu, _hit.point, Quaternion.identity).GetComponent<ParticleSystem>();
-                _disMacunuEfekt.transform.position = _hit.point;
-                _disMacunuEfekt.Play();
-                isAsama1 = true;
+                _disFircasi.transform.position = Vector3.Lerp(_disFircasi.transform.position, _hit.point, Time.deltaTime * 25);
+                _disFircasi.transform.rotation = Quaternion.Euler(Vector3.up * -(Mathf.Abs(Mathf.Pow(_hit.point.x * 4, 1)) * Mathf.Pow(_hit.point.x * 4, 1)));
+                _bubbleEffect.transform.position = _pointToothBrush.transform.position;
+            }
+            else
+            {
+                
+                ActiveToothBrush();
             }
         }
 
-        public void DisMacunuCikar()
+        public void DeactiveToothBrush()
         {
-            if(_hit.transform.gameObject.CompareTag("Dis") && isAsama1)
-            {
-                _disMacunuEfekt.transform.position = _hit.point;
-            }
-            else if(!isAsama1)
-            {
-                DisMacunuEfektBaslat();
-            }
-        }
+            _disFircasi.SetActive(false);
 
-        public void DisMacunuEfektBitir()
-        {
-            _disMacunuEfekt?.Stop();
-            _disMacunuEfekt = null;
-            isAsama1 = false;
+            var emission = _bubbleEffect.emission;
+            emission.rateOverTime = 0;
         }
     }
-}
 
+}
