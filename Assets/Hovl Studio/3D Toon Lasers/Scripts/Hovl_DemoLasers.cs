@@ -58,6 +58,7 @@ public class Hovl_DemoLasers : MonoBehaviour
         //To change lazers
         if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && buttonSaver >= 0.4f)// left button
         {
+            Time.timeScale = 0;
             buttonSaver = 0f;
             Counter(-1);
         }

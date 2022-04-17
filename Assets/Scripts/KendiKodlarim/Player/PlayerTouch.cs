@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DisMacunu;
+using DisFircasi;
+using DisSulama;
 
 namespace PlayerBehaviour
 {
@@ -12,6 +14,8 @@ namespace PlayerBehaviour
 
         [Header("MirasAlmaIslemleri")]
         public Asama1 asama1;
+        public Asama2 asama2;
+        public Asama3 asama3;
 
         [Header("Durumlar")]
         public int caseNumber;
@@ -20,6 +24,8 @@ namespace PlayerBehaviour
         public PlayerTouch()
         {
             asama1 = new Asama1();
+            asama2 = new Asama2();
+            asama3 = new Asama3();
         }
 
         public void Touch()
@@ -45,9 +51,14 @@ namespace PlayerBehaviour
                                 asama1.DisMacunuCikar();
                                 break;
                             case 2:
-                                asama1._touchPosition = hit.point;
-                                asama1._hit = hit;
-                                asama1.DisMacunuCikar();
+                                asama2._touchPosition = hit.point;
+                                asama2._hit = hit;
+                                asama2.MoveToothBrush();
+                                break;
+                            case 3:
+                                asama3._touchPosition = hit.point;
+                                asama3._hit = hit;
+                                asama3.MoveWater();
                                 break;
                         }
                     }
@@ -60,8 +71,12 @@ namespace PlayerBehaviour
                             asama1.DisMacunuEfektBitir();
                             break;
                         case 2:
-
+                            asama2.DeactiveToothBrush();
                             break;
+                        case 3:
+                            asama3.DeactiveWater();
+                            break;
+                      
                     }
 
                 }
@@ -75,7 +90,10 @@ namespace PlayerBehaviour
                         asama1.DisMacunuEfektBitir();
                         break;
                     case 2:
-
+                        asama2.DeactiveToothBrush();
+                        break;
+                    case 3:
+                        asama3.DeactiveWater();
                         break;
                 }
 

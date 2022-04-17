@@ -13,7 +13,13 @@ public class PlayerControl : MonoBehaviour
     public ParticleSystem disMacunu;
 
     [Header("Asama2")]
-    public ParticleSystem disFircasi;
+    public GameObject disFircasi;
+
+    [Header("Asama3")]
+    public ParticleSystem waterEffect;
+    public GameObject waterObj;
+    public GameObject waterCollier;
+
 
 
     void Start()
@@ -38,7 +44,11 @@ public class PlayerControl : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            playerTouch.caseNumber = 1;
+            playerTouch.caseNumber = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            playerTouch.caseNumber = 3;
         }
     }
 }
