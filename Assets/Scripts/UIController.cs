@@ -18,6 +18,7 @@ public class UIController : MonoBehaviour
     [Header("Objeler")]
     [SerializeField] private GameObject stage1Panel;
     [SerializeField] private GameObject stage2Panel;
+    [SerializeField] private GameObject stage3Panel;
 
     // singleton yapisi burada kuruluyor.
     private void Awake()
@@ -259,7 +260,7 @@ public class UIController : MonoBehaviour
 
     public void Stage3()
     {
-        stage1Panel.SetActive(false);
-        stage2Panel.SetActive(true);
+        stage2Panel.SetActive(false);
+        stage3Panel.SetActive(true);
     }
 }

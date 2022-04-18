@@ -28,7 +28,14 @@ namespace DisSulama
 
         public void ActiveWater()
         {
+            _waterObj.transform.rotation = Quaternion.LookRotation(_hit.point - _waterObj.transform.position);
+            _waterCollider.transform.position = _hit.point;
 
+            _waterObj.transform.position = _hit.transform.position - Vector3.forward * 3 + Vector3.right * 1;
+
+
+            _waterCollider.SetActive(true);
+            _waterObj.SetActive(true);
         }
 
         public void MoveWater()
@@ -39,15 +46,14 @@ namespace DisSulama
 
 
                 _waterObj.transform.rotation = Quaternion.LookRotation(_hit.point - _waterObj.transform.position);
+
+
+                _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.transform.position - Vector3.forward * 1.65f + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
+
             }
             else
             {
-                _waterObj.transform.rotation = Quaternion.LookRotation(_hit.point - _waterObj.transform.position);
-                _waterCollider.transform.position = _hit.point;
-
-
-                _waterCollider.SetActive(true);
-                _waterObj.SetActive(true);
+                ActiveWater();
             }
         }
 
