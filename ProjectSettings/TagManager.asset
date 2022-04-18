@@ -14,8 +14,10 @@ TagManager:
   - DegersizEsya
   - Missile
   - ENGEL
-  - Dis
   - ToothBrush
+  - Water
+  - Tooth
+  - Dis
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - UI
   - 
   - ToothBrush
-  - Tooth
+  - ToothLayer
   - 
   - 
   - 

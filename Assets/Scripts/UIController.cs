@@ -16,7 +16,8 @@ public class UIController : MonoBehaviour
     private PlayerControl playerControl;
 
     [Header("Objeler")]
-    [SerializeField] private GameObject changePanel;
+    [SerializeField] private GameObject stage1Panel;
+    [SerializeField] private GameObject stage2Panel;
 
     // singleton yapisi burada kuruluyor.
     private void Awake()
@@ -50,7 +51,7 @@ public class UIController : MonoBehaviour
     // TAPTOSTART TUSUNA BASILDISINDA  --- GIRIS EKRANINDA VE LEVEL BASLARINDA
     public void TapToStartButtonClick()
     {
-        changePanel.SetActive(true);
+        Stage1();
 
 
         GameController.instance.isContinue = true;
@@ -242,5 +243,23 @@ public class UIController : MonoBehaviour
     public void ChangeCaseButton(int numberOfCase)
     {
         playerControl.ChangeCase(numberOfCase);
+    }
+
+    public void Stage1()
+    {
+        stage1Panel.SetActive(true);
+        stage2Panel.SetActive(false);
+    }
+
+    public void Stage2()
+    {
+        stage1Panel.SetActive(false);
+        stage2Panel.SetActive(true);
+    }
+
+    public void Stage3()
+    {
+        stage1Panel.SetActive(false);
+        stage2Panel.SetActive(true);
     }
 }

@@ -40,7 +40,7 @@ namespace PlayerBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 50,layerMask))
                 {
-                    if (hit.transform.tag == "Dis")
+                    if (hit.transform.tag == "Tooth")
                     {
                         switch (caseNumber)
                         {

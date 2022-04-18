@@ -41,7 +41,7 @@ namespace DisFircasi
             if (_disFircasi.activeSelf)
             {
                 _disFircasi.transform.position = Vector3.Lerp(_disFircasi.transform.position, _hit.point, Time.deltaTime * 25);
-                _disFircasi.transform.rotation = Quaternion.Euler(Vector3.up * -(Mathf.Abs(Mathf.Pow(_hit.point.x * 4, 1)) * Mathf.Pow(_hit.point.x * 4, 1)));
+                _disFircasi.transform.rotation = Quaternion.Euler(Vector3.up * -(Mathf.Abs(Mathf.Pow(_hit.point.x * 5, 1)) * Mathf.Pow(_hit.point.x * 4, 1)));
                 _bubbleEffect.transform.position = _pointToothBrush.transform.position;
             }
             else
