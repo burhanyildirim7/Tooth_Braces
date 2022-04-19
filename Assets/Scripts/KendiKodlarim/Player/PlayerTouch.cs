@@ -18,29 +18,39 @@ namespace PlayerBehaviour
         [Header("Durumlar")]
         public int caseNumber;
 
+        int layerMask1;
+        int layerMask2;
+
+
         public PlayerTouch()
         {
             asama1 = new Asama1();
             asama2 = new Asama2();
+
+            layerMask1 = 1 << 4 | 1 << 7 | 1 << 2;
+            layerMask2 = 1 << 4 | 1 << 7 | 1 << 2;
+          //  layerMask1 = ~layerMask1;
+            layerMask2 = ~layerMask2;
         }
 
         public void Touch()
         {
-            int layerMask = 1 << 4 |1 << 7;
-            layerMask = ~layerMask;
-
             if (Input.GetMouseButtonDown(0))
             {
-                // asama1.DisMacunuEfektBaslat();
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit, 50, layerMask1))
+                {
+                    caseNumber = hit.transform.gameObject.GetComponent<ObjectNumber>().caseNumber;
+                }
             }
 
 
             if (Input.GetMouseButton(0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit, 50,layerMask))
+                if (Physics.Raycast(ray, out hit, 50, layerMask2))
                 {
-                    if (hit.transform.tag == "Tooth")
+                    if (hit.transform.CompareTag("Tooth"))
                     {
                         switch (caseNumber)
                         {
@@ -53,6 +63,22 @@ namespace PlayerBehaviour
                                 asama2._touchPosition = hit.point;
                                 asama2._hit = hit;
                                 asama2.MoveWater();
+                                break;
+                        }
+                    }
+                    else if (hit.transform.CompareTag("Raycast"))
+                    {
+                        switch (caseNumber)
+                        {
+                            case 1:
+                                asama1._touchPosition = hit.point;
+                                asama1._hit = hit;
+                                asama1.OnlyMoveToothBrush();
+                                break;
+                            case 2:
+                                asama2._touchPosition = hit.point;
+                                asama2._hit = hit;
+                                asama2.OnlyMoveWater();
                                 break;
                         }
                     }

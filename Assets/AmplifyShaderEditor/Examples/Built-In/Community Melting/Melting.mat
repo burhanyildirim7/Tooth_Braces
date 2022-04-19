@@ -59,9 +59,9 @@ Material:
     - _Float0: 1.64
     - _Float1: 1.92
     - _Intensity: 8
-    - _Limit: 2.78
+    - _Limit: 1.1
     - _ManualControl: 0.84
-    - _Metallic: 0.04
+    - _Metallic: 0.28
     - _NoiseMultiply: 1.92
     - _NoiseScale: 0.0527
     - _Oscillation: 1.89

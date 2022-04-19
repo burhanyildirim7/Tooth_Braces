@@ -10,7 +10,7 @@ namespace DisSulama
         public RaycastHit _hit;
 
         //  [Header("RelatedWater")]
-        public ParticleSystem _waterEffect { get; set; }
+        public GameObject _waterEffect { get; set; }
         public GameObject _waterObj;
         public GameObject _waterCollider;
 
@@ -26,7 +26,7 @@ namespace DisSulama
 
         }
 
-        public void ActiveWater()
+        public void ActiveWaterObject()
         {
             _waterObj.transform.rotation = Quaternion.LookRotation(_hit.point - _waterObj.transform.position);
             _waterCollider.transform.position = _hit.point;
@@ -38,22 +38,37 @@ namespace DisSulama
             _waterObj.SetActive(true);
         }
 
+        public void ActiveWaterEffect()
+        {
+            _waterEffect.SetActive(true);
+
+        }
+
+
         public void MoveWater()
         {
-            if (_waterCollider.activeSelf && _waterCollider.activeSelf)
+            if (_waterCollider.activeSelf && _waterCollider.activeSelf && _waterEffect.activeSelf)
             {
                 _waterCollider.transform.position = Vector3.Lerp(_waterCollider.transform.position, _hit.point, Time.deltaTime * 10);
-
-
                 _waterObj.transform.rotation = Quaternion.LookRotation(_hit.point - _waterObj.transform.position);
-
-
                 _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.transform.position - Vector3.forward * 1.65f + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
-
             }
             else
             {
-                ActiveWater();
+                ActiveWaterObject();
+                ActiveWaterEffect();
+            }
+        }
+
+        public void OnlyMoveWater()
+        {
+            if (_waterObj.activeSelf)
+            {
+                _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.point - Vector3.forward * 1.65f + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
+            }
+            else
+            {
+                ActiveWaterObject();
             }
         }
 
@@ -61,6 +76,7 @@ namespace DisSulama
         {
             _waterCollider.SetActive(false);
             _waterObj.SetActive(false);
+            _waterEffect.SetActive(false);
         }
 
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DisFircasi
 {
-    public class Asama1
+    public class Asama1 : MonoBehaviour
     {
         public Vector3 _touchPosition { get; set; }
         public RaycastHit _hit;
@@ -17,47 +17,100 @@ namespace DisFircasi
         private Transform _pointToothBrush;
 
 
+        private Vector3 _startingPosition;
+        private Quaternion _startingRotation;
+
+        private bool isEffectActive;
+
+
         public Asama1()
         {
             _disFircasi = GameObject.FindObjectOfType<PlayerControl>().disFircasi;
             _bubbleEffect = GameObject.FindObjectOfType<PlayerControl>().bubbleEffect;
 
             _pointToothBrush = _disFircasi.transform.GetChild(0).transform.GetChild(0).transform;
+
+
+            _startingPosition = _disFircasi.transform.position;
+            _startingRotation = _disFircasi.transform.rotation;
+
+
+            isEffectActive = false;
         }
 
         public void ActiveToothBrush()
         {
             _disFircasi.transform.position = _hit.point;
             _disFircasi.SetActive(true);
-
-            var emission = _bubbleEffect.emission;
-            emission.rateOverTime = 20;
-
-
         }
 
+        public void ActiveToothBrushEffect()
+        {
+            var emission = _bubbleEffect.emission;
+            emission.rateOverTime = 20;
+            isEffectActive = true;
+        }
+
+        public void DeactiveToothBrushEffect()
+        {
+            var emission = _bubbleEffect.emission;
+            emission.rateOverTime = 0;
+            isEffectActive = false;
+        }
+
+
+
+
+
+        //Haraket ettirme islemleri icin
         public void MoveToothBrush()
         {
-            if (_disFircasi.activeSelf)
+            if (_disFircasi.activeSelf && _bubbleEffect.transform.gameObject.activeSelf && isEffectActive)
             {
                 _disFircasi.transform.position = Vector3.Lerp(_disFircasi.transform.position, _hit.point, Time.deltaTime * 25);
                 _disFircasi.transform.rotation = Quaternion.Euler(Vector3.up * -(Mathf.Abs(Mathf.Pow(_hit.point.x * 5, 1)) * Mathf.Pow(_hit.point.x * 4, 1)));
                 _bubbleEffect.transform.position = _pointToothBrush.transform.position;
+               
             }
             else
             {
-                
+                ActiveToothBrush();
+                ActiveToothBrushEffect();
+            }
+        }
+
+        public void OnlyMoveToothBrush()
+        {
+            if (_disFircasi.activeSelf && !isEffectActive)
+            {
+                _disFircasi.transform.position = Vector3.Lerp(_disFircasi.transform.position, _hit.point, Time.deltaTime * 25);
+                _disFircasi.transform.rotation = Quaternion.Euler(Vector3.up * -20 + Vector3.right * -20);
+            }
+            else
+            {
+                DeactiveToothBrushEffect();
                 ActiveToothBrush();
             }
         }
 
+
+
         public void DeactiveToothBrush()
         {
-            _disFircasi.SetActive(false);
+            isEffectActive = false;
+            StartingPositionAndRotation();
 
             var emission = _bubbleEffect.emission;
             emission.rateOverTime = 0;
         }
-    }
 
+        void StartingPositionAndRotation()
+        {
+            while (Vector3.Distance(_disFircasi.transform.position, _startingPosition) >= .1f)
+            {
+                _disFircasi.transform.position = Vector3.Lerp(_disFircasi.transform.position, _startingPosition, Time.deltaTime * 15);
+                _disFircasi.transform.rotation = Quaternion.Slerp(_disFircasi.transform.rotation, _startingRotation, Time.deltaTime * 500);
+            }
+        }
+    }
 }

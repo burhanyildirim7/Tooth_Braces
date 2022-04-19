@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour
     public ParticleSystem bubbleEffect;
 
     [Header("Asama2")]
-    public ParticleSystem waterEffect;
+    public GameObject waterEffect;
     public GameObject waterObj;
     public GameObject waterCollier;
     

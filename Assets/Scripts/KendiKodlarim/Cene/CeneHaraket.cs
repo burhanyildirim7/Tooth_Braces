@@ -9,11 +9,11 @@ namespace CeneBehaviour
     {
 
         [Header("HedefRot")]
-        private float _hedefRot;
+        private Vector3 _hedefRot;
 
         Transform _transform;
 
-        public CeneHaraket(Transform transform, float hedefRot)
+        public CeneHaraket(Transform transform, Vector3 hedefRot)
         {
             _transform = transform;
             _hedefRot = hedefRot;
@@ -22,17 +22,17 @@ namespace CeneBehaviour
 
         public void OpenMouth()
         {
-            if (Mathf.Abs(_transform.rotation.eulerAngles.x - _hedefRot) >= 1f)
+            if (Quaternion.Angle(_transform.rotation, Quaternion.Euler(_hedefRot)) >= 1)
             {
-                _transform.DORotate(Vector3.right * _hedefRot, 1, RotateMode.Fast);
+                _transform.rotation = Quaternion.Slerp(_transform.rotation, Quaternion.Euler(_hedefRot), Time.deltaTime * 3);
             }
         }
 
         public void CloseMouth()
         {
-            if (Mathf.Abs(_transform.rotation.eulerAngles.x - 0) >= 1f)
+            if (Quaternion.Angle(_transform.rotation, Quaternion.Euler(_hedefRot)) >= 1)
             {
-                _transform.DORotate(Vector3.right * 0, 1, RotateMode.Fast);
+                _transform.rotation = Quaternion.Slerp(_transform.rotation, Quaternion.Euler(_hedefRot), Time.deltaTime * 3);
             }
         }
     }

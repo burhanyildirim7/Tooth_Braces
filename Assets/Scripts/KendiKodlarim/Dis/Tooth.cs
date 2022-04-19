@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Tooth : MonoBehaviour
 {
     [Header("RenkAyarlari")]
@@ -19,7 +20,6 @@ public class Tooth : MonoBehaviour
     {
         mat = GetComponent<SkinnedMeshRenderer>().material;
 
-
         mat.SetFloat("_FlakeColorVariationAmount", baslangicRenk);
 
         toothController = GameObject.FindObjectOfType<ToothController>();
@@ -31,7 +31,8 @@ public class Tooth : MonoBehaviour
 
     private IEnumerator StageController1()
     {
-        while(true)
+        yield return beklemeSuresi;
+        while (true)
         {
             if(mat.GetFloat("_FlakeColorVariationAmount") <= .51f)
             {

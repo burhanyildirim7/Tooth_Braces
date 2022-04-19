@@ -6,7 +6,7 @@ using CeneBehaviour;
 public class CeneControl : MonoBehaviour
 {
     [Header("RotasyonIslemleri")]
-    [SerializeField] private float hedefRot;
+    [SerializeField] private Vector3 hedefRot;
 
 
     [Header("MirasIslemleri")]
