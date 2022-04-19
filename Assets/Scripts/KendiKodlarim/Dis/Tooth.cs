@@ -17,7 +17,7 @@ public class Tooth : MonoBehaviour
 
     void Start()
     {
-        mat = GetComponent<MeshRenderer>().material;
+        mat = GetComponent<SkinnedMeshRenderer>().material;
 
 
         mat.SetFloat("_FlakeColorVariationAmount", baslangicRenk);
