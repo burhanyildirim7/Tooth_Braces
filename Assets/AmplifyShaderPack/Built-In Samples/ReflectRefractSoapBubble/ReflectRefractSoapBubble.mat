@@ -2,14 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ReflectRefractSoapBubble
   m_Shader: {fileID: 4800000, guid: 6e9655b466bce1a439058d14b7a58383, type: 3}
-  m_ShaderKeywords: 
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -67,22 +68,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
-    - _ChromaticAberration: 0.3
+    - _ChromaticAberration: 0.261
     - _DeformFrequency: 5
     - _Float0: 0.811
     - _Float1: 0.77
     - _Float2: 0
     - _Float3: 5
-    - _IndexofRefraction: 3
+    - _IndexofRefraction: -3
     - _Mirror: 0.5
     - _NormalScale: 0
-    - _Opacity: 0.2
+    - _Opacity: 0
     - _Smooth: 0.882
-    - _Smoothness: 0.95
-    - _SoapAmount: 0.4
+    - _Smoothness: 0.71
+    - _SoapAmount: 0.75
     - _Spec: 1
-    - _Specular: 0.5
+    - _Specular: 1
     - __dirty: 0
     m_Colors:
     - _Albedo: {r: 0.034482718, g: 1, b: 0, a: 1}
+  m_BuildTextureStacks: []

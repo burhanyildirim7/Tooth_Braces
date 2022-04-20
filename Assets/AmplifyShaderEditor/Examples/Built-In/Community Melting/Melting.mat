@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseNormal:
-        m_Texture: {fileID: 2800000, guid: bd734c29baceb63499732f24fbaea45f, type: 3}
+        m_Texture: {fileID: 2800000, guid: f675fdaf6761441cbb0a163adcb093e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BrushedMetalNormal:
@@ -62,9 +62,9 @@ Material:
     - _Limit: 1.1
     - _ManualControl: 0.84
     - _Metallic: 0.28
-    - _NoiseMultiply: 1.92
+    - _NoiseMultiply: 6.57
     - _NoiseScale: 0.0527
-    - _Oscillation: 1.89
+    - _Oscillation: 0
     - _Smoothness: 0.6536242
     - _ToggleAnimatedFX: 1
     - _ToggleControlType: 1

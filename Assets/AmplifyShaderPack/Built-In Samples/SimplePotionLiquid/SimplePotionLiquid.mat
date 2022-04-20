@@ -2,14 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SimplePotionLiquid
   m_Shader: {fileID: 4800000, guid: fb87bf3b83a4a614ca498c3cf4f24d99, type: 3}
-  m_ShaderKeywords: 
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -35,19 +36,21 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - <noninit>: 0
-    - _Falloff: 0.03
+    - _Falloff: 0.13
     - _Faloff: 0.02
     - _Float0: -0.01
-    - _Height: 1.09
-    - _Opacity: 0.95
-    - _Size: 0.31
-    - _Speed: 7.88
+    - _Height: 1.22
+    - _Opacity: 1.82
+    - _Size: 0
+    - _Speed: 1.92
     - __dirty: 0
     m_Colors:
     - <noninit>: {r: 0, g: 1.4264235e-33, b: 0, a: 1.4264176e-33}
     - _BaseColor: {r: 0.8602941, g: 0.025302794, b: 0.025302794, a: 1}
-    - _Color: {r: 1, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.023985408, g: 0.07382895, b: 0.46226418, a: 1}
     - _Color0: {r: 0.983, g: 0.13467102, b: 0.13467102, a: 1}
     - _TopColor: {r: 0.9459999, g: 0.098209865, b: 0.026487997, a: 1}
+  m_BuildTextureStacks: []

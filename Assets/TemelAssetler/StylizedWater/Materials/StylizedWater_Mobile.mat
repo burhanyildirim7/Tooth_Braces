@@ -2,14 +2,18 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StylizedWater_Mobile
   m_Shader: {fileID: 4800000, guid: 4bcc0b68579a5c740ad31644411ffb54, type: 3}
-  m_ShaderKeywords: _LIGHTING_ON _USEINTERSECTIONFOAM_ON _WORLDSPACETILIBG_ON
+  m_ValidKeywords:
+  - _LIGHTING_ON
+  m_InvalidKeywords:
+  - _USEINTERSECTIONFOAM_ON
+  - _WORLDSPACETILIBG_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -65,7 +69,7 @@ Material:
     - _ENABLE_VC: 0
     - _EdgeFade: 0.2448298
     - _FoamDistortion: 0.45
-    - _FoamOpacity: 0.1
+    - _FoamOpacity: 0.11
     - _FoamSize: 0
     - _FoamSpeed: 0.1
     - _FoamTiling: 0.15
@@ -108,13 +112,13 @@ Material:
     - _WaveSize: 0.1
     - _Wavesspeed: 0.75
     - _Wavesstrength: 0.031
-    - _Wavetint: -0.077
+    - _Wavetint: 0.04
     - _Worldspacetiling: 0
     - __dirty: 1
     m_Colors:
     - _FresnelColor: {r: 0.5, g: 0.8551724, b: 1, a: 0.084}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 0.509}
+    - _RimColor: {r: 0.004449993, g: 0.17402966, b: 0.9433962, a: 0.509}
     - _WaterColor: {r: 0.1176471, g: 0.6348885, b: 1, a: 0}
-    - _WaterShallowColor: {r: 0.41911757, g: 1, b: 0.8798174, a: 1}
+    - _WaterShallowColor: {r: 0.23113209, g: 0.5033785, b: 1, a: 1}
     - _WaveDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

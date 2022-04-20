@@ -2,14 +2,16 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RadialUVDistortion
   m_Shader: {fileID: 4800000, guid: 6482cb6aadf97484cbd2b49bc24f8e10, type: 3}
-  m_ShaderKeywords: _TOGGLESWITCH0_ON
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _TOGGLESWITCH0_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -39,6 +41,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - <noninit>: 0
     - _Displacement: 0.1
@@ -55,3 +58,4 @@ Material:
     - _NoiseMapSize: {r: 1, g: 1, b: 0, a: 0}
     - _RingPannerSpeed: {r: 0.1, g: -1.27, b: 0, a: 0}
     - _Tint: {r: 1, g: 0.68235296, b: 0, a: 0}
+  m_BuildTextureStacks: []

@@ -16,6 +16,9 @@ namespace DisSulama
 
         private PlayerControl _playerControl;
 
+        private Vector3 _startingPosition;
+        private Quaternion _startingRotation;
+
         public Asama2()
         {
             _playerControl = GameObject.FindObjectOfType<PlayerControl>();
@@ -23,6 +26,9 @@ namespace DisSulama
             _waterEffect = _playerControl.waterEffect;
             _waterObj = _playerControl.waterObj;
             _waterCollider = _playerControl.waterCollier;
+
+            _startingPosition = _waterObj.transform.position;
+            _startingRotation = _waterObj.transform.rotation;
 
         }
 
@@ -35,7 +41,6 @@ namespace DisSulama
 
 
             _waterCollider.SetActive(true);
-            _waterObj.SetActive(true);
         }
 
         public void ActiveWaterEffect()
@@ -51,7 +56,7 @@ namespace DisSulama
             {
                 _waterCollider.transform.position = Vector3.Lerp(_waterCollider.transform.position, _hit.point, Time.deltaTime * 10);
                 _waterObj.transform.rotation = Quaternion.LookRotation(_hit.point - _waterObj.transform.position);
-                _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.transform.position - Vector3.forward * 1.65f + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
+                _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.point - Vector3.forward * 1.65f + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
             }
             else
             {
@@ -62,22 +67,38 @@ namespace DisSulama
 
         public void OnlyMoveWater()
         {
-            if (_waterObj.activeSelf)
+            if (_waterObj.activeSelf && !_waterEffect.activeSelf)
             {
                 _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.point - Vector3.forward * 1.65f + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
             }
             else
             {
                 ActiveWaterObject();
+                DeactiveWaterEffect();
             }
+        }
+
+        public void DeactiveWaterEffect()
+        {
+            _waterEffect.SetActive(false);
         }
 
         public void DeactiveWater()
         {
+            StartingPositionAndRotation();
             _waterCollider.SetActive(false);
-            _waterObj.SetActive(false);
             _waterEffect.SetActive(false);
         }
 
+
+
+        void StartingPositionAndRotation()
+        {
+            while (Vector3.Distance(_waterObj.transform.position, _startingPosition) >= .1f)
+            {
+                _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _startingPosition, Time.deltaTime * 15);
+                _waterObj.transform.rotation = Quaternion.Slerp(_waterObj.transform.rotation, _startingRotation, Time.deltaTime * 500);
+            }
+        }
     }
 }

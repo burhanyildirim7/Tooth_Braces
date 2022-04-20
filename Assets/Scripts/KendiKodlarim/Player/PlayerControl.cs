@@ -18,7 +18,10 @@ public class PlayerControl : MonoBehaviour
     public GameObject waterEffect;
     public GameObject waterObj;
     public GameObject waterCollier;
-    
+
+    [Header("Asama3")]
+    public GameObject water;
+    public GameObject waterSender;
 
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DisFircasi;
 using DisSulama;
+using DisSuCekme;
 
 namespace PlayerBehaviour
 {
@@ -14,6 +15,7 @@ namespace PlayerBehaviour
         [Header("MirasAlmaIslemleri")]
         public Asama1 asama1;
         public Asama2 asama2;
+        public Asama3 asama3;
 
         [Header("Durumlar")]
         public int caseNumber;
@@ -26,10 +28,11 @@ namespace PlayerBehaviour
         {
             asama1 = new Asama1();
             asama2 = new Asama2();
+            asama3 = new Asama3();
 
             layerMask1 = 1 << 4 | 1 << 7 | 1 << 2;
             layerMask2 = 1 << 4 | 1 << 7 | 1 << 2;
-          //  layerMask1 = ~layerMask1;
+            //  layerMask1 = ~layerMask1;
             layerMask2 = ~layerMask2;
         }
 
@@ -63,6 +66,12 @@ namespace PlayerBehaviour
                                 asama2._touchPosition = hit.point;
                                 asama2._hit = hit;
                                 asama2.MoveWater();
+
+                                asama3.IncreaseWaterAmount();
+                                break;
+                            case 3:
+                                asama3._hit = hit;
+                                asama3.MoveWaterSender();
                                 break;
                         }
                     }
@@ -79,6 +88,10 @@ namespace PlayerBehaviour
                                 asama2._touchPosition = hit.point;
                                 asama2._hit = hit;
                                 asama2.OnlyMoveWater();
+                                break;
+                            case 3:
+                                asama3._hit = hit;
+                                asama3.OnlyMoveWaterSender();
                                 break;
                         }
                     }
@@ -104,6 +117,9 @@ namespace PlayerBehaviour
                     break;
                 case 2:
                     asama2.DeactiveWater();
+                    break;
+                case 3:
+                    asama3.DeactiveWaterSenderer();
                     break;
             }
         }
