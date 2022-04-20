@@ -24,20 +24,10 @@ public class ToothController : MonoBehaviour
     public void Stage1FinishedTooth()
     {
         stage1ToothNumber--;
-
-        if(stage1ToothNumber <= 0)
-        {
-            uIController.Stage2();
-        }
     }
 
     public void Stage2FinishedTooth()
     {
         stage2ToothNumber--;
-
-        if (stage2ToothNumber <= 0)
-        {
-            uIController.Stage3();
-        }
     }
 }
