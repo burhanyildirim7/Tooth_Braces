@@ -39,8 +39,8 @@ namespace DisSuCekme
         {
             if (_waterSender.activeSelf)
             {
-                _waterSender.transform.rotation = Quaternion.LookRotation(_hit.point - _waterSender.transform.position) * Quaternion.Euler(Vector3.forward * 120 + Vector3.up * 90);
-                _waterSender.transform.position = Vector3.Lerp(_waterSender.transform.position, _hit.point + Vector3.up * 2 + Vector3.forward * 1.8f + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
+                _waterSender.transform.rotation = Quaternion.Euler(Vector3.up * -50 + Vector3.forward * 130);
+                _waterSender.transform.position = Vector3.right * 1 + Vector3.up * -.5f + Vector3.forward * -2;
                 ReduceWaterAmount();
             }
             else
@@ -67,10 +67,11 @@ namespace DisSuCekme
         {
             _amountWater -= Time.deltaTime * .3f;
 
-            if (_amountWater <= .2f)
+            if (_amountWater <= .2f && _water.activeSelf)
             {
                 _amountWater = 0;
                 _water.SetActive(false);
+                Debug.Log("Asama 2 ye gecildi");
             }
             else
             {
@@ -91,12 +92,12 @@ namespace DisSuCekme
 
         public void UpdateWaterHeightAndWaight()
         {
-            if (!_water.activeSelf)
+            if (!_water.activeSelf && _amountWater >= .01f)
             {
                 _water.SetActive(true);
             }
             _water.transform.localScale = Vector3.forward * 1 + Vector3.right * 110 + Vector3.up * 110;
-            _water.transform.position = Vector3.up * (-1.5f + .4f * (_amountWater)) - Vector3.forward * .61f;
+            _water.transform.position = Vector3.up * (-.3f + .4f * (_amountWater)) - Vector3.forward * .61f;
         }
 
 

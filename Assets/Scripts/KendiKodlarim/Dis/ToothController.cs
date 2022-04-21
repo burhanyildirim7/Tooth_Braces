@@ -30,4 +30,9 @@ public class ToothController : MonoBehaviour
     {
         stage2ToothNumber--;
     }
+
+    public void Stage3FinishedTooth()
+    {
+        
+    }
 }
