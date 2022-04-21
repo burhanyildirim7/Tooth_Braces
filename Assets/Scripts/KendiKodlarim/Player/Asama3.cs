@@ -71,7 +71,7 @@ namespace DisSuCekme
             {
                 _amountWater = 0;
                 _water.SetActive(false);
-                Debug.Log("Asama 2 ye gecildi");
+                GameObject.FindObjectOfType<AsamaControl>().Stage4Invoke();
             }
             else
             {

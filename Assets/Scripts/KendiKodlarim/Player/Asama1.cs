@@ -68,8 +68,9 @@ namespace DisFircasi
             if (_disFircasi.activeSelf && _bubbleEffect.transform.gameObject.activeSelf && isEffectActive)
             {
                 _disFircasi.transform.position = Vector3.Lerp(_disFircasi.transform.position, _hit.point + Vector3.forward * .25f, Time.deltaTime * 25);
-                _disFircasi.transform.rotation = Quaternion.Euler(Vector3.up * -(Mathf.Abs(Mathf.Pow(_hit.point.x * 6, 1)) * Mathf.Pow(_hit.point.x * 4, 1))) * Quaternion.Euler(Vector3.forward * -20 * (Mathf.Abs(_hit.point.x) / _hit.point.x) * (Mathf.Abs(_hit.point.y) / _hit.point.y));
-                _bubbleEffect.transform.position = _hit.point;
+                //_disFircasi.transform.rotation = Quaternion.Euler(Vector3.up * -(Mathf.Abs(Mathf.Pow(_hit.point.x * 6, 1)) * Mathf.Pow(_hit.point.x * 4, 1))) * Quaternion.Euler(Vector3.forward * -12 * (Mathf.Abs(_hit.point.x) / _hit.point.x) * (Mathf.Abs(_hit.point.y) / _hit.point.y));
+                _disFircasi.transform.rotation = Quaternion.Slerp(_disFircasi.transform.rotation, Quaternion.Euler(Vector3.up * -(Mathf.Abs(Mathf.Pow(_hit.point.x * 6, 1)) * Mathf.Pow(_hit.point.x * 4, 1))) * Quaternion.Euler(Vector3.forward * -12 * (Mathf.Abs(_hit.point.x) / _hit.point.x) * (Mathf.Abs(_hit.point.y) / _hit.point.y)), Time.deltaTime * 10); 
+                _bubbleEffect.transform.position = _hit.point + _disFircasi.transform.right * -.3f;
                
             }
             else
