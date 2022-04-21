@@ -4,6 +4,7 @@ using UnityEngine;
 using DisFircasi;
 using DisSulama;
 using DisSuCekme;
+using DisYapiskan;
 
 namespace PlayerBehaviour
 {
@@ -16,6 +17,7 @@ namespace PlayerBehaviour
         public Asama1 asama1;
         public Asama2 asama2;
         public Asama3 asama3;
+        public Asama4 asama4;
 
         [Header("Durumlar")]
         public int caseNumber;
@@ -29,6 +31,7 @@ namespace PlayerBehaviour
             asama1 = new Asama1();
             asama2 = new Asama2();
             asama3 = new Asama3();
+            asama4 = new Asama4();
 
             layerMask1 = 1 << 4 | 1 << 7 | 1 << 2;
             layerMask2 = 1 << 4 | 1 << 7 | 1 << 2;
@@ -72,6 +75,10 @@ namespace PlayerBehaviour
                             case 3:
                                 asama3._hit = hit;
                                 asama3.MoveWaterSender();
+                                break;
+                            case 4:
+                                asama4._hit = hit;
+                                asama4.BiggerSticky();
                                 break;
                         }
                     }
