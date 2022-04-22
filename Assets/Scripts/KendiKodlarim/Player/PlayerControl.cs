@@ -23,6 +23,9 @@ public class PlayerControl : MonoBehaviour
     public GameObject water;
     public GameObject waterSender;
 
+    [Header("Asama4")]
+    public GameObject sticky;
+
 
 
     void Start()

@@ -74,7 +74,7 @@ Material:
     - _FoamSpeed: 0.1
     - _FoamTiling: 0.15
     - _Fresnelexponent: 2.6
-    - _Glossiness: 1
+    - _Glossiness: 0.84
     - _HighlightPanning: 0
     - _LIGHTING: 1
     - _MACRO_WAVES: 0
@@ -88,7 +88,7 @@ Material:
     - _ReflectionFresnel: 2
     - _ReflectionRefraction: 0.006
     - _ReflectionStrength: 0
-    - _RefractionAmount: 0.057
+    - _RefractionAmount: 0.013
     - _RimDistance: 0.899
     - _RimDistortion: 0.139
     - _RimSize: 4.6
@@ -102,7 +102,7 @@ Material:
     - _Surfacehightlightsize: 0
     - _Tessellation: 0.01
     - _Tiling: 0.955
-    - _Transparency: 1
+    - _Transparency: 0.6
     - _USE_VC_INTERSECTION: 0
     - _Unlit: 0
     - _UseIntersectionFoam: 1

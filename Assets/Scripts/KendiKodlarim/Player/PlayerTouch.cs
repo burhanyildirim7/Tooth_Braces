@@ -82,6 +82,7 @@ namespace PlayerBehaviour
                             case 4:
                                 asama4._hit = hit;
                                 asama4.BiggerSticky();
+                                asama4.MoveSticky();
                                 break;
                             case 5:
                                 asama5._hit = hit;
@@ -108,6 +109,8 @@ namespace PlayerBehaviour
                                 asama3.OnlyMoveWaterSender();
                                 break;
                             case 4:
+                                asama4._hit = hit;
+                                asama4.OnlyMoveSticky();
                                 break;
                             case 5:
 
@@ -139,6 +142,9 @@ namespace PlayerBehaviour
                     break;
                 case 3:
                     asama3.DeactiveWaterSenderer();
+                    break;
+                case 4:
+                    asama4.DeactiveSticky();
                     break;
             }
         }
