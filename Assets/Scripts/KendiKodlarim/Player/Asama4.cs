@@ -26,7 +26,6 @@ namespace DisYapiskan
             {
                 _hit.transform.GetChild(0).transform.gameObject.SetActive(true);
             }
-             
         }
 
     }

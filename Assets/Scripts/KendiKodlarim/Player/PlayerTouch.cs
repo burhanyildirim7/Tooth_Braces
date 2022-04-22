@@ -5,6 +5,7 @@ using DisFircasi;
 using DisSulama;
 using DisSuCekme;
 using DisYapiskan;
+using DisBraket;
 
 namespace PlayerBehaviour
 {
@@ -18,6 +19,7 @@ namespace PlayerBehaviour
         public Asama2 asama2;
         public Asama3 asama3;
         public Asama4 asama4;
+        public Asama5 asama5;
 
         [Header("Durumlar")]
         public int caseNumber;
@@ -32,6 +34,7 @@ namespace PlayerBehaviour
             asama2 = new Asama2();
             asama3 = new Asama3();
             asama4 = new Asama4();
+            asama5 = new Asama5();
 
             layerMask1 = 1 << 4 | 1 << 7 | 1 << 2;
             layerMask2 = 1 << 4 | 1 << 7 | 1 << 2;
@@ -80,6 +83,10 @@ namespace PlayerBehaviour
                                 asama4._hit = hit;
                                 asama4.BiggerSticky();
                                 break;
+                            case 5:
+                                asama5._hit = hit;
+                                asama5.CreateBraket();
+                                break;
                         }
                     }
                     else if (hit.transform.CompareTag("Raycast"))
@@ -100,6 +107,11 @@ namespace PlayerBehaviour
                                 asama3._hit = hit;
                                 asama3.OnlyMoveWaterSender();
                                 break;
+                            case 4:
+                                break;
+                            case 5:
+
+                                break;  
                         }
                     }
                 }
