@@ -6,13 +6,13 @@ namespace DisFircasi
 {
     public class Asama1 : MonoBehaviour
     {
-        public Vector3 _touchPosition { get; set; }
         public RaycastHit _hit;
 
 
         private GameObject _disFircasi;
         private ParticleSystem _bubbleEffect;
         private float _numberStartingEffect;
+        Animation _disFircasiAnim;
 
         private Transform _pointToothBrush;
 
@@ -26,6 +26,7 @@ namespace DisFircasi
         public Asama1()
         {
             _disFircasi = GameObject.FindObjectOfType<PlayerControl>().disFircasi;
+            _disFircasiAnim = _disFircasi.transform.GetChild(0).transform.gameObject.GetComponent<Animation>();
             _bubbleEffect = GameObject.FindObjectOfType<PlayerControl>().bubbleEffect;
 
             _pointToothBrush = _disFircasi.transform.GetChild(0).transform.GetChild(0).transform;
@@ -41,7 +42,7 @@ namespace DisFircasi
         public void ActiveToothBrush()
         {
             _disFircasi.transform.position = _hit.point;
-            _disFircasi.SetActive(true);
+            _disFircasiAnim.enabled = true;
         }
 
         public void ActiveToothBrushEffect()
@@ -117,6 +118,8 @@ namespace DisFircasi
 
             var emission = _bubbleEffect.emission;
             emission.rateOverTime = 0;
+
+            _disFircasiAnim.enabled = false;
         }
 
         void StartingPositionAndRotation()

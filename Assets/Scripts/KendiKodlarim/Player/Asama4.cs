@@ -12,10 +12,17 @@ namespace DisYapiskan
         [Header("YapistiriciIslemleri")]
         private GameObject _sticky;
 
+        [Header("PositionAndRotationSettings")]
+        private Vector3 _startingPosition;
+        private Quaternion _startingRotation;
+
         public Asama4()
         {
             PlayerControl playerControl = GameObject.FindObjectOfType<PlayerControl>();
             _sticky = playerControl.sticky;
+
+            _startingPosition = _sticky.transform.position;
+            _startingRotation = _sticky.transform.rotation;
         }
 
 
@@ -58,7 +65,17 @@ namespace DisYapiskan
 
         public void DeactiveSticky()
         {
-            _sticky.SetActive(false);
+            StartingPositionAndRotation();
+        }
+
+
+        void StartingPositionAndRotation()
+        {
+            while (Vector3.Distance(_sticky.transform.position, _startingPosition) >= .1f)
+            {
+                _sticky.transform.position = Vector3.Lerp(_sticky.transform.position, _startingPosition, Time.deltaTime * 15);
+                _sticky.transform.rotation = Quaternion.Slerp(_sticky.transform.rotation, _startingRotation, Time.deltaTime * 500);
+            }
         }
     }
 }

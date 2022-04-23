@@ -6,6 +6,8 @@ using DisSulama;
 using DisSuCekme;
 using DisYapiskan;
 using DisBraket;
+using DisYayi;
+using DisLastigi;
 
 namespace PlayerBehaviour
 {
@@ -20,6 +22,8 @@ namespace PlayerBehaviour
         public Asama3 asama3;
         public Asama4 asama4;
         public Asama5 asama5;
+        public Asama6 asama6;
+        public Asama7 asama7;
 
         [Header("Durumlar")]
         public int caseNumber;
@@ -35,6 +39,8 @@ namespace PlayerBehaviour
             asama3 = new Asama3();
             asama4 = new Asama4();
             asama5 = new Asama5();
+            asama6 = new Asama6();
+            asama7 = new Asama7();
 
             layerMask1 = 1 << 4 | 1 << 7 | 1 << 2;
             layerMask2 = 1 << 4 | 1 << 7 | 1 << 2;
@@ -64,7 +70,6 @@ namespace PlayerBehaviour
                         switch (caseNumber)
                         {
                             case 1:
-                                asama1._touchPosition = hit.point;
                                 asama1._hit = hit;
                                 asama1.MoveToothBrush();
                                 break;
@@ -88,6 +93,10 @@ namespace PlayerBehaviour
                                 asama5._hit = hit;
                                 asama5.CreateBraket();
                                 break;
+                            case 6:
+                                asama6._hit = hit;
+                                asama6.CreateDisYayi();
+                                break;
                         }
                     }
                     else if (hit.transform.CompareTag("Raycast"))
@@ -95,7 +104,6 @@ namespace PlayerBehaviour
                         switch (caseNumber)
                         {
                             case 1:
-                                asama1._touchPosition = hit.point;
                                 asama1._hit = hit;
                                 asama1.OnlyMoveToothBrush();
                                 break;
@@ -114,7 +122,11 @@ namespace PlayerBehaviour
                                 break;
                             case 5:
 
-                                break;  
+                                break;
+                            case 6:
+                                asama6._hit = hit;
+                                asama6.MoveDisYayi();
+                                break;
                         }
                     }
                 }
@@ -145,6 +157,9 @@ namespace PlayerBehaviour
                     break;
                 case 4:
                     asama4.DeactiveSticky();
+                    break;
+                case 6:
+                    asama6.DeactiveDisYayi();
                     break;
             }
         }

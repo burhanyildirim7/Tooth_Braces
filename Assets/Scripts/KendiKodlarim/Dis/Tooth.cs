@@ -11,6 +11,12 @@ public class Tooth : MonoBehaviour
 
     [Header("Controllers")]
     private ToothController toothController;
+    private AsamaControl asamaControl;
+
+    [Header("RotasyonAyarlari")]
+    [SerializeField] private Vector3 hedefRot;
+
+    private bool isMove;
 
 
 
@@ -23,9 +29,12 @@ public class Tooth : MonoBehaviour
         mat.SetFloat("_FlakeColorVariationAmount", baslangicRenk);
 
         toothController = GameObject.FindObjectOfType<ToothController>();
+        asamaControl = GameObject.FindObjectOfType<AsamaControl>();
 
+        isMove = false;
 
         StartCoroutine(StageController1());
+        StartCoroutine(MoveControl());
     }
 
 
@@ -54,6 +63,32 @@ public class Tooth : MonoBehaviour
                 break;
             }
             yield return beklemeSuresi;
+        }
+    }
+
+    IEnumerator MoveControl() //Dis haraketi icin gereklidir
+    {
+        while(!isMove)
+        {
+            if(asamaControl.isMoveTooth)
+            {
+                isMove = true;
+                StartCoroutine(SmoothlyMove());
+                break;
+            }    
+            yield return new WaitForSeconds(.25f);
+        }
+
+      
+    }
+
+    IEnumerator SmoothlyMove()
+    {
+        Transform parentTransform = transform.parent;
+        while(true)
+        {
+            parentTransform.localRotation = Quaternion.Slerp(parentTransform.localRotation, Quaternion.Euler(hedefRot), Time.deltaTime * 3);
+            yield return null;
         }
     }
 

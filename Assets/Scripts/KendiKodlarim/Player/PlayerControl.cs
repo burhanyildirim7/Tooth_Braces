@@ -27,6 +27,10 @@ public class PlayerControl : MonoBehaviour
     public GameObject sticky;
 
 
+    [Header("Asama6")]
+    public GameObject disYayi;
+
+
 
     void Start()
     {

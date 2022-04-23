@@ -9,9 +9,16 @@ namespace DisBraket
         [Header("DokunmaIslemleri")]
         public RaycastHit _hit;
 
+        [Header("AsamaIslemleri")]
+        private AsamaControl asamaControl;
+
 
         public Asama5()
         {
+
+
+            asamaControl = GameObject.FindObjectOfType<AsamaControl>();
+
 
         }
 
@@ -21,6 +28,8 @@ namespace DisBraket
             {
                 _hit.transform.GetChild(1).transform.gameObject.SetActive(true);
                 _hit.transform.GetChild(0).transform.gameObject.SetActive(false);
+
+                asamaControl.Stage7Invoke();
             }
         }
     }

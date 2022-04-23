@@ -90,6 +90,8 @@ namespace DisSuCekme
             UpdateWaterHeightAndWaight();
         }
 
+
+        //Yukselen su icin gereklidir
         public void UpdateWaterHeightAndWaight()
         {
             if (!_water.activeSelf && _amountWater >= .01f)
