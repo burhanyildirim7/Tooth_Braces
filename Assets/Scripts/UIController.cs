@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
 
     [Header("Controllerler")]
     private PlayerControl playerControl;
+    private OnBoardingController onBoardingController;
 
 
     // singleton yapisi burada kuruluyor.
@@ -23,6 +24,7 @@ public class UIController : MonoBehaviour
         //else Destroy(this);
 
         playerControl = GameObject.FindObjectOfType<PlayerControl>();
+        onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
     }
 
     private void Start()
@@ -58,6 +60,14 @@ public class UIController : MonoBehaviour
 
         GameController.instance.openMouth = true;
         GameController.instance.asamaSayisi = 1;
+
+        StartCoroutine(Beklet());
+    }
+
+    IEnumerator Beklet()
+    {
+        yield return new WaitForSeconds(.75f);
+        onBoardingController.PlayOnBoarding(1);
     }
 
     // RESTART TUSUNA BASILDISINDA  --- LOOSE EKRANINDA

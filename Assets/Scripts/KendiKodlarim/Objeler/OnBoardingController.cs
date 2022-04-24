@@ -12,16 +12,23 @@ public class OnBoardingController : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.GetInt("level") == 0)
+
+    }
+
+    public void PlayOnBoarding(int sayi)
+    {
+        if(PlayerPrefs.GetInt("Asama" + sayi.ToString()) == 0)
         {
-            Asama1();
+            panel.SetActive(true);
+            anim.Play("Asama" + sayi.ToString());
+            PlayerPrefs.SetInt("Asama" + sayi.ToString(), 1);
         }
     }
 
-
-    public void Asama1()
+    public void DeactiveOnBoarding()
     {
-        panel.SetActive(true);
-        anim.Play("Asama1");
+        anim.Stop();
+        panel.SetActive(false);
     }
+
 }

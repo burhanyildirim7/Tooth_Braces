@@ -28,6 +28,9 @@ namespace PlayerBehaviour
         [Header("Durumlar")]
         public int caseNumber;
 
+        [Header("Controller")]
+        private OnBoardingController onBoardingController;
+
         int layerMask1;
         int layerMask2;
 
@@ -46,6 +49,8 @@ namespace PlayerBehaviour
             layerMask2 = 1 << 4 | 1 << 7 | 1 << 2 | 1 << 9;
             //  layerMask1 = ~layerMask1;
             layerMask2 = ~layerMask2;
+
+            onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
         }
 
         public void Touch()
@@ -57,9 +62,9 @@ namespace PlayerBehaviour
                 {
                     caseNumber = hit.transform.gameObject.GetComponent<ObjectNumber>().caseNumber;
 
-                    if(caseNumber == 2 ||caseNumber== 4)
+                    if (caseNumber == 2 || caseNumber == 4)
                     {
-                       
+
                         layerMask2 = 1 << 9;
                     }
                     else
@@ -67,6 +72,8 @@ namespace PlayerBehaviour
                         layerMask2 = 1 << 4 | 1 << 7 | 1 << 2 | 1 << 9;
                         layerMask2 = ~layerMask2;
                     }
+
+                    onBoardingController.DeactiveOnBoarding();
                 }
             }
 
@@ -84,22 +91,22 @@ namespace PlayerBehaviour
                                 asama1._hit = hit;
                                 asama1.MoveToothBrush();
                                 break;
-                          /*  case 2:
-                                asama2._touchPosition = hit.point;
-                                asama2._hit = hit;
-                                asama2.MoveWater();
+                            /*  case 2:
+                                  asama2._touchPosition = hit.point;
+                                  asama2._hit = hit;
+                                  asama2.MoveWater();
 
-                                asama3.IncreaseWaterAmount();
-                                break;*/
+                                  asama3.IncreaseWaterAmount();
+                                  break;*/
                             case 3:
                                 asama3._hit = hit;
                                 asama3.MoveWaterSender();
                                 break;
-                           /* case 4:
-                                asama4._hit = hit;
-                                asama4.BiggerSticky();
-                                asama4.MoveSticky();
-                                break;*/
+                            /* case 4:
+                                 asama4._hit = hit;
+                                 asama4.BiggerSticky();
+                                 asama4.MoveSticky();
+                                 break;*/
                             case 5:
                                 asama5._hit = hit;
                                 asama5.CreateBraket();
@@ -142,7 +149,7 @@ namespace PlayerBehaviour
                     }
                     else if (hit.transform.CompareTag("UzakLayer"))
                     {
-                        switch(caseNumber)
+                        switch (caseNumber)
                         {
                             case 2:
                                 asama2._touchPosition = hit.point;
@@ -158,10 +165,10 @@ namespace PlayerBehaviour
                         }
                     }
                 }
-             /*   else
-                {
-                    Deactive();
-                }*/
+                /*   else
+                   {
+                       Deactive();
+                   }*/
             }
 
             if (Input.GetMouseButtonUp(0))

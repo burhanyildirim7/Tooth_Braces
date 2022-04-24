@@ -18,11 +18,12 @@ public class AsamaControl : MonoBehaviour
 
     [Header("Controllerler")]
     private OnBoardingController onBoardingController;
+    private ToothController toothController;
 
     void Start()
     {
         onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
-
+        toothController= GameObject.FindObjectOfType<ToothController>();
 
         disSayisi = GameObject.FindGameObjectsWithTag("Tooth").Length;
         isMoveDentalBraces = false;
@@ -31,6 +32,8 @@ public class AsamaControl : MonoBehaviour
 
     public void Stage4Invoke()
     {
+        toothController.Stage3FinishedTooth();
+
         for (int i = 0; i < asamalar.Length; i++)
         {
             asamalar[i].SetActive(false);
