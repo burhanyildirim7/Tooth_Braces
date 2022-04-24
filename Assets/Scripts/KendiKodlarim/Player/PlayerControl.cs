@@ -28,7 +28,10 @@ public class PlayerControl : MonoBehaviour
 
 
     [Header("Asama6")]
-    public GameObject disYayi;
+    public GameObject solUstYay;
+    public GameObject sagUstYay;
+    public GameObject solAltYay;
+    public GameObject sagAltYay;
 
 
 

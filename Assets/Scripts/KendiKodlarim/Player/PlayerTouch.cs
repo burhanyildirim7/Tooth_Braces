@@ -95,7 +95,7 @@ namespace PlayerBehaviour
                                 break;
                             case 6:
                                 asama6._hit = hit;
-                                asama6.CreateDisYayi();
+                                asama6.MoveDisYayi();
                                 break;
                         }
                     }
@@ -157,6 +157,9 @@ namespace PlayerBehaviour
                     break;
                 case 4:
                     asama4.DeactiveSticky();
+                    break;
+                case 5:
+
                     break;
                 case 6:
                     asama6.DeactiveDisYayi();

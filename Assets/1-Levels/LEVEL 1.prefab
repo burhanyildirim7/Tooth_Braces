@@ -38136,7 +38136,10 @@ MonoBehaviour:
   water: {fileID: 2340125601778351847}
   waterSender: {fileID: 4596730181882217132}
   sticky: {fileID: 4822573568410152229}
-  disYayi: {fileID: 0}
+  solUstYay: {fileID: 620298725206096169, guid: 3eb6906409289524a84b6b0f86d8b8cd, type: 3}
+  sagUstYay: {fileID: 620298725206096169, guid: 9ab63a8232718c947a3321dcdafff88b, type: 3}
+  solAltYay: {fileID: 620298725206096169, guid: 94b74ca4112f9104c8e06d631bdfeb8b, type: 3}
+  sagAltYay: {fileID: 620298725206096169, guid: 94ffae2a049fe514088197e2c9ca5612, type: 3}
 --- !u!1 &4596730180470695739
 GameObject:
   m_ObjectHideFlags: 0
@@ -102924,7 +102927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4821782434203983894
 Transform:
   m_ObjectHideFlags: 0
@@ -106800,6 +106803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1191435895105646229}
   - component: {fileID: 5021664049713330107}
+  - component: {fileID: 1706474402414012431}
   m_Layer: 2
   m_Name: DisYayi
   m_TagString: Obje
@@ -106814,7 +106818,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6718384307475236752}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -1.25, y: -2.295, z: -3.968}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -106822,7 +106826,7 @@ Transform:
   - {fileID: 7732338110544015673}
   m_Father: {fileID: 6181634526579894022}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!65 &5021664049713330107
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -106836,6 +106840,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1706474402414012431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718384307475236752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b361969cc4951f4891c71afbe07b7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caseNumber: 6
 --- !u!1 &6772596850793933457
 GameObject:
   m_ObjectHideFlags: 0
@@ -107678,7 +107695,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6996634182108712565}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -1.76}
+  m_LocalPosition: {x: 0, y: -0.15, z: -1.76}
   m_LocalScale: {x: 2.25, y: 2.25, z: 2.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -107812,6 +107829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7194813497139209842}
   - component: {fileID: 8449078524210009087}
+  - component: {fileID: 8553560128356422052}
   m_Layer: 2
   m_Name: DisLastigi
   m_TagString: Obje
@@ -107826,7 +107844,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7143981099081672939}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 1.25, y: -2.295, z: -3.968}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -107834,7 +107852,7 @@ Transform:
   - {fileID: 8547375432522079257}
   m_Father: {fileID: 6181634526579894022}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!65 &8449078524210009087
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107848,6 +107866,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8553560128356422052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143981099081672939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b361969cc4951f4891c71afbe07b7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caseNumber: 7
 --- !u!1 &7146086802968541453
 GameObject:
   m_ObjectHideFlags: 0
