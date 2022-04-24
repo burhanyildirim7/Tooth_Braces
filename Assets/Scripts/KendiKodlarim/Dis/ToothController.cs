@@ -7,8 +7,6 @@ public class ToothController : MonoBehaviour
     [Header("DisSayilari")]
     public int stage1ToothNumber;
     private int stage2ToothNumber;
-    private int stage4ToothNumber;
-    private int stage5ToothNumber;
 
     GameObject[] asd;
 
@@ -22,8 +20,6 @@ public class ToothController : MonoBehaviour
     {
         stage1ToothNumber = GameObject.FindGameObjectsWithTag("Tooth").Length;
         stage2ToothNumber = stage1ToothNumber;
-        stage4ToothNumber = stage1ToothNumber;
-        stage5ToothNumber = stage1ToothNumber;
 
         onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
         uIController = GameObject.FindObjectOfType<UIController>();
@@ -33,7 +29,7 @@ public class ToothController : MonoBehaviour
     {
         stage1ToothNumber--;
 
-        if(stage1ToothNumber <= 0)
+        if (stage1ToothNumber <= 0)
         {
             SendMessage(2);
         }
@@ -50,30 +46,8 @@ public class ToothController : MonoBehaviour
         }
     }
 
-    public void Stage3FinishedTooth()
-    {
-        SendMessage(4);
-    }
 
-    public void Stage4FinishedTooth()
-    {
-        stage4ToothNumber--;
 
-        if(stage4ToothNumber <= 0)
-        {
-            SendMessage(5);
-        }
-    }
-
-    public void Stage5FinishedTooth()
-    {
-        stage5ToothNumber--;
-
-        if (stage5ToothNumber <= 0)
-        {
-            SendMessage(6);
-        }
-    }
 
     private void SendMessage(int sayi)
     {

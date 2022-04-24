@@ -81,7 +81,7 @@ namespace DisSuCekme
 
         public void IncreaseWaterAmount()
         {
-            _amountWater += Time.deltaTime * .3f;
+            _amountWater += Time.deltaTime * .15f;
 
             if (_amountWater >= 1)
             {

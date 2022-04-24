@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DisSuCekme;
+using PlayerBehaviour;
 
 namespace DisSulama
 {
@@ -20,11 +22,14 @@ namespace DisSulama
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
 
+        private Asama3 _asama3;
+
         int layerMask;
 
         public Asama2()
         {
             _playerControl = GameObject.FindObjectOfType<PlayerControl>();
+            //_asama3 = _playerControl.playerTouch.asama3;
 
             _waterEffect = _playerControl.waterEffect;
             _waterObj = _playerControl.waterObj;
@@ -57,8 +62,9 @@ namespace DisSulama
                 if(hitCollider.transform.gameObject.CompareTag("Tooth"))
                 {
                     _waterCollider.transform.position = Vector3.Lerp(_waterCollider.transform.position, hitCollider.point, Time.deltaTime * 10);
+                    //_asama3.IncreaseWaterAmount();
 
-                    if(!_waterEffect.activeSelf)
+                    if (!_waterEffect.activeSelf)
                     {
                         ActiveWaterEffect();
                     }
@@ -76,7 +82,7 @@ namespace DisSulama
             if (_waterCollider.activeSelf)
             {
                 WaterCollider();
-                _waterObj.transform.rotation = Quaternion.Euler(Vector3.right + Vector3.up * -7  * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70);
+                _waterObj.transform.rotation = Quaternion.Euler(Vector3.right + Vector3.up * -6.1f  * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70);
                 
                 _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.point, Time.deltaTime * 15);
             }

@@ -32,8 +32,6 @@ public class AsamaControl : MonoBehaviour
 
     public void Stage4Invoke()
     {
-        toothController.Stage3FinishedTooth();
-
         for (int i = 0; i < asamalar.Length; i++)
         {
             asamalar[i].SetActive(false);

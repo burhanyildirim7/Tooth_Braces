@@ -12,7 +12,7 @@ public class DisTeli : MonoBehaviour
 
     private bool haraketEdiyorMu;
 
-    private WaitForSeconds beklemeSuresi = new WaitForSeconds(.2f);
+    private WaitForSeconds beklemeSuresi = new WaitForSeconds(.1f);
 
     private AsamaControl asamaControl;
 

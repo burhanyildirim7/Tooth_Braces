@@ -60,39 +60,12 @@ public class Tooth : MonoBehaviour
             if (mat.GetFloat("_FlakeColorVariationAmount") <= 0)
             {
                 toothController.Stage2FinishedTooth();
-                StartCoroutine(StageController4());
                 break;
             }
             yield return beklemeSuresi;
         }
     }
 
-    private IEnumerator StageController4()
-    {
-        while (true)
-        {
-            if (transform.GetChild(0).localScale.y * 1000 >= .1f)
-            {
-                toothController.Stage4FinishedTooth();
-                StartCoroutine(StageController5());
-                break;
-            }
-            yield return beklemeSuresi;
-        }
-    }
-
-    private IEnumerator StageController5()
-    {
-        while (true)
-        {
-            if (transform.GetChild(1).transform.gameObject.activeSelf)
-            {
-                toothController.Stage5FinishedTooth();
-                break;
-            }
-            yield return beklemeSuresi;
-        }
-    }
 
 
     IEnumerator MoveControl() //Dis haraketi icin gereklidir

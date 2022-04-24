@@ -35,6 +35,7 @@ namespace PlayerBehaviour
         int layerMask2;
 
 
+
         public PlayerTouch()
         {
             asama1 = new Asama1();
@@ -139,7 +140,8 @@ namespace PlayerBehaviour
                                 asama4.OnlyMoveSticky();
                                 break;
                             case 5:
-
+                                asama5._hit = hit;
+                                //asama5.MoveBraket();
                                 break;
                             case 6:
                                 asama6._hit = hit;
@@ -155,7 +157,6 @@ namespace PlayerBehaviour
                                 asama2._touchPosition = hit.point;
                                 asama2._hit = hit;
                                 asama2.MoveWater();
-
                                 asama3.IncreaseWaterAmount();
                                 break;
                             case 4:
@@ -171,6 +172,7 @@ namespace PlayerBehaviour
                    }*/
             }
 
+
             if (Input.GetMouseButtonUp(0))
             {
                 Deactive();
@@ -183,18 +185,22 @@ namespace PlayerBehaviour
             {
                 case 1:
                     asama1.DeactiveToothBrush();
+                    caseNumber = 0;
                     break;
                 case 2:
                     asama2.DeactiveWater();
+                    caseNumber = 0;
                     break;
                 case 3:
                     asama3.DeactiveWaterSenderer();
+                    caseNumber = 0;
                     break;
                 case 4:
                     asama4.DeactiveSticky();
+                    caseNumber = 0;
                     break;
                 case 5:
-
+                    asama5.DeactiveBraket();
                     break;
                 case 6:
                     asama6.DeactiveDisYayi();

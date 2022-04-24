@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DisBraket
 {
-    public class Asama5 
+    public class Asama5
     {
         [Header("DokunmaIslemleri")]
         public RaycastHit _hit;
@@ -12,15 +12,28 @@ namespace DisBraket
         [Header("AsamaIslemleri")]
         private AsamaControl asamaControl;
 
+        private GameObject _braket;
+
+        private Vector3 _startingPosition;
+        private Quaternion _startingRotation;
 
         public Asama5()
         {
-
-
+            PlayerControl playerControl = GameObject.FindObjectOfType<PlayerControl>();
             asamaControl = GameObject.FindObjectOfType<AsamaControl>();
 
+            _braket = playerControl.braket;
 
+            _startingPosition = _braket.transform.position;
+            _startingRotation = _braket.transform.rotation;
         }
+
+
+        public void MoveBraket()
+        {
+            _braket.transform.position = _hit.point;
+        }
+
 
         public void CreateBraket()
         {
@@ -31,6 +44,17 @@ namespace DisBraket
 
                 asamaControl.Stage7Invoke();
             }
+        }
+
+        public void DeactiveBraket()
+        {
+            StartingPositionAndRotation();
+        }
+
+        void StartingPositionAndRotation()
+        {
+            _braket.transform.position = _startingPosition;
+            _braket.transform.rotation = _startingRotation;
         }
     }
 

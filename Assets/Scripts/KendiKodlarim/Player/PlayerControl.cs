@@ -7,7 +7,7 @@ using PlayerBehaviour;
 public class PlayerControl : MonoBehaviour
 {
     [Header("MirasIslemleri")]
-    private PlayerTouch playerTouch;
+    public PlayerTouch playerTouch;
 
 
     [Header("Asama1")]
@@ -26,6 +26,8 @@ public class PlayerControl : MonoBehaviour
     [Header("Asama4")]
     public GameObject sticky;
 
+    [Header("Asama5")]
+    public GameObject braket;
 
     [Header("Asama6")]
     public GameObject solUstYay;
@@ -42,7 +44,7 @@ public class PlayerControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (GameController.instance.isContinue)
         {
