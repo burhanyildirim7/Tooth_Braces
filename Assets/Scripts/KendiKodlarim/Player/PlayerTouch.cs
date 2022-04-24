@@ -42,8 +42,8 @@ namespace PlayerBehaviour
             asama6 = new Asama6();
             asama7 = new Asama7();
 
-            layerMask1 = 1 << 4 | 1 << 7 | 1 << 2;
-            layerMask2 = 1 << 4 | 1 << 7 | 1 << 2;
+            layerMask1 = 1 << 4 | 1 << 2;
+            layerMask2 = 1 << 4 | 1 << 7 | 1 << 2 | 1 << 9;
             //  layerMask1 = ~layerMask1;
             layerMask2 = ~layerMask2;
         }
@@ -56,6 +56,17 @@ namespace PlayerBehaviour
                 if (Physics.Raycast(ray, out hit, 50, layerMask1))
                 {
                     caseNumber = hit.transform.gameObject.GetComponent<ObjectNumber>().caseNumber;
+
+                    if(caseNumber == 2)
+                    {
+                       
+                        layerMask2 = 1 << 9;
+                    }
+                    else
+                    {
+                        layerMask2 = 1 << 4 | 1 << 7 | 1 << 2 | 1 << 9;
+                        layerMask2 = ~layerMask2;
+                    }
                 }
             }
 
@@ -65,6 +76,7 @@ namespace PlayerBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 50, layerMask2))
                 {
+                    Debug.Log(hit.transform.gameObject.name);
                     if (hit.transform.CompareTag("Tooth"))
                     {
                         switch (caseNumber)
@@ -126,6 +138,19 @@ namespace PlayerBehaviour
                             case 6:
                                 asama6._hit = hit;
                                 asama6.MoveDisYayi();
+                                break;
+                        }
+                    }
+                    else if (hit.transform.CompareTag("UzakLayer"))
+                    {
+                        switch(caseNumber)
+                        {
+                            case 2:
+                                asama2._touchPosition = hit.point;
+                                asama2._hit = hit;
+                                asama2.MoveWater();
+
+                                asama3.IncreaseWaterAmount();
                                 break;
                         }
                     }

@@ -20,6 +20,7 @@ TagManager:
   - Dis
   - Raycast
   - Obje
+  - UzakLayer
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - 
   - ToothBrush
   - ToothLayer
-  - 
+  - UzakLayer
   - 
   - 
   - 
