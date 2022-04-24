@@ -16,8 +16,14 @@ public class AsamaControl : MonoBehaviour
     [Header("DisHaraketi")]
     public bool isMoveTooth;
 
+    [Header("Controllerler")]
+    private OnBoardingController onBoardingController;
+
     void Start()
     {
+        onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
+
+
         disSayisi = GameObject.FindGameObjectsWithTag("Tooth").Length;
         isMoveDentalBraces = false;
         isMoveTooth = false;

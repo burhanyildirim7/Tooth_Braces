@@ -158,10 +158,10 @@ namespace PlayerBehaviour
                         }
                     }
                 }
-                else
+             /*   else
                 {
                     Deactive();
-                }
+                }*/
             }
 
             if (Input.GetMouseButtonUp(0))

@@ -11,7 +11,6 @@ namespace DisSulama
 
         private RaycastHit hitCollider;
 
-        //  [Header("RelatedWater")]
         public GameObject _waterEffect { get; set; }
         public GameObject _waterObj;
         public GameObject _waterCollider;
@@ -20,6 +19,8 @@ namespace DisSulama
 
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
+
+        int layerMask;
 
         public Asama2()
         {
@@ -32,6 +33,8 @@ namespace DisSulama
             _startingPosition = _waterObj.transform.position;
             _startingRotation = _waterObj.transform.rotation;
 
+            layerMask = 1 << 4 | 1 << 9;
+            layerMask = ~layerMask;
         }
 
         public void ActiveWaterObject()
@@ -45,23 +48,32 @@ namespace DisSulama
             _waterCollider.SetActive(true);
         }
 
-        public void ActiveWaterEffect()
-        {
-            _waterEffect.SetActive(true);
-
-        }
+      
 
         public void WaterCollider()
         {
-            if (Physics.Raycast(_waterObj.transform.position, _waterObj.transform.TransformDirection(Vector3.forward), out hitCollider, 40))
+            if (Physics.Raycast(_waterObj.transform.position, _waterObj.transform.TransformDirection(Vector3.forward), out hitCollider, 40, layerMask))
             {
-                _waterCollider.transform.position = Vector3.Lerp(_waterCollider.transform.position, hitCollider.point, Time.deltaTime * 10);
+                if(hitCollider.transform.gameObject.CompareTag("Tooth"))
+                {
+                    _waterCollider.transform.position = Vector3.Lerp(_waterCollider.transform.position, hitCollider.point, Time.deltaTime * 10);
+
+                    if(!_waterEffect.activeSelf)
+                    {
+                        ActiveWaterEffect();
+                    }
+                }
+                else
+                {
+                    DeactiveWaterEffect();
+                }
+
             }
         }
 
         public void MoveWater()
         {
-            if (_waterCollider.activeSelf && _waterCollider.activeSelf && _waterEffect.activeSelf)
+            if (_waterCollider.activeSelf)
             {
                 WaterCollider();
                 _waterObj.transform.rotation = Quaternion.Euler(Vector3.right + Vector3.up * -7  * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70);
@@ -71,7 +83,6 @@ namespace DisSulama
             else
             {
                 ActiveWaterObject();
-                ActiveWaterEffect();
             }
         }
 
@@ -84,9 +95,15 @@ namespace DisSulama
             else
             {
                 ActiveWaterObject();
-                DeactiveWaterEffect();
             }
         }
+
+        public void ActiveWaterEffect()
+        {
+            _waterEffect.SetActive(true);
+
+        }
+
 
         public void DeactiveWaterEffect()
         {
