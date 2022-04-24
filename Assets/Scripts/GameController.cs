@@ -16,22 +16,42 @@ public class GameController : MonoBehaviour
     public bool openMouth;
     public int asamaSayisi;
 
+    private int puanKatsayisi;
+
+    private WaitForSeconds beklemeSuresi = new WaitForSeconds(1);
 
     private void Awake()
     {
         if (instance == null) instance = this;
         //else Destroy(this);
-    }
 
-    void Start()
-    {
-        StartingEvents();
+        isContinue = false;
+
     }
 
 
     public void StartingEvents()
     {
         isContinue = false;
+        StopCoroutine(PuanHesaplayici());
+        StartCoroutine(PuanHesaplayici());
+    }
+
+    IEnumerator PuanHesaplayici()
+    {
+        Debug.Log("A");
+        puanKatsayisi = 120;
+        while (puanKatsayisi > 0)
+        {
+            puanKatsayisi--;
+            Debug.Log(puanKatsayisi);
+            yield return beklemeSuresi;
+        }
+    }
+
+    public void FinishingEvents()
+    {
+        SetScore(100 + puanKatsayisi * 10);
     }
 
 
@@ -42,7 +62,7 @@ public class GameController : MonoBehaviour
     /// <param name="eklenecekScore">Her collectible da ne kadar score eklenip cikarilacaksa parametre olarak o sayi verilmeli</param>
     public void SetScore(int eklenecekScore)
     {
-        if (PlayerController.instance.collectibleVarMi) score += eklenecekScore;
+        score += eklenecekScore;
         // Eðer oyunda collectible yok ise developer kendi score sistemini yazmalý...
 
     }

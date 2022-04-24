@@ -18,7 +18,13 @@ public class ToothController : MonoBehaviour
 
     void Start()
     {
-        stage1ToothNumber = GameObject.FindGameObjectsWithTag("Tooth").Length;
+        StartingEvents();
+    }
+
+    public void StartingEvents()
+    {
+
+        stage1ToothNumber = 28;
         stage2ToothNumber = stage1ToothNumber;
 
         onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();

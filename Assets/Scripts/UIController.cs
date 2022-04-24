@@ -15,6 +15,7 @@ public class UIController : MonoBehaviour
     [Header("Controllerler")]
     private PlayerControl playerControl;
     private OnBoardingController onBoardingController;
+    private ToothController toothController;
 
 
     // singleton yapisi burada kuruluyor.
@@ -25,6 +26,7 @@ public class UIController : MonoBehaviour
 
         playerControl = GameObject.FindObjectOfType<PlayerControl>();
         onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
+        toothController = GameObject.FindObjectOfType<ToothController>();
     }
 
     private void Start()
@@ -50,7 +52,7 @@ public class UIController : MonoBehaviour
     // TAPTOSTART TUSUNA BASILDISINDA  --- GIRIS EKRANINDA VE LEVEL BASLARINDA
     public void TapToStartButtonClick()
     {
-
+        GameController.instance.StartingEvents();
         GameController.instance.isContinue = true;
         //PlayerController.instance.SetArmForGaming();
         TapToStartPanel.SetActive(false);
@@ -66,13 +68,14 @@ public class UIController : MonoBehaviour
 
     IEnumerator Beklet()
     {
-        yield return new WaitForSeconds(.75f);
+        yield return new WaitForSeconds(.5f);
         onBoardingController.PlayOnBoarding(1);
     }
 
     // RESTART TUSUNA BASILDISINDA  --- LOOSE EKRANINDA
     public void RestartButtonClick()
     {
+        GameController.instance.StartingEvents();
         GamePanel.SetActive(false);
         LoosePanel.SetActive(false);
         TapToStartPanel.SetActive(true);
@@ -89,6 +92,7 @@ public class UIController : MonoBehaviour
         WinPanel.SetActive(false);
         GamePanel.SetActive(false);
         LevelController.instance.NextLevelEvents();
+        toothController.StartingEvents();
         StartCoroutine(StartScreenCoinEffect());
     }
 
@@ -131,6 +135,7 @@ public class UIController : MonoBehaviour
     /// </summary>
     public void ActivateWinScreen()
     {
+        GameController.instance.FinishingEvents();
         GamePanel.SetActive(false);
         StartCoroutine(WinScreenDelay());
     }
