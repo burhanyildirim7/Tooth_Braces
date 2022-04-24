@@ -63,11 +63,9 @@ namespace DisSulama
         {
             if (_waterCollider.activeSelf && _waterCollider.activeSelf && _waterEffect.activeSelf)
             {
-
                 WaterCollider();
-                _waterObj.transform.rotation = Quaternion.Euler(Vector3.right * 20 + Vector3.up * -7  * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70);
+                _waterObj.transform.rotation = Quaternion.Euler(Vector3.right + Vector3.up * -7  * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70);
                 
-                // _waterObj.transform.rotation = Quaternion.LookRotation(_hit.point - _waterObj.transform.position);
                 _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.point, Time.deltaTime * 15);
             }
             else

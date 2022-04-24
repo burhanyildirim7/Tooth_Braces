@@ -57,7 +57,7 @@ namespace PlayerBehaviour
                 {
                     caseNumber = hit.transform.gameObject.GetComponent<ObjectNumber>().caseNumber;
 
-                    if(caseNumber == 2)
+                    if(caseNumber == 2 ||caseNumber== 4)
                     {
                        
                         layerMask2 = 1 << 9;
@@ -84,22 +84,22 @@ namespace PlayerBehaviour
                                 asama1._hit = hit;
                                 asama1.MoveToothBrush();
                                 break;
-                            case 2:
+                          /*  case 2:
                                 asama2._touchPosition = hit.point;
                                 asama2._hit = hit;
                                 asama2.MoveWater();
 
                                 asama3.IncreaseWaterAmount();
-                                break;
+                                break;*/
                             case 3:
                                 asama3._hit = hit;
                                 asama3.MoveWaterSender();
                                 break;
-                            case 4:
+                           /* case 4:
                                 asama4._hit = hit;
                                 asama4.BiggerSticky();
                                 asama4.MoveSticky();
-                                break;
+                                break;*/
                             case 5:
                                 asama5._hit = hit;
                                 asama5.CreateBraket();
@@ -150,6 +150,10 @@ namespace PlayerBehaviour
                                 asama2.MoveWater();
 
                                 asama3.IncreaseWaterAmount();
+                                break;
+                            case 4:
+                                asama4._hit = hit;
+                                asama4.MoveSticky();
                                 break;
                         }
                     }
