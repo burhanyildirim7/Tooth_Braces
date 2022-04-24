@@ -41,7 +41,6 @@ namespace DisYapiskan
         {
             if (_sticky.activeSelf)
             {
-                Debug.DrawRay(_sticky.transform.position, _sticky.transform.TransformDirection(Vector3.up) * 1000, Color.green);
                 OnlyMoveSticky();
                 if (Physics.Raycast(_sticky.transform.position, _sticky.transform.TransformDirection(Vector3.up), out hitCollider, 40, layerMask))
                 {
