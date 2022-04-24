@@ -21,6 +21,7 @@ TagManager:
   - Raycast
   - Obje
   - UzakLayer
+  - Kopuk
   layers:
   - Default
   - TransparentFX

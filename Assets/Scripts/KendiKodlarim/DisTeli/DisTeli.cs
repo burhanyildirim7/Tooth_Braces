@@ -12,7 +12,7 @@ public class DisTeli : MonoBehaviour
 
     private bool haraketEdiyorMu;
 
-    private WaitForSeconds beklemeSuresi = new WaitForSeconds(.25f);
+    private WaitForSeconds beklemeSuresi = new WaitForSeconds(.2f);
 
     private AsamaControl asamaControl;
 
@@ -45,7 +45,7 @@ public class DisTeli : MonoBehaviour
     {
         while (Vector3.Distance(transform.position, hedef.position) >= .01f)
         {
-            transform.position = Vector3.Lerp(transform.position, hedef.position + offset, Time.deltaTime * 9);
+            transform.position = Vector3.Lerp(transform.position, hedef.transform.GetChild(1).transform.position + offset, Time.deltaTime * 12);
             yield return null;
         }
     }

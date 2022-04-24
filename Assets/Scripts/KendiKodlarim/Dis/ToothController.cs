@@ -46,6 +46,7 @@ public class ToothController : MonoBehaviour
         if (stage2ToothNumber <= 0)
         {
             SendMessage(3);
+            GameObject.FindWithTag("Kopuk").transform.gameObject.SetActive(false);
         }
     }
 

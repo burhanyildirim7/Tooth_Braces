@@ -124,7 +124,7 @@ public class Tooth : MonoBehaviour
     {
         if (other.CompareTag("ToothBrush"))
         {
-            if (baslangicRenk <= .7f && baslangicRenk > .5f)
+            if (baslangicRenk <= .75f && baslangicRenk > .5f)
             {
                 baslangicRenk = .5f;
             }

@@ -24,7 +24,7 @@ namespace DisBraket
 
         public void CreateBraket()
         {
-            if (!_hit.transform.GetChild(1).transform.gameObject.activeSelf)
+            if (!_hit.transform.GetChild(1).transform.gameObject.activeSelf && _hit.transform.GetChild(0).transform.gameObject.activeSelf)
             {
                 _hit.transform.GetChild(1).transform.gameObject.SetActive(true);
                 _hit.transform.GetChild(0).transform.gameObject.SetActive(false);
