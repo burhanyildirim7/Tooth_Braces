@@ -25,6 +25,8 @@ public class Hovl_Laser2 : MonoBehaviour
     private float dissovleTimer = 0;
     private bool startDissovle = false;
 
+    int layerMask;
+
     void Start()
     {
         laserPS = GetComponent<ParticleSystem>();
@@ -32,6 +34,9 @@ public class Hovl_Laser2 : MonoBehaviour
         Flash = FlashEffect.GetComponentsInChildren<ParticleSystem>();
         Hit = HitEffect.GetComponentsInChildren<ParticleSystem>();
         laserMat.SetFloat("_Scale", laserScale);
+
+        layerMask = 1 << 9 | 1 << 10 | 1 << 2;
+        layerMask = ~layerMask;
     }
 
     void Update()
@@ -42,7 +47,7 @@ public class Hovl_Laser2 : MonoBehaviour
             laserMat.SetVector("_StartPoint", transform.position);
             //Set end laser point
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, MaxLength))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, MaxLength, layerMask))
             {
                 particleCount = Mathf.RoundToInt(hit.distance / (2 * laserScale));
                 if (particleCount < hit.distance / (2 * laserScale))

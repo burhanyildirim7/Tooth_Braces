@@ -76,7 +76,6 @@ namespace PlayerBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 50, layerMask2))
                 {
-                    Debug.Log(hit.transform.gameObject.name);
                     if (hit.transform.CompareTag("Tooth"))
                     {
                         switch (caseNumber)

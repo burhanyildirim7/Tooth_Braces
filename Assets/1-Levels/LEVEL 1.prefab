@@ -18744,7 +18744,7 @@ GameObject:
   - component: {fileID: 3979363929260437715}
   - component: {fileID: 3685335885971313027}
   - component: {fileID: 5251848661230164114}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Raycast
   m_Icon: {fileID: 0}
@@ -21537,7 +21537,7 @@ GameObject:
   - component: {fileID: 8317892461916643026}
   - component: {fileID: 1170890662370562032}
   - component: {fileID: 1925118613370945255}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule (3)
   m_TagString: Raycast
   m_Icon: {fileID: 0}
@@ -22086,7 +22086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3607041529424600769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.97, z: 8.48}
+  m_LocalPosition: {x: 0, y: -0.97, z: 5.97}
   m_LocalScale: {x: 7.3696485, y: 5.3190002, z: 24.942966}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22151,7 +22151,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3607041529424600769}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -103372,7 +103372,7 @@ GameObject:
   - component: {fileID: 8968270062012442883}
   - component: {fileID: 2315054943746177950}
   - component: {fileID: 8373353203228787307}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule (1)
   m_TagString: Raycast
   m_Icon: {fileID: 0}
@@ -106071,7 +106071,7 @@ GameObject:
   - component: {fileID: 2479308681485314850}
   - component: {fileID: 9167797105722954396}
   - component: {fileID: 4170967444884152786}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Raycast
   m_Icon: {fileID: 0}
@@ -108401,7 +108401,7 @@ GameObject:
   - component: {fileID: 6140326674831448688}
   - component: {fileID: 4996039657852898291}
   - component: {fileID: 2402647758858197416}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule (2)
   m_TagString: Raycast
   m_Icon: {fileID: 0}
@@ -110924,7 +110924,7 @@ GameObject:
   - component: {fileID: 6202795104927202545}
   - component: {fileID: 115705310782388687}
   - component: {fileID: 802196532730764510}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere (1)
   m_TagString: Raycast
   m_Icon: {fileID: 0}
@@ -111741,7 +111741,7 @@ GameObject:
   - component: {fileID: 255041252433565796}
   - component: {fileID: 2206488786390547458}
   - component: {fileID: 746628698761509711}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Raycast
   m_Icon: {fileID: 0}

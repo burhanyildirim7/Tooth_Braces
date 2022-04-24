@@ -9,6 +9,8 @@ namespace DisSulama
         public Vector3 _touchPosition { get; set; }
         public RaycastHit _hit;
 
+        private RaycastHit hitCollider;
+
         //  [Header("RelatedWater")]
         public GameObject _waterEffect { get; set; }
         public GameObject _waterObj;
@@ -49,14 +51,24 @@ namespace DisSulama
 
         }
 
+        public void WaterCollider()
+        {
+            if (Physics.Raycast(_waterObj.transform.position, _waterObj.transform.TransformDirection(Vector3.forward), out hitCollider, 40))
+            {
+                _waterCollider.transform.position = Vector3.Lerp(_waterCollider.transform.position, hitCollider.point, Time.deltaTime * 10);
+            }
+        }
 
         public void MoveWater()
         {
             if (_waterCollider.activeSelf && _waterCollider.activeSelf && _waterEffect.activeSelf)
             {
-                _waterCollider.transform.position = Vector3.Lerp(_waterCollider.transform.position, _hit.point, Time.deltaTime * 10);
-                _waterObj.transform.rotation = Quaternion.LookRotation(_hit.point - _waterObj.transform.position);
-                _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.point - Vector3.forward * 1.65f + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
+
+                WaterCollider();
+                _waterObj.transform.rotation = Quaternion.Euler(Vector3.right * 20 + Vector3.up * -7  * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70);
+                
+                // _waterObj.transform.rotation = Quaternion.LookRotation(_hit.point - _waterObj.transform.position);
+                _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.point, Time.deltaTime * 15);
             }
             else
             {
