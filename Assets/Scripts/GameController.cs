@@ -25,12 +25,13 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        isContinue = false;
+        StartingEvents();
     }
 
-    public void AsamaAtla()
+
+    public void StartingEvents()
     {
-        
+        isContinue = false;
     }
 
 

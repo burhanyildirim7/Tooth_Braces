@@ -16,14 +16,19 @@ public class AsamaControl : MonoBehaviour
     [Header("DisHaraketi")]
     public bool isMoveTooth;
 
+    [Header("DisYayi")]
+    public int neededDisYayi;
+
     [Header("Controllerler")]
     private OnBoardingController onBoardingController;
     private ToothController toothController;
+    private UIController uIController;
 
     void Start()
     {
         onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
         toothController= GameObject.FindObjectOfType<ToothController>();
+        uIController = GameObject.FindObjectOfType<UIController>();
 
         disSayisi = GameObject.FindGameObjectsWithTag("Tooth").Length;
         isMoveDentalBraces = false;
@@ -58,17 +63,24 @@ public class AsamaControl : MonoBehaviour
         }
         asamalar[2].SetActive(true);
 
+        isMoveDentalBraces = true;
+    }
+
+    public void ApplyTheMove()
+    {
         StartCoroutine(MoveDentalBraces());
     }
 
-
     IEnumerator MoveDentalBraces()
     {
-        yield return new WaitForSeconds(.75f);
-        isMoveDentalBraces = true;
+     /*   yield return new WaitForSeconds(.75f);
+        isMoveDentalBraces = true;*/
 
         yield return new WaitForSeconds(.75f);
         isMoveTooth = true;
+
+        yield return new WaitForSeconds(1.5f);
+        uIController.ActivateWinScreen();
     }
 
 

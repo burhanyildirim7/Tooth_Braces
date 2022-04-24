@@ -16,12 +16,18 @@ namespace DisYayi
         public GameObject _sagAltYay;
         private GameObject ins_disYayi;
 
+
+        [Header("Controllerler")]
+        private AsamaControl _asamaControl;
+
         private bool isAddingDisYayi;
         private bool isFirstDisYayi;
 
         public Asama6()
         {
             PlayerControl playerControl = GameObject.FindObjectOfType<PlayerControl>();
+            _asamaControl = GameObject.FindObjectOfType<AsamaControl>();
+
 
             _solUstYay = playerControl.solUstYay;
             _sagUstYay = playerControl.sagUstYay;
@@ -60,6 +66,7 @@ namespace DisYayi
                         ins_disYayi = Instantiate(_sagAltYay);
                     }
                 }
+                _hit.transform.GetComponent<Tooth>().willFix = true;
                 isAddingDisYayi = true;
                 isFirstDisYayi = true;
             }
@@ -82,13 +89,13 @@ namespace DisYayi
                 CreateDisYayi();
                 if (isFirstDisYayi)
                 {
-
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
                     obje.transform.localPosition = -Vector3.forward * .5f + Vector3.up * .5f;
 
                     isAddingDisYayi = true;
                     isFirstDisYayi = false;
+                    _hit.transform.GetComponent<Tooth>().willFix = true;
                 }
                 else
                 {
@@ -98,6 +105,14 @@ namespace DisYayi
 
                     isAddingDisYayi = false;
                     ins_disYayi = null;
+
+                    _hit.transform.GetComponent<Tooth>().willFix = true;
+
+                    _asamaControl.neededDisYayi--;
+                    if(_asamaControl.neededDisYayi <= 0)
+                    {
+                        _asamaControl.ApplyTheMove();
+                    }
                 }
             }
             else

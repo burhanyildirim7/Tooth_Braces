@@ -18,6 +18,8 @@ public class Tooth : MonoBehaviour
 
     private bool isMove;
 
+    [Header("DuzeltimeAyarlari")]
+    public bool willFix;
 
 
     private WaitForSeconds beklemeSuresi = new WaitForSeconds(.25f);
@@ -32,6 +34,7 @@ public class Tooth : MonoBehaviour
         asamaControl = GameObject.FindObjectOfType<AsamaControl>();
 
         isMove = false;
+        willFix = false;
 
         StartCoroutine(StageController1());
         StartCoroutine(MoveControl());
@@ -85,7 +88,7 @@ public class Tooth : MonoBehaviour
     IEnumerator SmoothlyMove()
     {
         Transform parentTransform = transform.parent;
-        while(true)
+        while(willFix)
         {
             parentTransform.localRotation = Quaternion.Slerp(parentTransform.localRotation, Quaternion.Euler(hedefRot), Time.deltaTime * 3);
             yield return null;
