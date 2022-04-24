@@ -99,7 +99,7 @@ namespace DisSuCekme
                 _water.SetActive(true);
             }
             _water.transform.localScale = Vector3.forward * 1 + Vector3.right * 110 + Vector3.up * 110;
-            _water.transform.position = Vector3.up * (-.3f + .4f * (_amountWater)) - Vector3.forward * .61f;
+            _water.transform.position = Vector3.up * (-.45f + .4f * (_amountWater)) - Vector3.forward * .61f;
         }
 
 
