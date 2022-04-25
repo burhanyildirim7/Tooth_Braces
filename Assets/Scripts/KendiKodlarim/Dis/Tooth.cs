@@ -102,7 +102,7 @@ public class Tooth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ToothBrush"))
+        if (other.CompareTag("ToothBrush") && baslangicRenk >= .55f)
         {
             if (baslangicRenk <= .75f && baslangicRenk > .5f)
             {

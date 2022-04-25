@@ -115,7 +115,8 @@ namespace PlayerBehaviour
                                 asama5.CreateBraket();
                                 break;
                             case 6:
-
+                                asama6._hit = hit;
+                                asama6.CreateDisTeli();
                                 break;
                             case 7:
                                 asama7._hit = hit;
