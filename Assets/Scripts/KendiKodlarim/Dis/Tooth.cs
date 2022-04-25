@@ -23,6 +23,8 @@ public class Tooth : MonoBehaviour
     public bool willFix;
 
 
+
+
     private WaitForSeconds beklemeSuresi = new WaitForSeconds(.25f);
 
     void Start()
@@ -47,7 +49,7 @@ public class Tooth : MonoBehaviour
         yield return beklemeSuresi;
         while (true)
         {
-            if(mat.GetFloat("_FlakeColorVariationAmount") <= .65f)
+            if (mat.GetFloat("_FlakeColorVariationAmount") <= .65f)
             {
                 toothController.Stage1FinishedTooth();
                 StartCoroutine(StageController2());
@@ -59,7 +61,7 @@ public class Tooth : MonoBehaviour
 
     private IEnumerator StageController2()
     {
-        while(true)
+        while (true)
         {
             if (mat.GetFloat("_FlakeColorVariationAmount") <= 0)
             {
@@ -74,14 +76,14 @@ public class Tooth : MonoBehaviour
 
     IEnumerator MoveControl() //Dis haraketi icin gereklidir
     {
-        while(!isMove)
+        while (!isMove)
         {
-            if(asamaControl.isMoveTooth)
+            if (asamaControl.isMoveTooth)
             {
                 isMove = true;
                 StartCoroutine(SmoothlyMove());
                 break;
-            }    
+            }
             yield return new WaitForSeconds(.25f);
         }
     }
@@ -89,10 +91,10 @@ public class Tooth : MonoBehaviour
     IEnumerator SmoothlyMove()
     {
         Transform parentTransform = transform.parent;
-        while(willFix)
+        while (willFix && Vector3.Distance(parentTransform.localPosition, hedefPos) <= .01f)
         {
-            parentTransform.localPosition = Vector3.Lerp(parentTransform.localPosition, hedefPos, Time.deltaTime * 20);
-            parentTransform.localRotation = Quaternion.Slerp(parentTransform.localRotation, Quaternion.Euler(hedefRot), Time.deltaTime * 3);
+            parentTransform.localPosition = Vector3.Lerp(parentTransform.localPosition, hedefPos, Time.deltaTime * 7);
+            parentTransform.localRotation = Quaternion.Slerp(parentTransform.localRotation, Quaternion.Euler(hedefRot), Time.deltaTime * 1);
             yield return null;
         }
     }
@@ -118,4 +120,12 @@ public class Tooth : MonoBehaviour
         }
     }
 
+    public void DisKirilsin(Vector3 yon)
+    {
+        Rigidbody fizik;
+        fizik = transform.parent.transform.gameObject.AddComponent<Rigidbody>();
+
+        fizik.useGravity = true;
+        fizik.velocity = yon;
+    }
 }

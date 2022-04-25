@@ -17,7 +17,6 @@ public class DisTeli : MonoBehaviour
     private AsamaControl asamaControl;
 
 
-
     void Start()
     {
         haraketEdiyorMu = false;
@@ -43,7 +42,7 @@ public class DisTeli : MonoBehaviour
 
     IEnumerator Move()
     {
-        while (Vector3.Distance(transform.position, hedef.position) >= .01f)
+        while (Vector3.Distance(transform.position, hedef.transform.GetChild(1).transform.position + offset) >= .01f)
         {
             transform.position = Vector3.Lerp(transform.position, hedef.transform.GetChild(1).transform.position + offset, Time.deltaTime * 12);
             yield return null;

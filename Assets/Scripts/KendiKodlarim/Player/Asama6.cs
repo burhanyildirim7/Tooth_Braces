@@ -16,6 +16,10 @@ namespace DisYayi
         public GameObject _sagAltYay;
         private GameObject ins_disYayi;
 
+        [Header("KopmaAyarlari")]
+        private DisYayim _disYayim;
+        private GameObject _ilkDis;
+        private GameObject _ikinciDis;
 
         [Header("Controllerler")]
         private AsamaControl _asamaControl;
@@ -66,6 +70,7 @@ namespace DisYayi
                         ins_disYayi = Instantiate(_sagAltYay);
                     }
                 }
+                _disYayim = ins_disYayi.GetComponent<DisYayim>();
 
                 ins_disYayi.transform.parent = GameObject.FindWithTag("Player").transform;
                 _hit.transform.GetComponent<Tooth>().willFix = true;
@@ -94,6 +99,7 @@ namespace DisYayi
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
                     obje.transform.localPosition = -Vector3.forward * .5f + Vector3.up * .5f;
+                    _ilkDis = _hit.transform.gameObject;  //ilk disi bulur
 
                     isAddingDisYayi = true;
                     isFirstDisYayi = false;
@@ -104,6 +110,7 @@ namespace DisYayi
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
                     obje.transform.localPosition = Vector3.forward * 1.3f + Vector3.up * .3f + Vector3.right * -.4f;
+                    _ikinciDis = _hit.transform.gameObject;  //ikinci disi bulur
 
                     isAddingDisYayi = false;
                     ins_disYayi = null;
@@ -111,10 +118,19 @@ namespace DisYayi
                     _hit.transform.GetComponent<Tooth>().willFix = true;
 
                     _asamaControl.neededDisYayi--;
-                    if(_asamaControl.neededDisYayi <= 0)
+                    if (_disYayim.kopar)
+                    {
+                        _ilkDis.GetComponent<Tooth>().DisKirilsin((_ikinciDis.transform.position - _ilkDis.transform.position).normalized + Vector3.forward * -4f + Vector3.up * 4f);
+                        _ikinciDis.GetComponent<Tooth>().DisKirilsin((_ilkDis.transform.position - _ikinciDis.transform.position).normalized + Vector3.forward * -4f + Vector3.up * 4f);
+                        _disYayim.KuvvetUygula();
+                    }
+                    if (_asamaControl.neededDisYayi <= 0)
                     {
                         _asamaControl.ApplyTheMove();
                     }
+
+                    _ilkDis = null; //Bosa cikarmak icin kullanilir
+                    _ikinciDis = null;
                 }
             }
             else
