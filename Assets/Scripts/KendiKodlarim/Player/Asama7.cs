@@ -47,7 +47,6 @@ namespace DisYayi
         {
             if (!isAddingDisYayi)
             {
-
                 if (_hit.point.y > 0)
                 {
                     if (_hit.point.x <= 0)
@@ -91,7 +90,7 @@ namespace DisYayi
 
         public void DeactiveDisYayi()
         {
-            if (_hit.transform.gameObject.CompareTag("Tooth"))
+            if (_hit.transform.gameObject.CompareTag("Tooth") && !_hit.transform.GetChild(2).transform.gameObject.activeSelf)
             {
                 CreateDisYayi();
                 if (isFirstDisYayi)
