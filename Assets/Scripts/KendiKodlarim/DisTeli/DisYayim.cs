@@ -24,13 +24,11 @@ public class DisYayim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // mat.color = new Color(0 + Vector3.Distance(kemikler[0].transform.position, kemikler[1].transform.position) * 100, 255 - Vector3.Distance(kemikler[0].transform.position, kemikler[1].transform.position) * 100, 0, 255);
         mat.color = new Color(0 + Vector3.Distance(kemikler[0].transform.position, kemikler[1].transform.position) * .6f, 1 - Vector3.Distance(kemikler[0].transform.position, kemikler[1].transform.position) * .6f, 0);
 
         if(Vector3.Distance(kemikler[0].transform.position, kemikler[1].transform.position) >= 1f)
         {
             kopar = true;
-          //  Debug.Log("A");
         }
         else
         {
