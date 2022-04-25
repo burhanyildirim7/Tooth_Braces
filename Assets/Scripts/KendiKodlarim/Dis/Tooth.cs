@@ -114,7 +114,7 @@ public class Tooth : MonoBehaviour
             }
             mat.SetFloat("_FlakeColorVariationAmount", baslangicRenk);
         }
-        else if (other.CompareTag("Water") && baslangicRenk <= .6f)
+        else if (other.CompareTag("Water") && baslangicRenk <= .69f)
         {
             mat.SetFloat("_FlakeColorVariationAmount", 0);
         }

@@ -7,7 +7,7 @@ using DisSuCekme;
 using DisYapiskan;
 using DisBraket;
 using DisYayi;
-using DisLastigi;
+using DisTelim;
 
 namespace PlayerBehaviour
 {
@@ -115,8 +115,11 @@ namespace PlayerBehaviour
                                 asama5.CreateBraket();
                                 break;
                             case 6:
-                                asama6._hit = hit;
-                                asama6.MoveDisYayi();
+
+                                break;
+                            case 7:
+                                asama7._hit = hit;
+                                asama7.MoveDisYayi();
                                 break;
                         }
                     }
@@ -146,8 +149,11 @@ namespace PlayerBehaviour
                                 //asama5.MoveBraket();
                                 break;
                             case 6:
-                                asama6._hit = hit;
-                                asama6.MoveDisYayi();
+                               
+                            case 7:
+                                asama7._hit = hit;
+                                asama7.MoveDisYayi();
+                                break;
                                 break;
                         }
                     }
@@ -209,7 +215,10 @@ namespace PlayerBehaviour
                     asama5.DeactiveBraket();
                     break;
                 case 6:
-                    asama6.DeactiveDisYayi();
+                   
+                    break;
+                case 7:
+                    asama7.DeactiveDisYayi();
                     break;
             }
         }
