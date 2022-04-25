@@ -23,7 +23,7 @@ public class CameraMovement : MonoBehaviour
 
     IEnumerator SendingStartingPosition()
     {
-        while (Vector3.Distance(transform.position , -Vector3.forward * 13 - Vector3.up * 1.25f) >= .01f)
+        while (Vector3.Distance(transform.position, -Vector3.forward * 13 - Vector3.up * 1.25f) >= .01f)
         {
             transform.DOMove(-Vector3.forward * 13 - Vector3.up * 1.25f, 1.25f);
             yield return null;
@@ -44,7 +44,7 @@ public class CameraMovement : MonoBehaviour
 
     IEnumerator returnPos()
     {
-        while (Vector3.Distance(parentPos, transformParent.position) >= .0001f)
+        while (Vector3.Distance(parentPos, transformParent.position) >= .0001f && GameController.instance.isContinue)
         {
             transformParent.DOMove(-Vector3.forward * 13 - Vector3.up * 1.25f, 1.25f);
             transformParent.DORotateQuaternion(Quaternion.Euler(Vector3.zero), 1.25f);

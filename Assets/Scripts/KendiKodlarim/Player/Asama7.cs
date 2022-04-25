@@ -24,6 +24,7 @@ namespace DisYayi
         [Header("Controllerler")]
         private AsamaControl _asamaControl;
 
+
         private bool isAddingDisYayi;
         private bool isFirstDisYayi;
 
@@ -103,6 +104,7 @@ namespace DisYayi
                     isAddingDisYayi = true;
                     isFirstDisYayi = false;
                     _hit.transform.GetComponent<Tooth>().willFix = true;
+                    _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
                 }
                 else
                 {
@@ -130,6 +132,7 @@ namespace DisYayi
 
                     _ilkDis = null; //Bosa cikarmak icin kullanilir
                     _ikinciDis = null;
+                    _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
                 }
             }
             else

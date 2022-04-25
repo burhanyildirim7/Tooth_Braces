@@ -30,7 +30,7 @@ public class AsamaControl : MonoBehaviour
         toothController= GameObject.FindObjectOfType<ToothController>();
         uIController = GameObject.FindObjectOfType<UIController>();
 
-        disSayisi = GameObject.FindGameObjectsWithTag("Tooth").Length;
+        disSayisi = 28;
         isMoveDentalBraces = false;
         isMoveTooth = false;
     }
@@ -52,6 +52,17 @@ public class AsamaControl : MonoBehaviour
         if(disSayisi <= 0)
         {
             ActiveDentalBraces();
+            disSayisi = 28;
+        }
+    }
+
+    public void LastStage()
+    {
+        disSayisi--;
+
+        if (disSayisi <= 0)
+        {
+            StartCoroutine(MoveDentalBraces());
         }
     }
 
