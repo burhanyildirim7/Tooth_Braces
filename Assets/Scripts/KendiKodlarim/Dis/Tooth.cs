@@ -13,8 +13,9 @@ public class Tooth : MonoBehaviour
     private ToothController toothController;
     private AsamaControl asamaControl;
 
-    [Header("RotasyonAyarlari")]
+    [Header("RotasyonAyarlariVePozisyon")]
     [SerializeField] private Vector3 hedefRot;
+    [SerializeField] private Vector3 hedefPos;
 
     private bool isMove;
 
@@ -90,6 +91,7 @@ public class Tooth : MonoBehaviour
         Transform parentTransform = transform.parent;
         while(willFix)
         {
+            parentTransform.localPosition = Vector3.Lerp(parentTransform.localPosition, hedefPos, Time.deltaTime * 20);
             parentTransform.localRotation = Quaternion.Slerp(parentTransform.localRotation, Quaternion.Euler(hedefRot), Time.deltaTime * 3);
             yield return null;
         }

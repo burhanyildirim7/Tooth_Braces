@@ -2288,8 +2288,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991627842731128106}
-  m_LocalRotation: {x: -0.58778524, y: 0, z: 0, w: 0.809017}
-  m_LocalPosition: {x: 0.00132, y: 0.01368, z: 0.00375}
+  m_LocalRotation: {x: -0.58581203, y: -0.06002733, z: 0.05566918, w: 0.8063014}
+  m_LocalPosition: {x: 0.00161, y: 0.01373, z: 0.00376}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2298,7 +2298,7 @@ Transform:
   - {fileID: 5785277007481733237}
   m_Father: {fileID: 3369108734349750898}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: -66.201, y: -41.569, z: 40.969}
+  m_LocalEulerAnglesHint: {x: -69.718, y: -27.867, z: 27.508}
 --- !u!1 &1023864191078394300
 GameObject:
   m_ObjectHideFlags: 0
@@ -16914,8 +16914,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3264663179214217992}
-  m_LocalRotation: {x: -0.58778524, y: 0, z: 0, w: 0.809017}
-  m_LocalPosition: {x: -0.00154, y: 0.01357, z: 0.00373}
+  m_LocalRotation: {x: -0.5843509, y: 0.07914763, z: -0.07340128, w: 0.8042898}
+  m_LocalPosition: {x: -0.00186, y: 0.01377, z: 0.00377}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16924,7 +16924,7 @@ Transform:
   - {fileID: 5785277007189319299}
   m_Father: {fileID: 3369108734349750898}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: -61.488, y: 51.868, z: -51.01}
+  m_LocalEulerAnglesHint: {x: -68.18, y: 34.982, z: -34.508}
 --- !u!1 &3275004970712741723
 GameObject:
   m_ObjectHideFlags: 0
@@ -17552,7 +17552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8344321388337251455}
   m_Layer: 0
-  m_Name: LEVEL 1
+  m_Name: LEVEL 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34117,10 +34117,10 @@ MonoBehaviour:
   waterSender: {fileID: 4596730181882217132}
   sticky: {fileID: 4822573568410152229}
   braket: {fileID: 6642077827767534879}
-  solUstYay: {fileID: 620298725206096169, guid: 3eb6906409289524a84b6b0f86d8b8cd, type: 3}
-  sagUstYay: {fileID: 620298725206096169, guid: 9ab63a8232718c947a3321dcdafff88b, type: 3}
-  solAltYay: {fileID: 620298725206096169, guid: 94b74ca4112f9104c8e06d631bdfeb8b, type: 3}
-  sagAltYay: {fileID: 620298725206096169, guid: 94ffae2a049fe514088197e2c9ca5612, type: 3}
+  solUstYay: {fileID: 620298725206096169, guid: 8aa4538a9def6a3478a2f3df2aff4f9e, type: 3}
+  sagUstYay: {fileID: 620298725206096169, guid: 8aa4538a9def6a3478a2f3df2aff4f9e, type: 3}
+  solAltYay: {fileID: 620298725206096169, guid: 8aa4538a9def6a3478a2f3df2aff4f9e, type: 3}
+  sagAltYay: {fileID: 620298725206096169, guid: 8aa4538a9def6a3478a2f3df2aff4f9e, type: 3}
 --- !u!1 &4596730180470695739
 GameObject:
   m_ObjectHideFlags: 0
