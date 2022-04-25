@@ -64,6 +64,7 @@ public class GameController : MonoBehaviour
     public void SetScore(int eklenecekScore)
     {
         score += eklenecekScore;
+        PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") + eklenecekScore);
         // Eðer oyunda collectible yok ise developer kendi score sistemini yazmalý...
 
     }
