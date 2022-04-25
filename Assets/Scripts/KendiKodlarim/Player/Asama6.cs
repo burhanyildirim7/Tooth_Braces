@@ -66,6 +66,8 @@ namespace DisYayi
                         ins_disYayi = Instantiate(_sagAltYay);
                     }
                 }
+
+                ins_disYayi.transform.parent = GameObject.FindWithTag("Player").transform;
                 _hit.transform.GetComponent<Tooth>().willFix = true;
                 isAddingDisYayi = true;
                 isFirstDisYayi = true;

@@ -39,12 +39,10 @@ public class GameController : MonoBehaviour
 
     IEnumerator PuanHesaplayici()
     {
-        Debug.Log("A");
         puanKatsayisi = 120;
         while (puanKatsayisi > 0)
         {
             puanKatsayisi--;
-            Debug.Log(puanKatsayisi);
             yield return beklemeSuresi;
         }
     }

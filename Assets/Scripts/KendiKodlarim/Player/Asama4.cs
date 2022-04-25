@@ -59,7 +59,7 @@ namespace DisYapiskan
         public void OnlyMoveSticky()
         {
             _sticky.transform.position = Vector3.Lerp(_sticky.transform.position, _hit.point + Vector3.forward * 0f, Time.deltaTime * 10);
-            _sticky.transform.rotation = Quaternion.Euler(Vector3.right * -30 + Vector3.up * -7 * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70 + Vector3.up * 85);
+            _sticky.transform.rotation = Quaternion.Euler(Vector3.right * -30 + Vector3.up * -7 * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70 + Vector3.up * 100);
         }
 
 

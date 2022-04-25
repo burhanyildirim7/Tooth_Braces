@@ -30,6 +30,7 @@ namespace PlayerBehaviour
 
         [Header("Controller")]
         private OnBoardingController onBoardingController;
+        private CameraMovement _cameraMovement;
 
         int layerMask1;
         int layerMask2;
@@ -52,6 +53,7 @@ namespace PlayerBehaviour
             layerMask2 = ~layerMask2;
 
             onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
+            _cameraMovement = GameObject.FindObjectOfType<CameraMovement>();
         }
 
         public void Touch()
@@ -165,6 +167,8 @@ namespace PlayerBehaviour
                                 break;
                         }
                     }
+
+                    _cameraMovement.MoveCamera();
                 }
                 /*   else
                    {
@@ -176,6 +180,8 @@ namespace PlayerBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 Deactive();
+
+                _cameraMovement.BreakCamera();
             }
         }
 

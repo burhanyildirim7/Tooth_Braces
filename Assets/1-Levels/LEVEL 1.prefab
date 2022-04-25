@@ -998,6 +998,7 @@ MonoBehaviour:
   - {fileID: 5658175073091152606}
   isMoveDentalBraces: 0
   isMoveTooth: 0
+  neededDisYayi: 1
 --- !u!1 &444068522381354936
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,8 +2288,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991627842731128106}
-  m_LocalRotation: {x: -0.58778524, y: 0, z: 0, w: 0.809017}
-  m_LocalPosition: {x: 0.0013057848, y: 0.0136910705, z: 0.0037510013}
+  m_LocalRotation: {x: -0.58231634, y: -0.099791676, z: 0.09254655, w: 0.80148894}
+  m_LocalPosition: {x: 0.00177, y: 0.0135, z: 0.00371}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2297,7 +2298,7 @@ Transform:
   - {fileID: 5785277007481733237}
   m_Father: {fileID: 3369108734349750898}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: -72, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -66.201, y: -41.569, z: 40.969}
 --- !u!1 &1023864191078394300
 GameObject:
   m_ObjectHideFlags: 0
@@ -14161,7 +14162,7 @@ Transform:
   - {fileID: 5785277006846122832}
   m_Father: {fileID: 6700641046307907431}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 77, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 63.115, y: -64.257, z: -58.875}
 --- !u!1 &1969286407260137308
 GameObject:
   m_ObjectHideFlags: 0
@@ -16913,8 +16914,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3264663179214217992}
-  m_LocalRotation: {x: -0.58778524, y: 0, z: 0, w: 0.809017}
-  m_LocalPosition: {x: -0.0015249177, y: 0.013642473, z: 0.0037414161}
+  m_LocalRotation: {x: -0.57676953, y: 0.14128855, z: -0.1310306, w: 0.7938549}
+  m_LocalPosition: {x: -0.00204, y: 0.01338, z: 0.00369}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16923,7 +16924,7 @@ Transform:
   - {fileID: 5785277007189319299}
   m_Father: {fileID: 3369108734349750898}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: -72, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -61.488, y: 51.868, z: -51.01}
 --- !u!1 &3275004970712741723
 GameObject:
   m_ObjectHideFlags: 0
@@ -34074,7 +34075,7 @@ GameObject:
   - component: {fileID: 4596730180294608336}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34087,7 +34088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4596730180294608339}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.250728, y: -1.2685988, z: 3.669364}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99858,6 +99859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006240240259
 GameObject:
   m_ObjectHideFlags: 0
@@ -99920,6 +99922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006301474051
 GameObject:
   m_ObjectHideFlags: 0
@@ -99982,6 +99985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006329480224
 GameObject:
   m_ObjectHideFlags: 0
@@ -100044,6 +100048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006363665565
 GameObject:
   m_ObjectHideFlags: 0
@@ -100106,6 +100111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006443600934
 GameObject:
   m_ObjectHideFlags: 0
@@ -100168,6 +100174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006468332525
 GameObject:
   m_ObjectHideFlags: 0
@@ -100230,6 +100237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006476536881
 GameObject:
   m_ObjectHideFlags: 0
@@ -100292,6 +100300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006550443125
 GameObject:
   m_ObjectHideFlags: 0
@@ -100354,6 +100363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006606285383
 GameObject:
   m_ObjectHideFlags: 0
@@ -100416,6 +100426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006653969845
 GameObject:
   m_ObjectHideFlags: 0
@@ -100478,6 +100489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006711451607
 GameObject:
   m_ObjectHideFlags: 0
@@ -100540,6 +100552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006738115724
 GameObject:
   m_ObjectHideFlags: 0
@@ -100602,6 +100615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006846122833
 GameObject:
   m_ObjectHideFlags: 0
@@ -100664,6 +100678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006877579257
 GameObject:
   m_ObjectHideFlags: 0
@@ -100726,6 +100741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277006909663387
 GameObject:
   m_ObjectHideFlags: 0
@@ -100788,6 +100804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007034936496
 GameObject:
   m_ObjectHideFlags: 0
@@ -100850,6 +100867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007189319300
 GameObject:
   m_ObjectHideFlags: 0
@@ -100912,6 +100930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007305274385
 GameObject:
   m_ObjectHideFlags: 0
@@ -100974,6 +100993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007463906033
 GameObject:
   m_ObjectHideFlags: 0
@@ -101036,6 +101056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007468971703
 GameObject:
   m_ObjectHideFlags: 0
@@ -101098,6 +101119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007481733238
 GameObject:
   m_ObjectHideFlags: 0
@@ -101160,6 +101182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007492552306
 GameObject:
   m_ObjectHideFlags: 0
@@ -101222,6 +101245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007626721196
 GameObject:
   m_ObjectHideFlags: 0
@@ -101284,6 +101308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007638304663
 GameObject:
   m_ObjectHideFlags: 0
@@ -101346,6 +101371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: 77, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007699450026
 GameObject:
   m_ObjectHideFlags: 0
@@ -101408,6 +101434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007875941856
 GameObject:
   m_ObjectHideFlags: 0
@@ -101470,6 +101497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5785277007907718014
 GameObject:
   m_ObjectHideFlags: 0
@@ -101532,6 +101560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
+  willFix: 0
 --- !u!1 &5831923938690719208
 GameObject:
   m_ObjectHideFlags: 0
@@ -104940,7 +104969,7 @@ Transform:
   - {fileID: 5785277007638304662}
   m_Father: {fileID: 6700641046307907431}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 77, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 53.569, y: 73.749, z: 65.839}
 --- !u!1 &7562215148044642465
 GameObject:
   m_ObjectHideFlags: 0
