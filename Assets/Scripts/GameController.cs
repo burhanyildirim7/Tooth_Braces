@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
 
     private WaitForSeconds beklemeSuresi = new WaitForSeconds(1);
 
+    private bool coroutineBool;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -33,14 +35,14 @@ public class GameController : MonoBehaviour
     public void StartingEvents()
     {
         isContinue = false;
-        StopCoroutine(PuanHesaplayici());
+        coroutineBool = true;
         StartCoroutine(PuanHesaplayici());
     }
 
     IEnumerator PuanHesaplayici()
     {
         puanKatsayisi = 120;
-        while (puanKatsayisi > 0)
+        while (puanKatsayisi > 0 && coroutineBool)
         {
             puanKatsayisi--;
             yield return beklemeSuresi;
@@ -50,6 +52,7 @@ public class GameController : MonoBehaviour
     public void FinishingEvents()
     {
         SetScore(100 + puanKatsayisi * 10);
+        coroutineBool = false;
     }
 
 

@@ -13,6 +13,10 @@ public class DisYayim : MonoBehaviour
     [Header("KuuvetUygulamaIcin")]
     private Rigidbody fizik;
 
+    [Header("Efektler")]
+    [SerializeField] private ParticleSystem kotuEfekt;
+    [SerializeField] private ParticleSystem iyiEfekt;
+
     public bool kopar;
 
     void Start()

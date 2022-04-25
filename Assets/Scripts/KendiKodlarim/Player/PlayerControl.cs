@@ -34,6 +34,11 @@ public class PlayerControl : MonoBehaviour
     public GameObject sagUstYay;
     public GameObject solAltYay;
     public GameObject sagAltYay;
+    public ParticleSystem telOlusmaEfekt;
+
+    [Header("Efektler")]
+    public ParticleSystem disKirilmaEfekt;
+    public ParticleSystem disOnarmaEfekt;
 
 
 

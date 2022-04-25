@@ -24,6 +24,10 @@ namespace DisYayi
         [Header("Controllerler")]
         private AsamaControl _asamaControl;
 
+        [Header("Efektler")]
+        private ParticleSystem _disKirilmaEfekt;
+        private ParticleSystem _disOnarmaEfekt;
+
 
         private bool isAddingDisYayi;
         private bool isFirstDisYayi;
@@ -32,7 +36,8 @@ namespace DisYayi
         {
             PlayerControl playerControl = GameObject.FindObjectOfType<PlayerControl>();
             _asamaControl = GameObject.FindObjectOfType<AsamaControl>();
-
+            _disKirilmaEfekt = playerControl.disKirilmaEfekt;
+            _disOnarmaEfekt = playerControl.disOnarmaEfekt;
 
             _solUstYay = playerControl.solUstYay;
             _sagUstYay = playerControl.sagUstYay;
@@ -119,20 +124,23 @@ namespace DisYayi
                     _hit.transform.GetComponent<Tooth>().willFix = true;
 
                     _asamaControl.neededDisYayi--;
+                    _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
                     if (_disYayim.kopar)
                     {
-                        _ilkDis.GetComponent<Tooth>().DisKirilsin((_ikinciDis.transform.position - _ilkDis.transform.position).normalized + Vector3.forward * -4f + Vector3.up * 4f);
-                        _ikinciDis.GetComponent<Tooth>().DisKirilsin((_ilkDis.transform.position - _ikinciDis.transform.position).normalized + Vector3.forward * -4f + Vector3.up * 4f);
+                        _ilkDis.GetComponent<Tooth>().DisKirilsin((_ikinciDis.transform.position - _ilkDis.transform.position).normalized + Vector3.forward * -10f + Vector3.up * 4f);
+                        _ikinciDis.GetComponent<Tooth>().DisKirilsin((_ilkDis.transform.position - _ikinciDis.transform.position).normalized + Vector3.forward * -10f + Vector3.up * 4f);
                         _disYayim.KuvvetUygula();
+                        _disKirilmaEfekt.Play();
                     }
-                    if (_asamaControl.neededDisYayi <= 0)
+                    else
                     {
                         _asamaControl.ApplyTheMove();
+                        _disOnarmaEfekt.Play();
                     }
 
                     _ilkDis = null; //Bosa cikarmak icin kullanilir
                     _ikinciDis = null;
-                    _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
+                    
                 }
             }
             else
