@@ -39,6 +39,7 @@ namespace DisBraket
         {
             if (!_hit.transform.GetChild(1).transform.gameObject.activeSelf && _hit.transform.GetChild(0).transform.gameObject.activeSelf)
             {
+                MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
                 _hit.transform.GetChild(1).transform.gameObject.SetActive(true);
                 _hit.transform.GetChild(0).transform.gameObject.SetActive(false);
 

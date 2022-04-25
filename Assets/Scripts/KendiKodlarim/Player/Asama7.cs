@@ -110,6 +110,8 @@ namespace DisYayi
                     isFirstDisYayi = false;
                     _hit.transform.GetComponent<Tooth>().willFix = true;
                     _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
+
+                    MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
                 }
                 else
                 {
@@ -138,9 +140,9 @@ namespace DisYayi
                         _disOnarmaEfekt.Play();
                     }
 
+                    MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
                     _ilkDis = null; //Bosa cikarmak icin kullanilir
                     _ikinciDis = null;
-                    
                 }
             }
             else

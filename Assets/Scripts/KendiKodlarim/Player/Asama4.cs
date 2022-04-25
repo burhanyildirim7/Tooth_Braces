@@ -34,6 +34,7 @@ namespace DisYapiskan
 
         public void ActiveSticky()
         {
+            MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
             _sticky.SetActive(true);
         }
 

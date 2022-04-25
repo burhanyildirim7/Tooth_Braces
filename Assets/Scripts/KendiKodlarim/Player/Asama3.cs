@@ -14,6 +14,7 @@ namespace DisSuCekme
         private GameObject _water;
         private float _amountWater;
 
+        private bool suAlinmayaBaslandiMi;
 
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
@@ -24,6 +25,8 @@ namespace DisSuCekme
 
             _water = playerControl.water;
             _waterSender = playerControl.waterSender;
+
+            suAlinmayaBaslandiMi = false;
 
 
             _startingPosition = _waterSender.transform.position;
@@ -42,6 +45,12 @@ namespace DisSuCekme
                 _waterSender.transform.rotation = Quaternion.Euler(Vector3.up * -50 + Vector3.forward * 130);
                 _waterSender.transform.position = Vector3.right * 1 + Vector3.up * -.5f + Vector3.forward * -2;
                 ReduceWaterAmount();
+
+                if(!suAlinmayaBaslandiMi)
+                {
+                    suAlinmayaBaslandiMi = true;
+                    MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+                }
             }
             else
             {
@@ -54,7 +63,7 @@ namespace DisSuCekme
         {
             if (_waterSender.activeSelf)
             {
-                _waterSender.transform.rotation = Quaternion.LookRotation(_hit.point - _waterSender.transform.position);
+                _waterSender.transform.rotation = Quaternion.LookRotation(_hit.point - _waterSender.transform.position) * Quaternion.Euler(Vector3.right * 150 - Vector3.up * 45 - Vector3.forward * 100);
                 _waterSender.transform.position = Vector3.Lerp(_waterSender.transform.position, _hit.point + Vector3.up * 2 + Vector3.forward * 2 + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
             }
             else
@@ -72,6 +81,8 @@ namespace DisSuCekme
                 _amountWater = 0;
                 _water.SetActive(false);
                 GameObject.FindObjectOfType<AsamaControl>().Stage4Invoke();
+
+                MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
             }
             else
             {
@@ -106,6 +117,7 @@ namespace DisSuCekme
         public void DeactiveWaterSenderer()
         {
             StartingPositionAndRotation();
+            suAlinmayaBaslandiMi = false;
         }
 
 

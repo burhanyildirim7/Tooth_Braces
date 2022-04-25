@@ -42,6 +42,7 @@ public class AsamaControl : MonoBehaviour
             asamalar[i].SetActive(false);
         }
         asamalar[1].SetActive(true);
+        MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
     }
 
 
@@ -54,6 +55,7 @@ public class AsamaControl : MonoBehaviour
             ActiveDentalBraces();
             disSayisi = 28;
         }
+        MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
     }
 
     public void LastStage()
@@ -64,6 +66,7 @@ public class AsamaControl : MonoBehaviour
         {
             StartCoroutine(MoveDentalBraces());
         }
+        MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
     }
 
     public void ActiveDentalBraces()

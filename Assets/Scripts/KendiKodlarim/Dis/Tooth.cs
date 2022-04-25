@@ -107,6 +107,7 @@ public class Tooth : MonoBehaviour
             if (baslangicRenk <= .75f && baslangicRenk > .5f)
             {
                 baslangicRenk = .5f;
+                MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
             }
             else if (baslangicRenk > .7f)
             {
@@ -114,8 +115,10 @@ public class Tooth : MonoBehaviour
             }
             mat.SetFloat("_FlakeColorVariationAmount", baslangicRenk);
         }
-        else if (other.CompareTag("Water") && baslangicRenk <= .69f)
+        else if (other.CompareTag("Water") && baslangicRenk <= .69f && baslangicRenk >= .1f)
         {
+            MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+            baslangicRenk = 0;
             mat.SetFloat("_FlakeColorVariationAmount", 0);
         }
     }
