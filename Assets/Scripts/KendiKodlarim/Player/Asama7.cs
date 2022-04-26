@@ -29,7 +29,7 @@ namespace DisYayi
         private ParticleSystem _disOnarmaEfekt;
 
 
-        private bool isAddingDisYayi;
+        public bool isAddingDisYayi;
         private bool isFirstDisYayi;
 
         public Asama7()
@@ -57,22 +57,22 @@ namespace DisYayi
                 {
                     if (_hit.point.x <= 0)
                     {
-                        ins_disYayi = Instantiate(_solUstYay, Vector3.forward * -3+ Vector3.up * 1.5f, Quaternion.identity);
+                        ins_disYayi = Instantiate(_solUstYay, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
                     }
                     else if (_hit.point.x >= 0)
                     {
-                        ins_disYayi = Instantiate(_sagUstYay, Vector3.forward * -3 + Vector3.up * 1.5f, Quaternion.identity);
+                        ins_disYayi = Instantiate(_sagUstYay, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
                     }
                 }
                 else if (_hit.point.y < 0)
                 {
                     if (_hit.point.x <= 0)
                     {
-                        ins_disYayi = Instantiate(_solAltYay, Vector3.forward * -3 + Vector3.up * 1.5f, Quaternion.identity);
+                        ins_disYayi = Instantiate(_solAltYay, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
                     }
                     else if (_hit.point.x >= 0)
                     {
-                        ins_disYayi = Instantiate(_sagAltYay, Vector3.forward * -3 + Vector3.up * 1.5f, Quaternion.identity);
+                        ins_disYayi = Instantiate(_sagAltYay, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
                     }
                 }
                 _disYayim = ins_disYayi.GetComponent<DisYayim>();
@@ -96,19 +96,16 @@ namespace DisYayi
 
         public void DeactiveDisYayi()
         {
-            if (_hit.transform.gameObject.CompareTag("Tooth") && !_hit.transform.GetChild(2).transform.gameObject.activeSelf)
+            if (_hit.transform.gameObject.tag == "Tooth" && !_hit.transform.GetChild(2).transform.gameObject.activeSelf)
             {
                 Tooth tooth = _hit.transform.GetComponent<Tooth>();
-                if (!tooth.willFix & tooth.willWearDisYayi)
-                {
-                    CreateDisYayi();
-                }
 
                 if (isFirstDisYayi && tooth.willWearDisYayi)
                 {
+                    CreateDisYayi();
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
-                    obje.transform.localPosition = -Vector3.forward * .5f + Vector3.up * .5f;
+                    obje.transform.localPosition = Vector3.zero;
                     _ilkDis = _hit.transform.gameObject;  //ilk disi bulur
 
                     tooth.AnimasyonuDurdur();
@@ -125,7 +122,7 @@ namespace DisYayi
                 {
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
-                    obje.transform.localPosition = Vector3.forward * 1.3f + Vector3.up * .3f + Vector3.right * -.4f;
+                    obje.transform.localPosition = Vector3.zero;
                     _ikinciDis = _hit.transform.gameObject;  //ikinci disi bulur
 
                     tooth.AnimasyonuDurdur();

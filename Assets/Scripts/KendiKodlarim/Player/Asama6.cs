@@ -31,7 +31,7 @@ namespace DisTelim
             {
                 MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
                 _hit.transform.GetChild(2).transform.gameObject.SetActive(true);
-                _asamaControl.LastStage();
+                _asamaControl.AddTel();
                 _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
                 Instantiate(_telOlusmaEfekt, _hit.point + Vector3.forward * -.25f + Vector3.up * .05f, Quaternion.identity);
             }

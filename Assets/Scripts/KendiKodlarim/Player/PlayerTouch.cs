@@ -8,6 +8,7 @@ using DisYapiskan;
 using DisBraket;
 using DisYayi;
 using DisTelim;
+using DisPense;
 
 namespace PlayerBehaviour
 {
@@ -24,6 +25,7 @@ namespace PlayerBehaviour
         public Asama5 asama5;
         public Asama6 asama6;
         public Asama7 asama7;
+        public Asama8 asama8;
 
         [Header("Durumlar")]
         public int caseNumber;
@@ -46,6 +48,7 @@ namespace PlayerBehaviour
             asama5 = new Asama5();
             asama6 = new Asama6();
             asama7 = new Asama7();
+            asama8 = new Asama8();
 
             layerMask1 = 1 << 4 | 1 << 2;
             layerMask2 = 1 << 4 | 1 << 7 | 1 << 2 | 1 << 9;
@@ -64,6 +67,8 @@ namespace PlayerBehaviour
                 if (Physics.Raycast(ray, out hit, 50, layerMask1))
                 {
                     caseNumber = hit.transform.gameObject.GetComponent<ObjectNumber>().caseNumber;
+
+
 
                     if (caseNumber == 2 || caseNumber == 4)
                     {
@@ -122,6 +127,10 @@ namespace PlayerBehaviour
                                 asama7._hit = hit;
                                 asama7.MoveDisYayi();
                                 break;
+                            case 8:
+                                asama8._hit = hit;
+                                asama8.DestroyDisTeli();
+                                break;
                         }
                     }
                     else if (hit.transform.CompareTag("Raycast"))
@@ -150,11 +159,14 @@ namespace PlayerBehaviour
                                 //asama5.MoveBraket();
                                 break;
                             case 6:
-                               
+
+                                break;
                             case 7:
                                 asama7._hit = hit;
                                 asama7.MoveDisYayi();
                                 break;
+                            case 8:
+                                asama8._hit = hit;
                                 break;
                         }
                     }
@@ -188,6 +200,8 @@ namespace PlayerBehaviour
             {
                 Deactive();
 
+
+
                 _cameraMovement.BreakCamera();
             }
         }
@@ -216,10 +230,13 @@ namespace PlayerBehaviour
                     asama5.DeactiveBraket();
                     break;
                 case 6:
-                   
+
                     break;
                 case 7:
                     asama7.DeactiveDisYayi();
+                    break;
+                case 8:
+
                     break;
             }
         }

@@ -29,7 +29,7 @@ public class AsamaControl : MonoBehaviour
     void Start()
     {
         onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
-        toothController= GameObject.FindObjectOfType<ToothController>();
+        toothController = GameObject.FindObjectOfType<ToothController>();
         uIController = GameObject.FindObjectOfType<UIController>();
 
         disSayisi = 28;
@@ -52,7 +52,7 @@ public class AsamaControl : MonoBehaviour
     {
         disSayisi--;
 
-        if(disSayisi <= 0)
+        if (disSayisi <= 0)
         {
             ActiveDentalBraces();
             disSayisi = 28;
@@ -60,19 +60,32 @@ public class AsamaControl : MonoBehaviour
         MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
     }
 
-    public void LastStage()
+    public void AddTel()
     {
         disTeliSayisi--;
 
         if (disTeliSayisi <= 0)
         {
+            if (disTeliSayisi <= -2)
+            {
+                StartCoroutine(MoveDentalBraces());
+                onBoardingController.DeactiveOnBoarding();
+            }
             GameObject[] obje = GameObject.FindGameObjectsWithTag("Tooth");
             for (int i = 0; i < obje.Length; i++)
             {
                 obje[i].GetComponent<Tooth>().AnimasyonOynat();
+
             }
             onBoardingController.PlayOnBoarding(4);
         }
+        MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+    }
+
+    public void DeleteTell()
+    {
+        disTeliSayisi++;
+
         MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
     }
 
@@ -94,14 +107,19 @@ public class AsamaControl : MonoBehaviour
 
     IEnumerator MoveDentalBraces()
     {
-     /*   yield return new WaitForSeconds(.75f);
-        isMoveDentalBraces = true;*/
+        /*   yield return new WaitForSeconds(.75f);
+           isMoveDentalBraces = true;*/
 
         yield return new WaitForSeconds(.75f);
         isMoveTooth = true;
 
         yield return new WaitForSeconds(1.5f);
-        uIController.ActivateWinScreen();
+        if (GameController.instance.isContinue)
+        {
+            GameController.instance.isContinue = false;
+            uIController.ActivateWinScreen();
+        }
+
     }
 
 
