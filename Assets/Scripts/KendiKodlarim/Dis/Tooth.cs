@@ -23,6 +23,9 @@ public class Tooth : MonoBehaviour
     public bool willFix;
     public bool willWearDisYayi;
 
+    [Header("AnimasyonAyarlari")]
+    private Animation disAnim;
+
 
 
 
@@ -36,6 +39,7 @@ public class Tooth : MonoBehaviour
 
         toothController = GameObject.FindObjectOfType<ToothController>();
         asamaControl = GameObject.FindObjectOfType<AsamaControl>();
+        disAnim = transform.parent.transform.gameObject.GetComponent<Animation>();
 
         isMove = false;
         willFix = false;
@@ -131,5 +135,18 @@ public class Tooth : MonoBehaviour
 
         fizik.useGravity = true;
         fizik.velocity = yon;
+    }
+
+    public void AnimasyonOynat()
+    {
+        if (willWearDisYayi)
+        {
+            disAnim.Play("DisAnim");
+        }
+    }
+
+    public void AnimasyonuDurdur()
+    {
+        disAnim.Stop();
     }
 }

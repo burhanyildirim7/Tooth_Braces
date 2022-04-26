@@ -111,6 +111,8 @@ namespace DisYayi
                     obje.transform.localPosition = -Vector3.forward * .5f + Vector3.up * .5f;
                     _ilkDis = _hit.transform.gameObject;  //ilk disi bulur
 
+                    tooth.AnimasyonuDurdur();
+
                     isAddingDisYayi = true;
                     isFirstDisYayi = false;
                     tooth.willFix = true;
@@ -125,6 +127,8 @@ namespace DisYayi
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
                     obje.transform.localPosition = Vector3.forward * 1.3f + Vector3.up * .3f + Vector3.right * -.4f;
                     _ikinciDis = _hit.transform.gameObject;  //ikinci disi bulur
+
+                    tooth.AnimasyonuDurdur();
 
                     isAddingDisYayi = false;
                     ins_disYayi = null;

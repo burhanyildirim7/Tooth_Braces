@@ -62,11 +62,15 @@ public class AsamaControl : MonoBehaviour
 
     public void LastStage()
     {
-        disSayisi--;
+        disTeliSayisi--;
 
-        if (disSayisi <= 0)
+        if (disTeliSayisi <= 0)
         {
-            StartCoroutine(MoveDentalBraces());
+            GameObject[] obje = GameObject.FindGameObjectsWithTag("Tooth");
+            for (int i = 0; i < obje.Length; i++)
+            {
+                obje[i].GetComponent<Tooth>().AnimasyonOynat();
+            }
         }
         MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
     }
