@@ -21,6 +21,7 @@ public class Tooth : MonoBehaviour
 
     [Header("DuzeltimeAyarlari")]
     public bool willFix;
+    public bool willWearDisYayi;
 
 
 

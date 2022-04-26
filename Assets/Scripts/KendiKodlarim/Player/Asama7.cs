@@ -57,22 +57,22 @@ namespace DisYayi
                 {
                     if (_hit.point.x <= 0)
                     {
-                        ins_disYayi = Instantiate(_solUstYay);
+                        ins_disYayi = Instantiate(_solUstYay, Vector3.forward * -3+ Vector3.up * 1.5f, Quaternion.identity);
                     }
                     else if (_hit.point.x >= 0)
                     {
-                        ins_disYayi = Instantiate(_sagUstYay);
+                        ins_disYayi = Instantiate(_sagUstYay, Vector3.forward * -3 + Vector3.up * 1.5f, Quaternion.identity);
                     }
                 }
                 else if (_hit.point.y < 0)
                 {
                     if (_hit.point.x <= 0)
                     {
-                        ins_disYayi = Instantiate(_solAltYay);
+                        ins_disYayi = Instantiate(_solAltYay, Vector3.forward * -3 + Vector3.up * 1.5f, Quaternion.identity);
                     }
                     else if (_hit.point.x >= 0)
                     {
-                        ins_disYayi = Instantiate(_sagAltYay);
+                        ins_disYayi = Instantiate(_sagAltYay, Vector3.forward * -3 + Vector3.up * 1.5f, Quaternion.identity);
                     }
                 }
                 _disYayim = ins_disYayi.GetComponent<DisYayim>();
@@ -98,8 +98,13 @@ namespace DisYayi
         {
             if (_hit.transform.gameObject.CompareTag("Tooth") && !_hit.transform.GetChild(2).transform.gameObject.activeSelf)
             {
-                CreateDisYayi();
-                if (isFirstDisYayi)
+                Tooth tooth = _hit.transform.GetComponent<Tooth>();
+                if (!tooth.willFix & tooth.willWearDisYayi)
+                {
+                    CreateDisYayi();
+                }
+
+                if (isFirstDisYayi && tooth.willWearDisYayi)
                 {
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
@@ -108,12 +113,13 @@ namespace DisYayi
 
                     isAddingDisYayi = true;
                     isFirstDisYayi = false;
-                    _hit.transform.GetComponent<Tooth>().willFix = true;
+                    tooth.willFix = true;
+                    tooth.willWearDisYayi = false;
                     _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
 
                     MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
                 }
-                else
+                else if (tooth.willWearDisYayi)
                 {
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
@@ -144,8 +150,18 @@ namespace DisYayi
                     _ilkDis = null; //Bosa cikarmak icin kullanilir
                     _ikinciDis = null;
                 }
+                else //Ayni dise dis teli takmaya calisirken girilir
+                {
+                    Destroy(ins_disYayi);
+                    isAddingDisYayi = false;
+                    tooth.willWearDisYayi = true;
+                    tooth.willFix = false;
+
+                    _ilkDis = null; //Bosa cikarmak icin kullanilir
+                    _ikinciDis = null;
+                }
             }
-            else
+            else //Dis teli takilamayacak olan objeye takmaya calisirken olur
             {
                 Destroy(ins_disYayi);
                 isAddingDisYayi = false;

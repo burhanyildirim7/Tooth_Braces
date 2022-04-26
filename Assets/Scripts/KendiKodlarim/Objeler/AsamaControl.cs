@@ -9,6 +9,8 @@ public class AsamaControl : MonoBehaviour
 
     [Header("DisSayisi")]
     private int disSayisi;
+    [SerializeField] private int disTeliSayisi;
+    [SerializeField] private int disYayiSayisi;
 
     [Header("DisTeliHaraketi")]
     public bool isMoveDentalBraces;
