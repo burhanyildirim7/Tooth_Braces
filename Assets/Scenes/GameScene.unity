@@ -802,11 +802,12 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 782f9b1dcac64354cb1033aaad096ea7, type: 2}
   - {fileID: 7400000, guid: 1fbeb1007da30ae4caa31ab76bb505eb, type: 2}
-  - {fileID: 7400000, guid: 73c7571f33751594da481cd0c9cca866, type: 2}
+  - {fileID: 7400000, guid: a58ce6ffc97ab5b43a819d8fb7701529, type: 2}
+  - {fileID: 7400000, guid: dbd69e76b08829541b29b89cfce023fb, type: 2}
+  - {fileID: 7400000, guid: 782f9b1dcac64354cb1033aaad096ea7, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!114 &1260096526

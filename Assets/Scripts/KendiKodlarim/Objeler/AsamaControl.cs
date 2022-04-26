@@ -71,6 +71,7 @@ public class AsamaControl : MonoBehaviour
             {
                 obje[i].GetComponent<Tooth>().AnimasyonOynat();
             }
+            onBoardingController.PlayOnBoarding(4);
         }
         MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
     }
