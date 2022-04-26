@@ -25,7 +25,7 @@ public class Tooth : MonoBehaviour
 
     [Header("AnimasyonAyarlari")]
     private Animation disAnim;
-
+    [SerializeField] private string kopmaAnimasyonIsmi;
 
 
 
@@ -130,16 +130,24 @@ public class Tooth : MonoBehaviour
 
     public void DisKirilsin(Vector3 yon)
     {
+        StartCoroutine(DisKopma(yon));
+    }
+
+    IEnumerator DisKopma(Vector3 yon)
+    {
+        disAnim.Play(kopmaAnimasyonIsmi);
+        yield return new WaitForSeconds(.45f);
         Rigidbody fizik;
         fizik = transform.parent.transform.gameObject.AddComponent<Rigidbody>();
 
         fizik.useGravity = true;
         fizik.velocity = yon;
+
     }
 
     public void AnimasyonOynat()
     {
-        if (willWearDisYayi)
+        if (willWearDisYayi && PlayerPrefs.GetInt("level") == 0)
         {
             disAnim.Play("DisAnim");
         }

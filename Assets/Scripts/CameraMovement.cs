@@ -33,8 +33,8 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveCamera()
     {
-        transformParent.DOMove(parentPos + Vector3.right * (Input.mousePosition.x - Screen.width / 2) * .008f, 1.25f);
-        transformParent.DORotateQuaternion(Quaternion.Euler(Vector3.up * (Input.mousePosition.x - Screen.width / 2) * -.04f), 1.25f);
+        transformParent.DOMove(parentPos + Vector3.right * (Input.mousePosition.x - Screen.width / 2) * .016f, 1.25f);
+        transformParent.DORotateQuaternion(Quaternion.Euler(Vector3.up * (Input.mousePosition.x - Screen.width / 2) * -.08f), 1.25f);
     }
 
     public void BreakCamera()

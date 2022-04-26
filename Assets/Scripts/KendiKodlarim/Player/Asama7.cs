@@ -28,6 +28,9 @@ namespace DisYayi
         private ParticleSystem _disKirilmaEfekt;
         private ParticleSystem _disOnarmaEfekt;
 
+        private string ilkIsim;
+        private string ikinciIsim;
+
 
         public bool isAddingDisYayi;
         private bool isFirstDisYayi;
@@ -100,7 +103,7 @@ namespace DisYayi
             {
                 Tooth tooth = _hit.transform.GetComponent<Tooth>();
 
-                if (isFirstDisYayi && tooth.willWearDisYayi)
+                if (isFirstDisYayi)
                 {
                     CreateDisYayi();
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
@@ -109,6 +112,7 @@ namespace DisYayi
                     _ilkDis = _hit.transform.gameObject;  //ilk disi bulur
 
                     tooth.AnimasyonuDurdur();
+                    ilkIsim = _hit.transform.parent.transform.gameObject.name;
 
                     isAddingDisYayi = true;
                     isFirstDisYayi = false;
@@ -118,7 +122,7 @@ namespace DisYayi
 
                     MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
                 }
-                else if (tooth.willWearDisYayi)
+                else if (ilkIsim != _hit.transform.parent.transform.gameObject.name)
                 {
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
@@ -136,8 +140,8 @@ namespace DisYayi
                     _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
                     if (_disYayim.kopar)
                     {
-                        _ilkDis.GetComponent<Tooth>().DisKirilsin((_ikinciDis.transform.position - _ilkDis.transform.position).normalized + Vector3.forward * -10f + Vector3.up * 4f);
-                        _ikinciDis.GetComponent<Tooth>().DisKirilsin((_ilkDis.transform.position - _ikinciDis.transform.position).normalized + Vector3.forward * -10f + Vector3.up * 4f);
+                        _ilkDis.GetComponent<Tooth>().DisKirilsin((_ikinciDis.transform.position - _ilkDis.transform.position).normalized + Vector3.forward * -12f + Vector3.up * 4f);
+                        _ikinciDis.GetComponent<Tooth>().DisKirilsin((_ilkDis.transform.position - _ikinciDis.transform.position).normalized + Vector3.forward * -12f + Vector3.up * 4f);
                         _disYayim.KuvvetUygula();
                         _disKirilmaEfekt.Play();
                     }
@@ -154,12 +158,14 @@ namespace DisYayi
                 else //Ayni dise dis teli takmaya calisirken girilir
                 {
                     Destroy(ins_disYayi);
+                    isFirstDisYayi = true;
                     isAddingDisYayi = false;
                     tooth.willWearDisYayi = true;
                     tooth.willFix = false;
 
                     _ilkDis = null; //Bosa cikarmak icin kullanilir
                     _ikinciDis = null;
+                    ilkIsim = null;
                 }
             }
             else //Dis teli takilamayacak olan objeye takmaya calisirken olur

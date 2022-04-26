@@ -27,7 +27,15 @@ namespace DisTelim
         public void CreateDisTeli()
         {
             Tooth tooth = _hit.transform.gameObject.GetComponent<Tooth>();
-            if (!_hit.transform.GetChild(2).transform.gameObject.activeSelf && !tooth.willWearDisYayi)
+            if (!_hit.transform.GetChild(2).transform.gameObject.activeSelf && PlayerPrefs.GetInt("level") != 0)
+            {
+                MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+                _hit.transform.GetChild(2).transform.gameObject.SetActive(true);
+                _asamaControl.AddTel();
+                _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
+                Instantiate(_telOlusmaEfekt, _hit.point + Vector3.forward * -.25f + Vector3.up * .05f, Quaternion.identity);
+            }
+            else if (!_hit.transform.GetChild(2).transform.gameObject.activeSelf && PlayerPrefs.GetInt("level") == 0 && !tooth.willWearDisYayi)
             {
                 MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
                 _hit.transform.GetChild(2).transform.gameObject.SetActive(true);
