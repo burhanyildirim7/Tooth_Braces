@@ -2875,8 +2875,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991627842731128106}
-  m_LocalRotation: {x: -0.5824375, y: -0.108882315, z: 0.079107635, w: 0.8016565}
-  m_LocalPosition: {x: 0.00141, y: 0.0134, z: 0.00366}
+  m_LocalRotation: {x: -0.58778524, y: 0, z: 0, w: 0.809017}
+  m_LocalPosition: {x: 0.00132, y: 0.01368, z: 0.00375}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2885,7 +2885,7 @@ Transform:
   - {fileID: 5785277007481733237}
   m_Father: {fileID: 3369108734349750898}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: -66.434, y: -41.847, z: 39.382}
+  m_LocalEulerAnglesHint: {x: -72, y: 0, z: 1.914}
 --- !u!111 &2427229650471028692
 Animation:
   m_ObjectHideFlags: 0
@@ -19519,8 +19519,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3264663179214217992}
-  m_LocalRotation: {x: -0.58353084, y: 0.09716003, z: -0.07059088, w: 0.8031616}
-  m_LocalPosition: {x: -0.00172, y: 0.01331, z: 0.00365}
+  m_LocalRotation: {x: -0.58778524, y: 0, z: 0, w: 0.809017}
+  m_LocalPosition: {x: -0.00154, y: 0.01357, z: 0.00373}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19529,7 +19529,7 @@ Transform:
   - {fileID: 5785277007189319299}
   m_Father: {fileID: 3369108734349750898}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: -67.461, y: 38.47, z: -36.274}
+  m_LocalEulerAnglesHint: {x: -61.488, y: 51.868, z: -51.01}
 --- !u!111 &2110272786971022613
 Animation:
   m_ObjectHideFlags: 0
@@ -20211,7 +20211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8344321388337251455}
   m_Layer: 0
-  m_Name: LEVEL 1
+  m_Name: LEVEL D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104663,7 +104663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12fb1fce92d8d6479c72f80186b99bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baslangicRenk: 0.9
+  baslangicRenk: 0
   hedefRot: {x: -72, y: 0, z: 0}
   hedefPos: {x: 0.005615345, y: 0.0105871, z: 0.002974572}
   willFix: 0
@@ -105065,7 +105065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12fb1fce92d8d6479c72f80186b99bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baslangicRenk: 0.9
+  baslangicRenk: 0
   hedefRot: {x: 77, y: 0, z: 0}
   hedefPos: {x: 0.01110548, y: 0.01234038, z: -0.003000138}
   willFix: 0
@@ -105333,7 +105333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12fb1fce92d8d6479c72f80186b99bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baslangicRenk: 0.9
+  baslangicRenk: 0
   hedefRot: {x: 77, y: 0, z: 0}
   hedefPos: {x: -0.001100329, y: 0.01315392, z: -0.003281708}
   willFix: 0
@@ -105467,7 +105467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12fb1fce92d8d6479c72f80186b99bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baslangicRenk: 0.9
+  baslangicRenk: 0
   hedefRot: {x: -72, y: 0, z: 0}
   hedefPos: {x: -0.003846784, y: 0.01245056, z: 0.003506337}
   willFix: 0
@@ -105601,7 +105601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12fb1fce92d8d6479c72f80186b99bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baslangicRenk: 0.9
+  baslangicRenk: 0
   hedefRot: {x: 77, y: 0, z: 0}
   hedefPos: {x: 0.002886364, y: 0.01238925, z: -0.003017057}
   willFix: 0
@@ -105668,7 +105668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12fb1fce92d8d6479c72f80186b99bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baslangicRenk: 0.9
+  baslangicRenk: 0
   hedefRot: {x: -72, y: 0, z: 0}
   hedefPos: {x: -0.00154, y: 0.01357, z: 0.00373}
   willFix: 0
@@ -105936,7 +105936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12fb1fce92d8d6479c72f80186b99bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baslangicRenk: 0.9
+  baslangicRenk: 0
   hedefRot: {x: -72, y: 0, z: 0}
   hedefPos: {x: 0.00132, y: 0.01368, z: 0.00375}
   willFix: 0
@@ -106137,7 +106137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12fb1fce92d8d6479c72f80186b99bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baslangicRenk: 0.9
+  baslangicRenk: 0
   hedefRot: {x: 77, y: 0, z: 0}
   hedefPos: {x: 0.001129805, y: 0.01315537, z: -0.003282211}
   willFix: 0
@@ -106338,7 +106338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12fb1fce92d8d6479c72f80186b99bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baslangicRenk: 0.9
+  baslangicRenk: 0
   hedefRot: {x: -72, y: 0, z: 0}
   hedefPos: {x: 0.003843931, y: 0.01254193, z: 0.003360128}
   willFix: 0

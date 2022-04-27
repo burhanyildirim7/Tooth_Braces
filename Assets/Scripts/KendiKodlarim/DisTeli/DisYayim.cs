@@ -13,6 +13,9 @@ public class DisYayim : MonoBehaviour
     [Header("KuuvetUygulamaIcin")]
     private Rigidbody fizik;
 
+    [Header("Controllerler")]
+    private AsamaControl asamaControl;
+
     [Header("Efektler")]
     [SerializeField] private ParticleSystem kotuEfekt;
     [SerializeField] private ParticleSystem iyiEfekt;
@@ -22,6 +25,7 @@ public class DisYayim : MonoBehaviour
     void Start()
     {
         mat = transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material;
+        asamaControl = GameObject.FindObjectOfType<AsamaControl>();
         fizik = GetComponent<Rigidbody>();
     }
 
@@ -42,11 +46,26 @@ public class DisYayim : MonoBehaviour
 
     public void KuvvetUygula()
     {
-        kemikler[0].transform.parent = transform;
-        kemikler[1].transform.parent = transform;
+        StartCoroutine(KuvvetUygulaGeciktir());
+    }
+
+    IEnumerator KuvvetUygulaGeciktir()
+    {
+        bool haraketEttiMi = false;
+        while(!haraketEttiMi)
+        {
+            if (asamaControl.isMoveTooth)
+            {
+                kemikler[0].transform.parent = transform;
+                kemikler[1].transform.parent = transform;
 
 
-        fizik.useGravity = true;
-        fizik.velocity = Vector3.forward * -3f + Vector3.up * 5f + Vector3.right * 7;
+                fizik.useGravity = true;
+                fizik.velocity = Vector3.forward * -3f + Vector3.up * 5f + Vector3.right * 7;
+
+                haraketEttiMi = true;
+            }
+            yield return new WaitForSeconds(.1f);
+        }
     }
 }

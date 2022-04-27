@@ -8,9 +8,8 @@ public class AsamaControl : MonoBehaviour
     [SerializeField] private GameObject[] asamalar;
 
     [Header("DisSayisi")]
-    private int disSayisi;
-    [SerializeField] private int disTeliSayisi;
-    [SerializeField] private int disYayiSayisi;
+    public int disSayisi;
+    private int disTeliSayisi;
 
     [Header("DisTeliHaraketi")]
     public bool isMoveDentalBraces;
@@ -18,8 +17,6 @@ public class AsamaControl : MonoBehaviour
     [Header("DisHaraketi")]
     public bool isMoveTooth;
 
-    [Header("DisYayi")]
-    public int neededDisYayi;
 
     [Header("Controllerler")]
     private OnBoardingController onBoardingController;
@@ -33,8 +30,10 @@ public class AsamaControl : MonoBehaviour
         uIController = GameObject.FindObjectOfType<UIController>();
 
         disSayisi = 28;
+        disTeliSayisi = 28;
         isMoveDentalBraces = false;
         isMoveTooth = false;
+
     }
 
     public void Stage4Invoke()
@@ -63,23 +62,34 @@ public class AsamaControl : MonoBehaviour
     public void AddTel()
     {
         disTeliSayisi--;
-
-        if (disTeliSayisi <= 0)
+        if (disTeliSayisi <= 2 && PlayerPrefs.GetInt("level") == 0)
         {
-            if (disTeliSayisi <= -2)
-            {
-                StartCoroutine(MoveDentalBraces());
-                onBoardingController.DeactiveOnBoarding();
-            }
             GameObject[] obje = GameObject.FindGameObjectsWithTag("Tooth");
             for (int i = 0; i < obje.Length; i++)
             {
                 obje[i].GetComponent<Tooth>().AnimasyonOynat();
-
+                onBoardingController.PlayOnBoarding(4);
             }
-            onBoardingController.PlayOnBoarding(4);
+        }
+
+        if (disTeliSayisi <= 0)
+        {
+
+            StartCoroutine(MoveDentalBraces());
+            onBoardingController.DeactiveOnBoarding();
+
+
         }
         MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+    }
+
+    public void ReduceTelSayisi(int sayi)
+    {
+        disTeliSayisi -= sayi;
+        if (disTeliSayisi <= 0)
+        {
+            StartCoroutine(MoveDentalBraces());
+        }
     }
 
     public void DeleteTell()
@@ -107,9 +117,6 @@ public class AsamaControl : MonoBehaviour
 
     IEnumerator MoveDentalBraces()
     {
-        /*   yield return new WaitForSeconds(.75f);
-           isMoveDentalBraces = true;*/
-
         yield return new WaitForSeconds(.75f);
         isMoveTooth = true;
 

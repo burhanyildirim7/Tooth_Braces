@@ -135,13 +135,26 @@ public class Tooth : MonoBehaviour
 
     IEnumerator DisKopma(Vector3 yon)
     {
-        disAnim.Play(kopmaAnimasyonIsmi);
-        yield return new WaitForSeconds(.45f);
-        Rigidbody fizik;
-        fizik = transform.parent.transform.gameObject.AddComponent<Rigidbody>();
+        bool haraketEttiMi = false;
+        willFix = false;
+        while (!haraketEttiMi)
+        {
+            if(asamaControl.isMoveTooth)
+            {
+                disAnim.Play(kopmaAnimasyonIsmi);
+                yield return new WaitForSeconds(.45f);
+                Rigidbody fizik;
+                fizik = transform.parent.transform.gameObject.AddComponent<Rigidbody>();
 
-        fizik.useGravity = true;
-        fizik.velocity = yon;
+                fizik.useGravity = true;
+                fizik.velocity = yon;
+
+                haraketEttiMi = true;
+            }
+            
+            yield return new WaitForSeconds(.1f);
+        }
+        
 
     }
 

@@ -136,19 +136,31 @@ namespace DisYayi
 
                     _hit.transform.GetComponent<Tooth>().willFix = true;
 
-                    _asamaControl.neededDisYayi--;
+                    _asamaControl.ReduceTelSayisi(2);
                     _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
                     if (_disYayim.kopar)
                     {
-                        _ilkDis.GetComponent<Tooth>().DisKirilsin((_ikinciDis.transform.position - _ilkDis.transform.position).normalized + Vector3.forward * -12f + Vector3.up * 4f);
-                        _ikinciDis.GetComponent<Tooth>().DisKirilsin((_ilkDis.transform.position - _ikinciDis.transform.position).normalized + Vector3.forward * -12f + Vector3.up * 4f);
+                        _ilkDis.GetComponent<Tooth>().DisKirilsin(Vector3.forward * -12f + Vector3.up * 5f);
+                        _ikinciDis.GetComponent<Tooth>().DisKirilsin(Vector3.forward * -12f + Vector3.up * 5f);
                         _disYayim.KuvvetUygula();
                         _disKirilmaEfekt.Play();
+
+                        isFirstDisYayi = true;
+                        isAddingDisYayi = false;
+                        _ilkDis = null; //Bosa cikarmak icin kullanilir
+                        _ikinciDis = null;
+                        ilkIsim = null;
                     }
                     else
                     {
-                        _asamaControl.ApplyTheMove();
+                        //   _asamaControl.ApplyTheMove();
                         _disOnarmaEfekt.Play();
+
+                        isFirstDisYayi = true;
+                        isAddingDisYayi = false;
+                        _ilkDis = null; //Bosa cikarmak icin kullanilir
+                        _ikinciDis = null;
+                        ilkIsim = null;
                     }
 
                     MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
