@@ -15,10 +15,13 @@ public class CameraMovement : MonoBehaviour
     private Vector3 parentPos;
     private Transform transformParent;
 
+    private bool isMoving;
+
     void Start()
     {
         transformParent = transform.parent;
         parentPos = transformParent.position;
+        isMoving = false;
     }
 
     IEnumerator SendingStartingPosition()
@@ -35,16 +38,18 @@ public class CameraMovement : MonoBehaviour
     {
         transformParent.DOMove(parentPos + Vector3.right * (Input.mousePosition.x - Screen.width / 2) * .016f, 1.25f);
         transformParent.DORotateQuaternion(Quaternion.Euler(Vector3.up * (Input.mousePosition.x - Screen.width / 2) * -.08f), 1.25f);
+        isMoving = true;
     }
 
     public void BreakCamera()
     {
+        isMoving = false;
         StartCoroutine(returnPos());
     }
 
     IEnumerator returnPos()
     {
-        while (Vector3.Distance(parentPos, transformParent.position) >= .0001f && GameController.instance.isContinue)
+        while (Vector3.Distance(parentPos, transformParent.position) >= .0001f && GameController.instance.isContinue && !isMoving)
         {
             transformParent.DOMove(-Vector3.forward * 13 - Vector3.up * 1.25f, 1.25f);
             transformParent.DORotateQuaternion(Quaternion.Euler(Vector3.zero), 1.25f);
