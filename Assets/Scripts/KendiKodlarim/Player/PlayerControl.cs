@@ -30,11 +30,15 @@ public class PlayerControl : MonoBehaviour
     public GameObject braket;
 
     [Header("Asama6")]
-    public GameObject solUstYay;
-    public GameObject sagUstYay;
-    public GameObject solAltYay;
-    public GameObject sagAltYay;
+    public GameObject disTeli;
     public ParticleSystem telOlusmaEfekt;
+
+    [Header("Asama7")]
+    public GameObject disYayiOrnek;
+    public GameObject disYayi;
+
+    [Header("Asama8")]
+    public GameObject disKerpeten;
 
     [Header("Efektler")]
     public ParticleSystem disKirilmaEfekt;

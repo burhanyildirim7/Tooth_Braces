@@ -8,7 +8,7 @@ using DisYapiskan;
 using DisBraket;
 using DisYayi;
 using DisTelim;
-using DisPense;
+using DisKerpeten;
 
 namespace PlayerBehaviour
 {
@@ -70,7 +70,7 @@ namespace PlayerBehaviour
 
 
 
-                    if (caseNumber == 2 || caseNumber == 4)
+                    if (caseNumber == 2 || caseNumber == 4 || caseNumber == 8)
                     {
 
                         layerMask2 = 1 << 9;
@@ -91,7 +91,7 @@ namespace PlayerBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 50, layerMask2))
                 {
-                    if (hit.transform.CompareTag("Tooth"))
+                    if (hit.transform.CompareTag("Tooth") && hit.point.x != 0 && hit.point.y != 0)
                     {
                         switch (caseNumber)
                         {
@@ -118,10 +118,12 @@ namespace PlayerBehaviour
                             case 5:
                                 asama5._hit = hit;
                                 asama5.CreateBraket();
+                                asama5.MoveBraket();
                                 break;
                             case 6:
                                 asama6._hit = hit;
                                 asama6.CreateDisTeli();
+                                asama6.MoveDisTeli();
                                 break;
                             case 7:
                                 asama7._hit = hit;
@@ -129,6 +131,7 @@ namespace PlayerBehaviour
                                 break;
                             case 8:
                                 asama8._hit = hit;
+                                asama8.MoveDisKerpeten();
                                 asama8.DestroyDisTeli();
                                 break;
                         }
@@ -156,10 +159,11 @@ namespace PlayerBehaviour
                                 break;
                             case 5:
                                 asama5._hit = hit;
-                                //asama5.MoveBraket();
+                                asama5.MoveBraket();
                                 break;
                             case 6:
-
+                                asama6._hit = hit;
+                                asama6.MoveDisTeli();
                                 break;
                             case 7:
                                 asama7._hit = hit;
@@ -167,6 +171,7 @@ namespace PlayerBehaviour
                                 break;
                             case 8:
                                 asama8._hit = hit;
+                                asama8.MoveDisKerpeten();
                                 break;
                         }
                     }
@@ -183,6 +188,10 @@ namespace PlayerBehaviour
                             case 4:
                                 asama4._hit = hit;
                                 asama4.MoveSticky();
+                                break;
+                            case 8:
+                                asama8._hit = hit;
+                                asama8.MoveDisKerpeten();
                                 break;
                         }
                     }
@@ -230,13 +239,13 @@ namespace PlayerBehaviour
                     asama5.DeactiveBraket();
                     break;
                 case 6:
-
+                    asama6.Deactive();
                     break;
                 case 7:
                     asama7.DeactiveDisYayi();
                     break;
                 case 8:
-
+                    asama8.Deactive();
                     break;
             }
         }

@@ -21785,11 +21785,11 @@ MonoBehaviour:
   waterSender: {fileID: 5685013846090343236}
   sticky: {fileID: 7533567710092110511}
   braket: {fileID: 583188895415839583}
-  solUstYay: {fileID: 1484873302852575308, guid: 135e2918baa3b244e97acd5fc6aa9fa9, type: 3}
-  sagUstYay: {fileID: 1484873302852575308, guid: 135e2918baa3b244e97acd5fc6aa9fa9, type: 3}
-  solAltYay: {fileID: 1484873302852575308, guid: 135e2918baa3b244e97acd5fc6aa9fa9, type: 3}
-  sagAltYay: {fileID: 1484873302852575308, guid: 135e2918baa3b244e97acd5fc6aa9fa9, type: 3}
+  disTeli: {fileID: 7905728504342534972}
   telOlusmaEfekt: {fileID: 7531506628467455842, guid: 59106d92b8c644f49bab51c9220dc101, type: 3}
+  disYayiOrnek: {fileID: 1484873302852575308, guid: 135e2918baa3b244e97acd5fc6aa9fa9, type: 3}
+  disYayi: {fileID: 2364765274222942120}
+  disKerpeten: {fileID: 2251468375540903671}
   disKirilmaEfekt: {fileID: 8776986907541888209}
   disOnarmaEfekt: {fileID: 7265993881117842304}
 --- !u!1 &4596730181808151032
@@ -56034,6 +56034,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
   m_PrefabInstance: {fileID: 2313107815939592967}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2251468375540903671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4550638670417657328, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
+  m_PrefabInstance: {fileID: 2313107815939592967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2773142463106910791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56096,6 +56101,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 455113324590519158, guid: 7d3279cab1156e1409c8e59ab96914ed, type: 3}
   m_PrefabInstance: {fileID: 2773142463106910791}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2364765274222942120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 481176096498703855, guid: 7d3279cab1156e1409c8e59ab96914ed, type: 3}
+  m_PrefabInstance: {fileID: 2773142463106910791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3216695626805384403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56156,6 +56166,11 @@ PrefabInstance:
 --- !u!4 &2306512048952013369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 910184374626477802, guid: e35ff858641b0694ab1154bc481c889f, type: 3}
+  m_PrefabInstance: {fileID: 3216695626805384403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7905728504342534972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4689713483901423599, guid: e35ff858641b0694ab1154bc481c889f, type: 3}
   m_PrefabInstance: {fileID: 3216695626805384403}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6929607691744415450

@@ -15,6 +15,7 @@ public class CameraMovement : MonoBehaviour
     private Vector3 parentPos;
     private Transform transformParent;
 
+    [Range(0,1)]
     [SerializeField] private float kameraHassasiyet;
 
     private bool isMoving;

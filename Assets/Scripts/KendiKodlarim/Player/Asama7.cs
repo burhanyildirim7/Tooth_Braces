@@ -10,11 +10,9 @@ namespace DisYayi
         public RaycastHit _hit;
 
         [Header("DisYayiIcinGerkelidir")]
-        public GameObject _solUstYay;
-        public GameObject _sagUstYay;
-        public GameObject _solAltYay;
-        public GameObject _sagAltYay;
+        public GameObject _disYayiOrnek;
         private GameObject ins_disYayi;
+        private GameObject _disYayi;
 
         [Header("KopmaAyarlari")]
         private DisYayim _disYayim;
@@ -27,6 +25,10 @@ namespace DisYayi
         [Header("Efektler")]
         private ParticleSystem _disKirilmaEfekt;
         private ParticleSystem _disOnarmaEfekt;
+
+        [Header("PositionAndRotationSettings")]
+        private Vector3 _startingPosition;
+        private Quaternion _startingRotation;
 
         private string ilkIsim;
         private string ikinciIsim;
@@ -42,13 +44,14 @@ namespace DisYayi
             _disKirilmaEfekt = playerControl.disKirilmaEfekt;
             _disOnarmaEfekt = playerControl.disOnarmaEfekt;
 
-            _solUstYay = playerControl.solUstYay;
-            _sagUstYay = playerControl.sagUstYay;
-            _solAltYay = playerControl.solAltYay;
-            _sagAltYay = playerControl.sagAltYay;
+            _disYayiOrnek = playerControl.disYayiOrnek;
+            _disYayi = playerControl.disYayi;
 
             isAddingDisYayi = false;
             isFirstDisYayi = true;
+
+            _startingPosition = _disYayi.transform.position;
+            _startingRotation = _disYayi.transform.rotation;
         }
 
 
@@ -56,28 +59,9 @@ namespace DisYayi
         {
             if (!isAddingDisYayi)
             {
-                if (_hit.point.y > 0)
-                {
-                    if (_hit.point.x <= 0)
-                    {
-                        ins_disYayi = Instantiate(_solUstYay, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
-                    }
-                    else if (_hit.point.x >= 0)
-                    {
-                        ins_disYayi = Instantiate(_sagUstYay, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
-                    }
-                }
-                else if (_hit.point.y < 0)
-                {
-                    if (_hit.point.x <= 0)
-                    {
-                        ins_disYayi = Instantiate(_solAltYay, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
-                    }
-                    else if (_hit.point.x >= 0)
-                    {
-                        ins_disYayi = Instantiate(_sagAltYay, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
-                    }
-                }
+
+                ins_disYayi = Instantiate(_disYayiOrnek, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
+
                 _disYayim = ins_disYayi.GetComponent<DisYayim>();
 
                 ins_disYayi.transform.parent = GameObject.FindWithTag("Player").transform;
@@ -93,7 +77,11 @@ namespace DisYayi
             {
                 ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.position = _hit.point;
             }
-
+            else
+            {
+                _disYayi.transform.position = _hit.point;
+                _disYayi.transform.rotation = Quaternion.Euler(Vector3.right * -10 + Vector3.up * -4 * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70);
+            }
         }
 
 
@@ -184,6 +172,17 @@ namespace DisYayi
             {
                 Destroy(ins_disYayi);
                 isAddingDisYayi = false;
+            }
+
+            StartingPositionAndRotation();
+        }
+
+        void StartingPositionAndRotation()
+        {
+            while (Vector3.Distance(_disYayi.transform.position, _startingPosition) >= .1f)
+            {
+                _disYayi.transform.position = Vector3.Lerp(_disYayi.transform.position, _startingPosition, Time.deltaTime * 15);
+                _disYayi.transform.rotation = Quaternion.Slerp(_disYayi.transform.rotation, _startingRotation, Time.deltaTime * 500);
             }
         }
     }

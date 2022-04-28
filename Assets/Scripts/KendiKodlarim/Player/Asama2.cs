@@ -61,7 +61,7 @@ namespace DisSulama
             {
                 if(hitCollider.transform.gameObject.CompareTag("Tooth"))
                 {
-                    _waterCollider.transform.position = Vector3.Lerp(_waterCollider.transform.position, hitCollider.point, Time.deltaTime * 10);
+                    _waterCollider.transform.position = Vector3.Lerp(_waterCollider.transform.position, hitCollider.point, Time.deltaTime * 50);
                     //_asama3.IncreaseWaterAmount();
 
                     if (!_waterEffect.activeSelf)

@@ -64,7 +64,7 @@ namespace DisSuCekme
             if (_waterSender.activeSelf)
             {
                 _waterSender.transform.rotation = Quaternion.LookRotation(_hit.point - _waterSender.transform.position) * Quaternion.Euler(Vector3.right * 150 - Vector3.up * 45 - Vector3.forward * 100);
-                _waterSender.transform.position = Vector3.Lerp(_waterSender.transform.position, _hit.point + Vector3.up * 2 + Vector3.forward * 2 + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
+                _waterSender.transform.position = Vector3.Lerp(_waterSender.transform.position, _hit.point + Vector3.up * 2 + Vector3.forward * 2 + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 50);
             }
             else
             {

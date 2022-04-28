@@ -29,10 +29,11 @@ namespace DisBraket
         }
 
 
-        /*public void MoveBraket()
+        public void MoveBraket()
         {
-            _braket.transform.position = _hit.point;
-        }*/
+            _braket.transform.position = _hit.point - Vector3.forward * .35f - Vector3.up * .1f;
+            _braket.transform.rotation = Quaternion.Slerp(_braket.transform.rotation, Quaternion.Euler(Vector3.up * -(Mathf.Abs(Mathf.Pow(_hit.point.x * 4, 1)) * Mathf.Pow(_hit.point.x * 3, 1))) * Quaternion.Euler(Vector3.forward * -12 * (Mathf.Abs(_hit.point.x) / _hit.point.x) * (Mathf.Abs(_hit.point.y) / _hit.point.y)), Time.deltaTime * 50);
+        }
 
 
         public void CreateBraket()
