@@ -65,6 +65,7 @@ namespace PlayerBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 50, layerMask1))
                 {
@@ -93,6 +94,7 @@ namespace PlayerBehaviour
 
             if (Input.GetMouseButton(0))
             {
+                _cameraMovement.MoveCamera();
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 50, layerMask2))
                 {
@@ -201,7 +203,7 @@ namespace PlayerBehaviour
                         }
                     }
 
-                    _cameraMovement.MoveCamera();
+                   
                 }
                 /*   else
                    {

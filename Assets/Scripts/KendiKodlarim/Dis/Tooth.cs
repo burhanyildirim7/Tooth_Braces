@@ -158,12 +158,23 @@ public class Tooth : MonoBehaviour
 
     }
 
-    public void AnimasyonOynat()
+    public void AnimasyonOynat(int caseNumber)
     {
-        if (willWearDisYayi && PlayerPrefs.GetInt("level") == 0)
+        if(caseNumber == 0)
         {
-            disAnim.Play("DisAnim");
+            if (!willWearDisYayi && PlayerPrefs.GetInt("level") == 0)
+            {
+                disAnim.Play("DisAnim");
+            }
         }
+        else if(caseNumber == 1)
+        {
+            if (willWearDisYayi && PlayerPrefs.GetInt("level") == 0)
+            {
+                disAnim.Play("DisAnim");
+            }
+        }
+        
     }
 
     public void AnimasyonuDurdur()

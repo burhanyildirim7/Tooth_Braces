@@ -53,6 +53,15 @@ public class AsamaControl : MonoBehaviour
 
         if (disSayisi <= 0)
         {
+            GameObject[] obje = GameObject.FindGameObjectsWithTag("Tooth");
+            for (int i = 0; i < obje.Length; i++)
+            {
+                Tooth tooth = obje[i].GetComponent<Tooth>();
+                if (!tooth.willWearDisYayi)
+                {
+                    tooth.AnimasyonOynat(0);
+                }
+            }
             ActiveDentalBraces();
             disSayisi = 28;
             StartCoroutine(Beklet());
@@ -74,7 +83,7 @@ public class AsamaControl : MonoBehaviour
             GameObject[] obje = GameObject.FindGameObjectsWithTag("Tooth");
             for (int i = 0; i < obje.Length; i++)
             {
-                obje[i].GetComponent<Tooth>().AnimasyonOynat();
+                obje[i].GetComponent<Tooth>().AnimasyonOynat(1);
                 onBoardingController.PlayOnBoarding(4);
             }
         }
