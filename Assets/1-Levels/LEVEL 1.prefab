@@ -55946,18 +55946,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6948119497432251134}
     m_Modifications:
-    - target: {fileID: 2190353108801057184, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190353108801057184, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.308
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190353108801057184, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.202
-      objectReference: {fileID: 0}
     - target: {fileID: 4346781229612738190, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
       propertyPath: m_Name
       value: DisFircasi
@@ -55965,18 +55953,6 @@ PrefabInstance:
     - target: {fileID: 4346781229612738191, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4346781229612738191, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2550299
-      objectReference: {fileID: 0}
-    - target: {fileID: 4346781229612738191, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2550299
-      objectReference: {fileID: 0}
-    - target: {fileID: 4346781229612738191, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2550299
       objectReference: {fileID: 0}
     - target: {fileID: 4346781229612738191, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56018,14 +55994,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -12.868
       objectReference: {fileID: 0}
-    - target: {fileID: 5938549418138290916, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0892c98b926ec9140831407a6757c432, type: 2}
-    - target: {fileID: 7658337247199631027, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d88c15624c04add45a5adbe361e94225, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
 --- !u!1 &4596730181741981716 stripped
@@ -56048,18 +56016,6 @@ PrefabInstance:
     - target: {fileID: 3373143910545747345, guid: 03833567747fa7043bd7777380c8a3cf, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373143910545747345, guid: 03833567747fa7043bd7777380c8a3cf, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.20434594
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373143910545747345, guid: 03833567747fa7043bd7777380c8a3cf, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.17447272
-      objectReference: {fileID: 0}
-    - target: {fileID: 3373143910545747345, guid: 03833567747fa7043bd7777380c8a3cf, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.79671
       objectReference: {fileID: 0}
     - target: {fileID: 3373143910545747345, guid: 03833567747fa7043bd7777380c8a3cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56105,14 +56061,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterEmici
       objectReference: {fileID: 0}
-    - target: {fileID: 3706729889976476797, guid: 03833567747fa7043bd7777380c8a3cf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: eeccfc25bce42dc4db18c780a97bc04c, type: 2}
-    - target: {fileID: 4064202351634298805, guid: 03833567747fa7043bd7777380c8a3cf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: db015ddf71205804688ebd14aa8083a5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03833567747fa7043bd7777380c8a3cf, type: 3}
 --- !u!4 &4596730181882217123 stripped
@@ -56344,22 +56292,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6948119497432251134}
     m_Modifications:
-    - target: {fileID: 2572207263895892403, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3bb2180ad50c3624f88d81ceac387322, type: 2}
-    - target: {fileID: 3189892645802793879, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 98300e924342baf4f8c145698594dca1, type: 2}
-    - target: {fileID: 3285022498968012274, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 98300e924342baf4f8c145698594dca1, type: 2}
-    - target: {fileID: 4619455794849138417, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 98300e924342baf4f8c145698594dca1, type: 2}
     - target: {fileID: 7558626987927894121, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
       propertyPath: m_Name
       value: SuGonderen
