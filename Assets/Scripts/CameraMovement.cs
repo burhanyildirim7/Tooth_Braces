@@ -18,6 +18,7 @@ public class CameraMovement : MonoBehaviour
     [Range(0,1)]
     [SerializeField] private float kameraHassasiyet;
 
+
     private bool isMoving;
 
     void Start()
