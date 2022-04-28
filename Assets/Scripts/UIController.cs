@@ -68,7 +68,7 @@ public class UIController : MonoBehaviour
 
     IEnumerator Beklet()
     {
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.25f);
         onBoardingController.PlayOnBoarding(1);
     }
 

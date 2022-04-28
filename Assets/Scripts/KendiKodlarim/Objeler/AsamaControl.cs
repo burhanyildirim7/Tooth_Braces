@@ -9,7 +9,7 @@ public class AsamaControl : MonoBehaviour
 
     [Header("DisSayisi")]
     public int disSayisi;
-    private int disTeliSayisi;
+    public int disTeliSayisi;
 
     [Header("DisTeliHaraketi")]
     public bool isMoveDentalBraces;
@@ -55,8 +55,15 @@ public class AsamaControl : MonoBehaviour
         {
             ActiveDentalBraces();
             disSayisi = 28;
+            StartCoroutine(Beklet());
         }
         MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+    }
+
+    IEnumerator Beklet()
+    {
+        yield return new WaitForSeconds(.25f);
+        onBoardingController.PlayOnBoarding(5);
     }
 
     public void AddTel()

@@ -33,6 +33,7 @@ namespace PlayerBehaviour
         [Header("Controller")]
         private OnBoardingController onBoardingController;
         private CameraMovement _cameraMovement;
+        private AsamaControl _asamaControl;
 
         int layerMask1;
         int layerMask2;
@@ -57,6 +58,7 @@ namespace PlayerBehaviour
 
             onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
             _cameraMovement = GameObject.FindObjectOfType<CameraMovement>();
+            _asamaControl = GameObject.FindObjectOfType<AsamaControl>();
         }
 
         public void Touch()
@@ -68,7 +70,10 @@ namespace PlayerBehaviour
                 {
                     caseNumber = hit.transform.gameObject.GetComponent<ObjectNumber>().caseNumber;
 
-
+                    if(PlayerPrefs.GetInt("level") == 0 && _asamaControl.disTeliSayisi > 2 && caseNumber == 7)
+                    {
+                        caseNumber = 6;
+                    }
 
                     if (caseNumber == 2 || caseNumber == 4 || caseNumber == 8)
                     {
