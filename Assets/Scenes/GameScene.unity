@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6826d214a2b9d40ab90568c700cf2ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kameraHassasiyet: 0
+  kameraHassasiyet: 0.85
 --- !u!1 &1124119772
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +807,8 @@ Animation:
   - {fileID: 7400000, guid: a58ce6ffc97ab5b43a819d8fb7701529, type: 2}
   - {fileID: 7400000, guid: dbd69e76b08829541b29b89cfce023fb, type: 2}
   - {fileID: 7400000, guid: 782f9b1dcac64354cb1033aaad096ea7, type: 2}
+  - {fileID: 7400000, guid: becc73f417cf9cd46ac7f13d17f8d718, type: 2}
+  - {fileID: 7400000, guid: b73b6b607779e344d83c771b61af207d, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0

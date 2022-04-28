@@ -21,6 +21,7 @@ namespace DisYayi
 
         [Header("Controllerler")]
         private AsamaControl _asamaControl;
+        private OnBoardingController _onBoardingController;
 
         [Header("Efektler")]
         private ParticleSystem _disKirilmaEfekt;
@@ -41,6 +42,9 @@ namespace DisYayi
         {
             PlayerControl playerControl = GameObject.FindObjectOfType<PlayerControl>();
             _asamaControl = GameObject.FindObjectOfType<AsamaControl>();
+            _onBoardingController = GameObject.FindObjectOfType<OnBoardingController>();
+
+
             _disKirilmaEfekt = playerControl.disKirilmaEfekt;
             _disOnarmaEfekt = playerControl.disOnarmaEfekt;
 
@@ -175,13 +179,18 @@ namespace DisYayi
             }
 
 
-            if(isAddingDisYayi)
+            if (isAddingDisYayi)
             {
                 StartingPositionAndRotation2();
+                if (PlayerPrefs.GetInt("level") == 0)
+                {
+                    _onBoardingController.PlayOnBoarding(6);
+                }
             }
             else if (!isAddingDisYayi)
             {
                 StartingPositionAndRotation();
+                _onBoardingController.DeactiveOnBoarding();
             }
         }
 
