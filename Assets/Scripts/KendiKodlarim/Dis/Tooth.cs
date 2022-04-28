@@ -22,6 +22,8 @@ public class Tooth : MonoBehaviour
     [Header("DuzeltimeAyarlari")]
     public bool willFix;
     public bool willWearDisYayi;
+    public bool disTeliGiyiyorMu;
+    public bool willPlayAnim;
 
     [Header("AnimasyonAyarlari")]
     private Animation disAnim;
@@ -120,7 +122,7 @@ public class Tooth : MonoBehaviour
             }
             mat.SetFloat("_FlakeColorVariationAmount", baslangicRenk);
         }
-        else if (other.CompareTag("Water") && baslangicRenk <= .69f && baslangicRenk >= .1f)
+        else if (other.CompareTag("Water") && baslangicRenk <= .7f && baslangicRenk >= .1f)
         {
             MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
             baslangicRenk = 0;
@@ -162,14 +164,14 @@ public class Tooth : MonoBehaviour
     {
         if(caseNumber == 0)
         {
-            if (!willWearDisYayi && PlayerPrefs.GetInt("level") == 0)
+            if (!willWearDisYayi && !willFix)
             {
                 disAnim.Play("DisAnim");
             }
         }
         else if(caseNumber == 1)
         {
-            if (willWearDisYayi && PlayerPrefs.GetInt("level") == 0)
+            if (willWearDisYayi && willPlayAnim)
             {
                 disAnim.Play("DisAnim");
             }

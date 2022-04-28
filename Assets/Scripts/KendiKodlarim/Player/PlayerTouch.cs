@@ -190,7 +190,6 @@ namespace PlayerBehaviour
                                 asama2._touchPosition = hit.point;
                                 asama2._hit = hit;
                                 asama2.MoveWater();
-                                asama3.IncreaseWaterAmount();
                                 break;
                             case 4:
                                 asama4._hit = hit;
@@ -249,6 +248,11 @@ namespace PlayerBehaviour
                     asama6.Deactive();
                     break;
                 case 7:
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    if (Physics.Raycast(ray, out hit, 50, layerMask2))
+                    {
+                        asama7._hit = hit;
+                    }
                     asama7.DeactiveDisYayi();
                     break;
                 case 8:

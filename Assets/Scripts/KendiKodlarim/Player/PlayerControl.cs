@@ -50,6 +50,14 @@ public class PlayerControl : MonoBehaviour
     {
         playerTouch = new PlayerTouch();
         Application.targetFrameRate = 60;
+
+        StartCoroutine(Bekle());
+    }
+
+    IEnumerator Bekle()
+    {
+        yield return new WaitForSeconds(.1f);
+       
     }
 
     // Update is called once per frame

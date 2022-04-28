@@ -1132,6 +1132,7 @@ MonoBehaviour:
   - {fileID: 5658175073091152606}
   disSayisi: 0
   disTeliSayisi: 0
+  disYayiSayisi: 2
   isMoveDentalBraces: 0
   isMoveTooth: 0
 --- !u!1 &444068522381354936
@@ -19402,7 +19403,6 @@ Transform:
   - {fileID: 7357740716140510996}
   - {fileID: 181466560311618605}
   - {fileID: 8090436097755922223}
-  - {fileID: 1582608326223843356}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25082,6 +25082,8 @@ MonoBehaviour:
   hedefPos: {x: -0.00826663, y: 0.001883794, z: -0.0003969699}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277006240240259
 GameObject:
@@ -25149,6 +25151,8 @@ MonoBehaviour:
   hedefPos: {x: -0.005748643, y: 0.009002133, z: -0.001846092}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277006301474051
 GameObject:
@@ -25216,6 +25220,8 @@ MonoBehaviour:
   hedefPos: {x: 0.005615345, y: 0.0105871, z: 0.002974572}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277006329480224
 GameObject:
@@ -25283,6 +25289,8 @@ MonoBehaviour:
   hedefPos: {x: -0.005635631, y: 0.0106234, z: 0.00300523}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277006363665565
 GameObject:
@@ -25350,6 +25358,8 @@ MonoBehaviour:
   hedefPos: {x: -0.007198374, y: 0.005917403, z: 0.001348166}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277006443600934
 GameObject:
@@ -25417,6 +25427,8 @@ MonoBehaviour:
   hedefPos: {x: 0.008131665, y: 0.001697624, z: 0.00006434658}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277006468332525
 GameObject:
@@ -25484,6 +25496,8 @@ MonoBehaviour:
   hedefPos: {x: -0.004615858, y: 0.01115082, z: -0.002869223}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277006476536881
 GameObject:
@@ -25551,6 +25565,8 @@ MonoBehaviour:
   hedefPos: {x: 0.008032584, y: 0.003738718, z: 0.000761868}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277006550443125
 GameObject:
@@ -25618,6 +25634,8 @@ MonoBehaviour:
   hedefPos: {x: 0.01110548, y: 0.01234038, z: -0.003000138}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277006606285383
 GameObject:
@@ -25685,6 +25703,8 @@ MonoBehaviour:
   hedefPos: {x: -0.007029833, y: 0.006384203, z: -0.001341052}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277006653969845
 GameObject:
@@ -25752,6 +25772,8 @@ MonoBehaviour:
   hedefPos: {x: 0.006731666, y: 0.006752743, z: -0.001499749}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277006711451607
 GameObject:
@@ -25819,6 +25841,8 @@ MonoBehaviour:
   hedefPos: {x: -0.00789018, y: 0.003648263, z: 0.0006785353}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277006738115724
 GameObject:
@@ -25886,6 +25910,8 @@ MonoBehaviour:
   hedefPos: {x: -0.001100329, y: 0.01315392, z: -0.003281708}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277006846122833
 GameObject:
@@ -25952,7 +25978,9 @@ MonoBehaviour:
   hedefRot: {x: 77, y: 0, z: 0}
   hedefPos: {x: 0.004598812, y: 0.01124421, z: -0.002730309}
   willFix: 0
-  willWearDisYayi: 0
+  willWearDisYayi: 1
+  disTeliGiyiyorMu: 1
+  willPlayAnim: 1
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277006877579257
 GameObject:
@@ -26020,6 +26048,8 @@ MonoBehaviour:
   hedefPos: {x: -0.003846784, y: 0.01245056, z: 0.003506337}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277006909663387
 GameObject:
@@ -26087,6 +26117,8 @@ MonoBehaviour:
   hedefPos: {x: 0.007351849, y: 0.004222081, z: -0.000994645}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277007034936496
 GameObject:
@@ -26153,7 +26185,9 @@ MonoBehaviour:
   hedefRot: {x: 77, y: 0, z: 0}
   hedefPos: {x: 0.002886364, y: 0.01238925, z: -0.003017057}
   willFix: 0
-  willWearDisYayi: 0
+  willWearDisYayi: 1
+  disTeliGiyiyorMu: 1
+  willPlayAnim: 1
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277007189319300
 GameObject:
@@ -26220,7 +26254,9 @@ MonoBehaviour:
   hedefRot: {x: -72, y: 0, z: 0}
   hedefPos: {x: -0.00154, y: 0.01357, z: 0.00373}
   willFix: 0
-  willWearDisYayi: 1
+  willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277007305274385
 GameObject:
@@ -26288,6 +26324,8 @@ MonoBehaviour:
   hedefPos: {x: 0.005828875, y: 0.008950333, z: -0.002027267}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277007463906033
 GameObject:
@@ -26355,6 +26393,8 @@ MonoBehaviour:
   hedefPos: {x: -0.006396934, y: 0.008129313, z: 0.001784419}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277007468971703
 GameObject:
@@ -26422,6 +26462,8 @@ MonoBehaviour:
   hedefPos: {x: -0.007698264, y: 0.004035797, z: -0.000971269}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277007481733238
 GameObject:
@@ -26488,7 +26530,9 @@ MonoBehaviour:
   hedefRot: {x: -72, y: 0, z: 0}
   hedefPos: {x: 0.00132, y: 0.01368, z: 0.00375}
   willFix: 0
-  willWearDisYayi: 1
+  willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277007492552306
 GameObject:
@@ -26556,6 +26600,8 @@ MonoBehaviour:
   hedefPos: {x: 0.008438759, y: 0.001868407, z: -0.0005218806}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277007626721196
 GameObject:
@@ -26623,6 +26669,8 @@ MonoBehaviour:
   hedefPos: {x: -0.008489549, y: 0.001800718, z: 0.0003141443}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277007638304663
 GameObject:
@@ -26690,6 +26738,8 @@ MonoBehaviour:
   hedefPos: {x: 0.001129805, y: 0.01315537, z: -0.003282211}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: AltKopma
 --- !u!1 &5785277007699450026
 GameObject:
@@ -26757,6 +26807,8 @@ MonoBehaviour:
   hedefPos: {x: 0.006425026, y: 0.00815481, z: 0.001947169}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277007875941856
 GameObject:
@@ -26824,6 +26876,8 @@ MonoBehaviour:
   hedefPos: {x: 0.00720125, y: 0.005903072, z: 0.001503057}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5785277007907718014
 GameObject:
@@ -26891,6 +26945,8 @@ MonoBehaviour:
   hedefPos: {x: 0.003843931, y: 0.01254193, z: 0.003360128}
   willFix: 0
   willWearDisYayi: 0
+  disTeliGiyiyorMu: 0
+  willPlayAnim: 0
   kopmaAnimasyonIsmi: UstKopma
 --- !u!1 &5816008568450482924
 GameObject:
@@ -56218,68 +56274,6 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 481176096498703855, guid: 7d3279cab1156e1409c8e59ab96914ed, type: 3}
   m_PrefabInstance: {fileID: 2773142463106910791}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2914059612659699532
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8344321388337251455}
-    m_Modifications:
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.2408624
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433332194991218519, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-      propertyPath: m_Name
-      value: Clinic
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
---- !u!4 &1582608326223843356 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4433332194991218512, guid: b2cfd69a7c03358408e2938ac543bf16, type: 3}
-  m_PrefabInstance: {fileID: 2914059612659699532}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3216695626805384403
 PrefabInstance:

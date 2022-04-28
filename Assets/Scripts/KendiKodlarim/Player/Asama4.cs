@@ -68,7 +68,7 @@ namespace DisYapiskan
         {
             if (hitCollider.transform.GetChild(0).transform.gameObject.activeSelf && hitCollider.transform.GetChild(0).transform.localScale.y * 1000 <= 1)
             {
-                hitCollider.transform.GetChild(0).transform.localScale += Vector3.one * .00008f;
+                hitCollider.transform.GetChild(0).transform.localScale += Vector3.one * .00009f;
             }
             else
             {

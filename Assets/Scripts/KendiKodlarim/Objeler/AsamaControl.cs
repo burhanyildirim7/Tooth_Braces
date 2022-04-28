@@ -10,6 +10,7 @@ public class AsamaControl : MonoBehaviour
     [Header("DisSayisi")]
     public int disSayisi;
     public int disTeliSayisi;
+    public int disYayiSayisi;
 
     [Header("DisTeliHaraketi")]
     public bool isMoveDentalBraces;
@@ -78,7 +79,7 @@ public class AsamaControl : MonoBehaviour
     public void AddTel()
     {
         disTeliSayisi--;
-        if (disTeliSayisi <= 2 && PlayerPrefs.GetInt("level") == 0)
+        if (disTeliSayisi <= disYayiSayisi)
         {
             GameObject[] obje = GameObject.FindGameObjectsWithTag("Tooth");
             for (int i = 0; i < obje.Length; i++)
@@ -90,11 +91,8 @@ public class AsamaControl : MonoBehaviour
 
         if (disTeliSayisi <= 0)
         {
-
             StartCoroutine(MoveDentalBraces());
             onBoardingController.DeactiveOnBoarding();
-
-
         }
         MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
     }

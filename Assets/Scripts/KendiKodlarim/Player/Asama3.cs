@@ -46,7 +46,7 @@ namespace DisSuCekme
                 _waterSender.transform.position = Vector3.right * 1 + Vector3.up * -.5f + Vector3.forward * -2;
                 ReduceWaterAmount();
 
-                if(!suAlinmayaBaslandiMi)
+                if (!suAlinmayaBaslandiMi)
                 {
                     suAlinmayaBaslandiMi = true;
                     MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
@@ -74,7 +74,7 @@ namespace DisSuCekme
 
         public void ReduceWaterAmount()
         {
-            _amountWater -= Time.deltaTime * .3f;
+            _amountWater -= Time.deltaTime * .4f;
 
             if (_amountWater <= .2f && _water.activeSelf)
             {
@@ -92,7 +92,7 @@ namespace DisSuCekme
 
         public void IncreaseWaterAmount()
         {
-            _amountWater += Time.deltaTime * .15f;
+            _amountWater += Time.deltaTime * .5f;
 
             if (_amountWater >= 1)
             {

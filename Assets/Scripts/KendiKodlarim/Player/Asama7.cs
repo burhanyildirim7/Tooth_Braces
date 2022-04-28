@@ -31,6 +31,10 @@ namespace DisYayi
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
 
+
+        private Tooth _tooth;
+
+
         private string ilkIsim;
         private string ikinciIsim;
 
@@ -63,7 +67,6 @@ namespace DisYayi
         {
             if (!isAddingDisYayi)
             {
-
                 ins_disYayi = Instantiate(_disYayiOrnek, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
 
                 _disYayim = ins_disYayi.GetComponent<DisYayim>();
@@ -91,10 +94,21 @@ namespace DisYayi
 
         public void DeactiveDisYayi()
         {
-            if (_hit.transform.gameObject.tag == "Tooth" && !_hit.transform.GetChild(2).transform.gameObject.activeSelf)
+            if(_hit.transform.gameObject == null)
             {
-                Tooth tooth = _hit.transform.GetComponent<Tooth>();
+                Debug.Log("A");
+            }
 
+            if (_hit.transform.gameObject.tag == "Tooth")
+            {
+                _tooth = _hit.transform.GetComponent<Tooth>();
+            }
+
+
+
+
+            if (_hit.transform.gameObject.tag == "Tooth" && !_hit.transform.GetChild(2).transform.gameObject.activeSelf && _tooth.willWearDisYayi)
+            {
                 if (isFirstDisYayi)
                 {
                     CreateDisYayi();
@@ -103,13 +117,13 @@ namespace DisYayi
                     obje.transform.localPosition = Vector3.zero + Vector3.up * .25f;
                     _ilkDis = _hit.transform.gameObject;  //ilk disi bulur
 
-                    tooth.AnimasyonuDurdur();
+                    _tooth.AnimasyonuDurdur();
                     ilkIsim = _hit.transform.parent.transform.gameObject.name;
 
                     isAddingDisYayi = true;
                     isFirstDisYayi = false;
-                    tooth.willFix = true;
-                    tooth.willWearDisYayi = false;
+                    _tooth.willFix = true;
+                    _tooth.willWearDisYayi = false;
                     _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
 
                     MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
@@ -121,12 +135,13 @@ namespace DisYayi
                     obje.transform.localPosition = Vector3.zero + Vector3.up * .25f;
                     _ikinciDis = _hit.transform.gameObject;  //ikinci disi bulur
 
-                    tooth.AnimasyonuDurdur();
+                    _tooth.AnimasyonuDurdur();
 
                     isAddingDisYayi = false;
                     ins_disYayi = null;
 
-                    _hit.transform.GetComponent<Tooth>().willFix = true;
+                    _tooth.willFix = true;
+                    _tooth.willWearDisYayi = false;
 
                     _asamaControl.ReduceTelSayisi(2);
                     _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
@@ -162,10 +177,11 @@ namespace DisYayi
                 else //Ayni dise dis teli takmaya calisirken girilir
                 {
                     Destroy(ins_disYayi);
+                    ins_disYayi = null;
                     isFirstDisYayi = true;
                     isAddingDisYayi = false;
-                    tooth.willWearDisYayi = true;
-                    tooth.willFix = false;
+                    _tooth.willWearDisYayi = true;
+                    _tooth.willFix = false;
 
                     _ilkDis = null; //Bosa cikarmak icin kullanilir
                     _ikinciDis = null;
@@ -175,7 +191,15 @@ namespace DisYayi
             else //Dis teli takilamayacak olan objeye takmaya calisirken olur
             {
                 Destroy(ins_disYayi);
+                ins_disYayi = null;
+                isFirstDisYayi = true;
                 isAddingDisYayi = false;
+
+                if(_tooth != null)
+                {
+                    _tooth.willFix = false;
+                    _tooth.willWearDisYayi = true;
+                }
             }
 
 
