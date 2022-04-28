@@ -74,7 +74,7 @@ namespace DisSuCekme
 
         public void ReduceWaterAmount()
         {
-            _amountWater -= Time.deltaTime * .4f;
+            _amountWater -= Time.deltaTime * 1.5f;
 
             if (_amountWater <= .2f && _water.activeSelf)
             {
