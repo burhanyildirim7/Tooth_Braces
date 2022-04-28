@@ -96,7 +96,7 @@ namespace DisYayi
                     CreateDisYayi();
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
-                    obje.transform.localPosition = Vector3.zero;
+                    obje.transform.localPosition = Vector3.zero + Vector3.up * .25f;
                     _ilkDis = _hit.transform.gameObject;  //ilk disi bulur
 
                     tooth.AnimasyonuDurdur();
@@ -114,7 +114,7 @@ namespace DisYayi
                 {
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
-                    obje.transform.localPosition = Vector3.zero;
+                    obje.transform.localPosition = Vector3.zero + Vector3.up * .25f;
                     _ikinciDis = _hit.transform.gameObject;  //ikinci disi bulur
 
                     tooth.AnimasyonuDurdur();
@@ -174,7 +174,15 @@ namespace DisYayi
                 isAddingDisYayi = false;
             }
 
-            StartingPositionAndRotation();
+
+            if(isAddingDisYayi)
+            {
+                StartingPositionAndRotation2();
+            }
+            else if (!isAddingDisYayi)
+            {
+                StartingPositionAndRotation();
+            }
         }
 
         void StartingPositionAndRotation()
@@ -182,6 +190,15 @@ namespace DisYayi
             while (Vector3.Distance(_disYayi.transform.position, _startingPosition) >= .1f)
             {
                 _disYayi.transform.position = Vector3.Lerp(_disYayi.transform.position, _startingPosition, Time.deltaTime * 15);
+                _disYayi.transform.rotation = Quaternion.Slerp(_disYayi.transform.rotation, _startingRotation, Time.deltaTime * 500);
+            }
+        }
+
+        void StartingPositionAndRotation2()
+        {
+            while (Vector3.Distance(_disYayi.transform.position, _startingPosition + Vector3.up * .35f) >= .1f)
+            {
+                _disYayi.transform.position = Vector3.Lerp(_disYayi.transform.position, _startingPosition + Vector3.up * .35f, Time.deltaTime * 15);
                 _disYayi.transform.rotation = Quaternion.Slerp(_disYayi.transform.rotation, _startingRotation, Time.deltaTime * 500);
             }
         }
