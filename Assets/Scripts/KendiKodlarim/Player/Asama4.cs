@@ -67,6 +67,7 @@ namespace DisYapiskan
         {
             if (ornekTabaktakiObje == null)
             {
+                _sticky.transform.localScale = _startingLocalScale * 1.2f;
                 ornekTabaktakiObje = Instantiate(_sticky, _startingPosition, _startingRotation);
                 _outline = ornekTabaktakiObje.GetComponent<Outline>();
             }
@@ -112,9 +113,12 @@ namespace DisYapiskan
         {
             while (Vector3.Distance(_sticky.transform.position, _startingPosition) >= .1f)
             {
+                _sticky.transform.localScale = _startingLocalScale;
                 _sticky.transform.position = Vector3.Lerp(_sticky.transform.position, _startingPosition, Time.deltaTime * 15);
                 _sticky.transform.rotation = Quaternion.Slerp(_sticky.transform.rotation, _startingRotation, Time.deltaTime * 500);
             }
+                
+      
         }
     }
 }

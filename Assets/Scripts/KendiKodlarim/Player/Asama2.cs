@@ -93,6 +93,7 @@ namespace DisSulama
         {
             if (ornekTabaktakiObje == null)
             {
+                _waterObj.transform.localScale = _startingLocalScale * 1.2f;
                 ornekTabaktakiObje = Instantiate(_waterObj, _startingPosition, _startingRotation);
                 _outline = ornekTabaktakiObje.GetComponent<Outline>();
             }
@@ -163,6 +164,7 @@ namespace DisSulama
             {
                 _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _startingPosition, Time.deltaTime * 15);
                 _waterObj.transform.rotation = Quaternion.Slerp(_waterObj.transform.rotation, _startingRotation, Time.deltaTime * 500);
+                _waterObj.transform.localScale = _startingLocalScale;
             }
         }
     }

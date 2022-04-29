@@ -104,7 +104,7 @@ namespace DisYayi
 
                 _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
 
-              //  _tooth.willFix = true;
+                //  _tooth.willFix = true;
                 _tooth.willWearDisYayi = false;
 
                 GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
@@ -127,13 +127,14 @@ namespace DisYayi
 
         public void MoveDisYayi()
         {
-           
+
             if (!isAddingDisYayi)
             {
-                if(_disYayiEklenebilir)
+                if (_disYayiEklenebilir)
                 {
                     if (ornekTabaktakiObje == null)
                     {
+                        _disYayi.transform.localScale =  _startingLocalScale * 1.2f;
                         ornekTabaktakiObje = Instantiate(_disYayi, _startingPosition, _startingRotation);
                         _outline = ornekTabaktakiObje.GetComponent<Outline>();
                     }
@@ -147,7 +148,7 @@ namespace DisYayi
                         _outline.UpdateMaterialProperties();
                     }
                 }
-               
+
 
 
                 if (_disYayiEklenebilir)
@@ -159,7 +160,7 @@ namespace DisYayi
                 {
                     StartingPositionAndRotation();
                 }
-                
+
 
 
                 for (int i = 0; i < _disYayiTakilacakDisler.Count; i++)
@@ -188,7 +189,7 @@ namespace DisYayi
                     }
                 }
 
-                if(Vector3.Distance(_disYayi.transform.position , _startingPosition) >= 1)
+                if (Vector3.Distance(_disYayi.transform.position, _startingPosition) >= 1)
                 {
                     StartingPositionAndRotation();
                 }
@@ -224,7 +225,7 @@ namespace DisYayi
                     isAddingDisYayi = false;
                     ins_disYayi = null;
 
-                   // _tooth.willFix = true;
+                    // _tooth.willFix = true;
                     _tooth.willWearDisYayi = false;
 
                     _asamaControl.ReduceTelSayisi(2);
@@ -265,7 +266,7 @@ namespace DisYayi
                     isFirstDisYayi = true;
                     isAddingDisYayi = false;
                     _tooth.willWearDisYayi = true;
-                   // _tooth.willFix = false;
+                    // _tooth.willFix = false;
 
                     _ilkDis = null; //Bosa cikarmak icin kullanilir
                     _ikinciDis = null;
@@ -283,7 +284,7 @@ namespace DisYayi
 
                 if (_tooth != null)
                 {
-                   // _tooth.willFix = false;
+                    // _tooth.willFix = false;
                     _tooth.willWearDisYayi = true;
                 }
                 _disYayiTakilacakDisler.Add(_oncekiTakilanDis);
@@ -308,9 +309,11 @@ namespace DisYayi
         {
             while (Vector3.Distance(_disYayi.transform.position, _startingPosition) >= .1f)
             {
+                _disYayi.transform.localScale = _startingLocalScale;
                 _disYayi.transform.position = Vector3.Lerp(_disYayi.transform.position, _startingPosition, Time.deltaTime * 15);
                 _disYayi.transform.rotation = Quaternion.Slerp(_disYayi.transform.rotation, _startingRotation, Time.deltaTime * 500);
             }
+   
         }
 
         void StartingPositionAndRotation2()

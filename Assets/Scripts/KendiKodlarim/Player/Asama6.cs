@@ -46,6 +46,7 @@ namespace DisTelim
         {
             if (ornekTabaktakiObje == null)
             {
+                _disTeli.transform.localScale = _startingLocalScale * 1.2f;
                 ornekTabaktakiObje = Instantiate(_disTeli, _startingPosition, _startingRotation);
                 _outline = ornekTabaktakiObje.GetComponent<Outline>();
             }
@@ -91,9 +92,13 @@ namespace DisTelim
         {
             while (Vector3.Distance(_disTeli.transform.position, _startingPosition) >= .1f)
             {
+                _disTeli.transform.localScale = _startingLocalScale;
                 _disTeli.transform.position = Vector3.Lerp(_disTeli.transform.position, _startingPosition, Time.deltaTime * 15);
                 _disTeli.transform.rotation = Quaternion.Slerp(_disTeli.transform.rotation, _startingRotation, Time.deltaTime * 500);
+
             }
+               
+         
         }
     }
 }

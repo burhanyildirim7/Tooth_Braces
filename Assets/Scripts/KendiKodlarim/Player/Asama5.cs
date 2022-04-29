@@ -39,6 +39,7 @@ namespace DisBraket
         {
             if (ornekTabaktakiObje == null)
             {
+                _braket.transform.localScale = _startingLocalScale * 1.2f;
                 ornekTabaktakiObje = Instantiate(_braket, _startingPosition, _startingRotation);
                 _outline = ornekTabaktakiObje.GetComponent<Outline>();
             }
@@ -81,8 +82,13 @@ namespace DisBraket
 
         void StartingPositionAndRotation()
         {
-            _braket.transform.position = _startingPosition;
-            _braket.transform.rotation = _startingRotation;
+            while (Vector3.Distance(_braket.transform.position, _startingPosition) >= .1f)
+            {
+                _braket.transform.localScale = _startingLocalScale;
+                _braket.transform.position = _startingPosition;
+                _braket.transform.rotation = _startingRotation;
+            }
+                
         }
     }
 

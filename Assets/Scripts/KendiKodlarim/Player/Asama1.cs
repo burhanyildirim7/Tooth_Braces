@@ -106,6 +106,7 @@ namespace DisFircasi
         {
             if (ornekTabaktakiObje == null)
             {
+                _disFircasi.transform.localScale = _startingLocalScale * 1.2f;
                 ornekTabaktakiObje = Instantiate(_disFircasi, _startingPosition, _startingRotation);
                 _outline = ornekTabaktakiObje.GetComponent<Outline>();
             }
@@ -150,6 +151,7 @@ namespace DisFircasi
 
         void StartingPositionAndRotation()
         {
+            _disFircasi.transform.localScale = _startingLocalScale;
             _disFircasi.transform.position = _startingPosition;
             _disFircasi.transform.rotation = _startingRotation;
         }

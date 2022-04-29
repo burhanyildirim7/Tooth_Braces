@@ -70,6 +70,7 @@ namespace DisSuCekme
         {
             if (ornekTabaktakiObje == null)
             {
+                _waterSender.transform.localScale = _startingLocalScale * 1.2f;
                 ornekTabaktakiObje = Instantiate(_waterSender, _startingPosition, _startingRotation);
                 _outline = ornekTabaktakiObje.GetComponent<Outline>();
             }
@@ -152,9 +153,13 @@ namespace DisSuCekme
         {
             while (Vector3.Distance(_waterSender.transform.position, _startingPosition) >= .1f)
             {
+
+                _waterSender.transform.localScale = _startingLocalScale;
                 _waterSender.transform.position = Vector3.Lerp(_waterSender.transform.position, _startingPosition, Time.deltaTime * 15);
                 _waterSender.transform.rotation = Quaternion.Slerp(_waterSender.transform.rotation, _startingRotation, Time.deltaTime * 500);
             }
+
+    
         }
     }
 }
