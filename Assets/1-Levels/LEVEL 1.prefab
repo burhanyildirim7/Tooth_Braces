@@ -21890,7 +21890,9 @@ MonoBehaviour:
   telOlusmaEfekt: {fileID: 7531506628467455842, guid: 59106d92b8c644f49bab51c9220dc101, type: 3}
   disYayiOrnek: {fileID: 1484873302852575308, guid: 135e2918baa3b244e97acd5fc6aa9fa9, type: 3}
   disYayi: {fileID: 7143981099081672939}
-  disKerpeten: {fileID: 5619166238666199603}
+  disYayiTakilacakDisler:
+  - {fileID: 5785277007481733238}
+  - {fileID: 5785277007189319300}
   disKirilmaEfekt: {fileID: 8776986907541888209}
   disOnarmaEfekt: {fileID: 7265993881117842304}
 --- !u!1 &4596730181808151032
@@ -24714,7 +24716,6 @@ Transform:
   m_Children:
   - {fileID: 1191435895105646229}
   - {fileID: 7194813497139209842}
-  - {fileID: 5645087492850271604}
   m_Father: {fileID: 8344321388337251455}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26350,7 +26351,7 @@ MonoBehaviour:
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
   hedefPos: {x: -0.00154, y: 0.01357, z: 0.00373}
-  willFix: 0
+  willFix: 1
   willWearDisYayi: 1
   disTeliGiyiyorMu: 1
   willPlayAnim: 1
@@ -26626,7 +26627,7 @@ MonoBehaviour:
   baslangicRenk: 0.9
   hedefRot: {x: -72, y: 0, z: 0}
   hedefPos: {x: 0.00132, y: 0.01368, z: 0.00375}
-  willFix: 0
+  willFix: 1
   willWearDisYayi: 1
   disTeliGiyiyorMu: 1
   willPlayAnim: 1
@@ -56142,7 +56143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 910184374626477802, guid: e35ff858641b0694ab1154bc481c889f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.01
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 910184374626477802, guid: e35ff858641b0694ab1154bc481c889f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -56493,7 +56494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 455113324590519158, guid: 7d3279cab1156e1409c8e59ab96914ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.38
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 455113324590519158, guid: 7d3279cab1156e1409c8e59ab96914ed, type: 3}
       propertyPath: m_LocalPosition.y
@@ -56546,71 +56547,4 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 455113324590519158, guid: 7d3279cab1156e1409c8e59ab96914ed, type: 3}
   m_PrefabInstance: {fileID: 7316660449303917828}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &8276582774143938499
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 6181634526579894022}
-    m_Modifications:
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.226
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5.754
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.863
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.70336
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.07269578
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.07269577
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.70336
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -11.802
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4550638670417657328, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-      propertyPath: m_Name
-      value: DisTeliSokucu
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
---- !u!1 &5619166238666199603 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4550638670417657328, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-  m_PrefabInstance: {fileID: 8276582774143938499}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5645087492850271604 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4362638959623285431, guid: b36f5c3be26eb7c409e7c1fc584cf3c6, type: 3}
-  m_PrefabInstance: {fileID: 8276582774143938499}
   m_PrefabAsset: {fileID: 0}

@@ -44,7 +44,6 @@ public class Tooth : MonoBehaviour
         disAnim = transform.parent.transform.gameObject.GetComponent<Animation>();
 
         isMove = false;
-        willFix = false;
 
         StartCoroutine(StageController1());
         StartCoroutine(MoveControl());
@@ -98,11 +97,14 @@ public class Tooth : MonoBehaviour
     IEnumerator SmoothlyMove()
     {
         Transform parentTransform = transform.parent;
-        while (willFix && Vector3.Distance(parentTransform.localPosition, hedefPos) <= .01f)
+        if (willFix)
         {
-            parentTransform.localPosition = Vector3.Lerp(parentTransform.localPosition, hedefPos, Time.deltaTime * 7);
-            parentTransform.localRotation = Quaternion.Slerp(parentTransform.localRotation, Quaternion.Euler(hedefRot), Time.deltaTime * 1);
-            yield return null;
+            while (Vector3.Distance(parentTransform.localPosition, hedefPos) <= .01f)
+            {
+                parentTransform.localPosition = Vector3.Lerp(parentTransform.localPosition, hedefPos, Time.deltaTime * 7);
+                parentTransform.localRotation = Quaternion.Slerp(parentTransform.localRotation, Quaternion.Euler(hedefRot), Time.deltaTime * 1);
+                yield return null;
+            }
         }
     }
 
@@ -141,7 +143,7 @@ public class Tooth : MonoBehaviour
         willFix = false;
         while (!haraketEttiMi)
         {
-            if(asamaControl.isMoveTooth)
+            if (asamaControl.isMoveTooth)
             {
                 disAnim.Play(kopmaAnimasyonIsmi);
                 yield return new WaitForSeconds(.45f);
@@ -153,30 +155,30 @@ public class Tooth : MonoBehaviour
 
                 haraketEttiMi = true;
             }
-            
+
             yield return new WaitForSeconds(.1f);
         }
-        
+
 
     }
 
     public void AnimasyonOynat(int caseNumber)
     {
-        if(caseNumber == 0)
+        if (caseNumber == 0)
         {
             if (!willWearDisYayi && !willFix)
             {
                 disAnim.Play("DisAnim");
             }
         }
-        else if(caseNumber == 1)
+        else if (caseNumber == 1)
         {
             if (willWearDisYayi && willPlayAnim)
             {
                 disAnim.Play("DisAnim");
             }
         }
-        
+
     }
 
     public void AnimasyonuDurdur()

@@ -15,7 +15,7 @@ public class CameraMovement : MonoBehaviour
     private Vector3 parentPos;
     private Transform transformParent;
 
-    [Range(0,1)]
+    [Range(0, 2)]
     [SerializeField] private float kameraHassasiyet;
 
 
@@ -40,8 +40,8 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveCamera()
     {
-        transformParent.DOMove(parentPos + Vector3.right * (Input.mousePosition.x - Screen.width / 2) * .008f * kameraHassasiyet, 1.25f);
-        transformParent.DORotateQuaternion(Quaternion.Euler(Vector3.up * (Input.mousePosition.x - Screen.width / 2) * -.04f * kameraHassasiyet), 1.25f);
+        transformParent.DOMove(parentPos + Vector3.right * (Input.mousePosition.x - Screen.width / 2) * .008f * kameraHassasiyet + Vector3.forward * Mathf.Abs(Input.mousePosition.x - Screen.width / 2) * .006f * kameraHassasiyet, 1.25f);
+        transformParent.DORotateQuaternion(Quaternion.Euler(Vector3.up * (Input.mousePosition.x - Screen.width / 2) * -.06f * kameraHassasiyet), 1.25f);
         isMoving = true;
     }
 

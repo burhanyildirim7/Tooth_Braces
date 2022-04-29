@@ -8,7 +8,6 @@ using DisYapiskan;
 using DisBraket;
 using DisYayi;
 using DisTelim;
-using DisKerpeten;
 
 namespace PlayerBehaviour
 {
@@ -25,7 +24,6 @@ namespace PlayerBehaviour
         public Asama5 asama5;
         public Asama6 asama6;
         public Asama7 asama7;
-        public Asama8 asama8;
 
         [Header("Durumlar")]
         public int caseNumber;
@@ -49,7 +47,6 @@ namespace PlayerBehaviour
             asama5 = new Asama5();
             asama6 = new Asama6();
             asama7 = new Asama7();
-            asama8 = new Asama8();
 
             layerMask1 = 1 << 4 | 1 << 2;
             layerMask2 = 1 << 4 | 1 << 7 | 1 << 2 | 1 << 9;
@@ -85,6 +82,11 @@ namespace PlayerBehaviour
                     {
                         layerMask2 = 1 << 4 | 1 << 7 | 1 << 2 | 1 << 9;
                         layerMask2 = ~layerMask2;
+                    }
+
+                    if(caseNumber == 7)
+                    {
+                        asama7._disYayiEklenebilir = true;
                     }
 
                     onBoardingController.DeactiveOnBoarding();
@@ -136,11 +138,6 @@ namespace PlayerBehaviour
                                 asama7._hit = hit;
                                 asama7.MoveDisYayi();
                                 break;
-                            case 8:
-                                asama8._hit = hit;
-                                asama8.MoveDisKerpeten();
-                                asama8.DestroyDisTeli();
-                                break;
                         }
                     }
                     else if (hit.transform.CompareTag("Raycast"))
@@ -176,10 +173,6 @@ namespace PlayerBehaviour
                                 asama7._hit = hit;
                                 asama7.MoveDisYayi();
                                 break;
-                            case 8:
-                                asama8._hit = hit;
-                                asama8.MoveDisKerpeten();
-                                break;
                         }
                     }
                     else if (hit.transform.CompareTag("UzakLayer"))
@@ -194,10 +187,6 @@ namespace PlayerBehaviour
                             case 4:
                                 asama4._hit = hit;
                                 asama4.MoveSticky();
-                                break;
-                            case 8:
-                                asama8._hit = hit;
-                                asama8.MoveDisKerpeten();
                                 break;
                         }
                     }
@@ -254,9 +243,6 @@ namespace PlayerBehaviour
                         asama7._hit = hit;
                     }
                     asama7.DeactiveDisYayi();
-                    break;
-                case 8:
-                    asama8.Deactive();
                     break;
             }
         }

@@ -36,9 +36,7 @@ public class PlayerControl : MonoBehaviour
     [Header("Asama7")]
     public GameObject disYayiOrnek;
     public GameObject disYayi;
-
-    [Header("Asama8")]
-    public GameObject disKerpeten;
+    public List<GameObject> disYayiTakilacakDisler = new List<GameObject>();
 
     [Header("Efektler")]
     public ParticleSystem disKirilmaEfekt;

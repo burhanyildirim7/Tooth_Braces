@@ -22,7 +22,18 @@ public class OnBoardingController : MonoBehaviour
             panel.SetActive(true);
             anim.Play("Asama" + sayi.ToString());
             PlayerPrefs.SetInt("Asama" + sayi.ToString(), 1);
+
+            if(sayi == 6)
+            {
+                StartCoroutine(SonAsamaOnBoardingKapa());
+            }
         }
+    }
+
+    IEnumerator SonAsamaOnBoardingKapa()
+    {
+        yield return new WaitForSeconds(1);
+        DeactiveOnBoarding();
     }
 
     public void DeactiveOnBoarding()

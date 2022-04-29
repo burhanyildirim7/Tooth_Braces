@@ -31,6 +31,10 @@ namespace DisYayi
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
 
+        [Header("DisYayiAyarlariIcin")]
+        private List<GameObject> _disYayiTakilacakDisler = new List<GameObject>();
+        private GameObject _oncekiTakilanDis;
+
 
         private Tooth _tooth;
 
@@ -41,6 +45,7 @@ namespace DisYayi
 
         public bool isAddingDisYayi;
         private bool isFirstDisYayi;
+        public bool _disYayiEklenebilir;
 
         public Asama7()
         {
@@ -51,6 +56,7 @@ namespace DisYayi
 
             _disKirilmaEfekt = playerControl.disKirilmaEfekt;
             _disOnarmaEfekt = playerControl.disOnarmaEfekt;
+            _disYayiTakilacakDisler = playerControl.disYayiTakilacakDisler;
 
             _disYayiOrnek = playerControl.disYayiOrnek;
             _disYayi = playerControl.disYayi;
@@ -60,12 +66,19 @@ namespace DisYayi
 
             _startingPosition = _disYayi.transform.position;
             _startingRotation = _disYayi.transform.rotation;
+            _disYayiEklenebilir = true;
         }
 
 
         public void CreateDisYayi()
         {
-            if (!isAddingDisYayi)
+            if (_hit.transform.gameObject.tag == "Tooth")
+            {
+                _tooth = _hit.transform.GetComponent<Tooth>();
+            }
+
+
+            if (isFirstDisYayi)
             {
                 ins_disYayi = Instantiate(_disYayiOrnek, Vector3.forward * -3 + Vector3.up * .85f - Vector3.right * .95f, Quaternion.identity);
 
@@ -75,30 +88,78 @@ namespace DisYayi
                 _hit.transform.GetComponent<Tooth>().willFix = true;
                 isAddingDisYayi = true;
                 isFirstDisYayi = true;
+
+                _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
+
+              //  _tooth.willFix = true;
+                _tooth.willWearDisYayi = false;
+
+                GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
+                obje.transform.parent = _hit.transform.GetChild(1).transform;
+                obje.transform.localPosition = Vector3.zero + Vector3.up * .25f;
+                _ilkDis = _hit.transform.gameObject;  //ilk disi bulur
+
+                _tooth.AnimasyonuDurdur();
+                ilkIsim = _hit.transform.parent.transform.gameObject.name;
+
+                MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
             }
+
+            StartingPositionAndRotation();
         }
 
         public void MoveDisYayi()
         {
-            if (isAddingDisYayi)
+            if (!isAddingDisYayi)
+            {
+                if(_disYayiEklenebilir)
+                {
+                    _disYayi.transform.position = _hit.point;
+                    _disYayi.transform.rotation = Quaternion.Euler(Vector3.right * -10 + Vector3.up * -4 * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70);
+                }
+                else
+                {
+                    StartingPositionAndRotation();
+                }
+                
+
+
+                for (int i = 0; i < _disYayiTakilacakDisler.Count; i++)
+                {
+                    if (_hit.transform.gameObject == _disYayiTakilacakDisler[i])
+                    {
+                        CreateDisYayi();
+
+                        _disYayiTakilacakDisler.Remove(_hit.transform.gameObject);
+                        _oncekiTakilanDis = _hit.transform.gameObject;
+                    }
+                }
+            }
+            else if (isAddingDisYayi)
             {
                 ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.position = _hit.point;
-            }
-            else
-            {
-                _disYayi.transform.position = _hit.point;
-                _disYayi.transform.rotation = Quaternion.Euler(Vector3.right * -10 + Vector3.up * -4 * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70);
+
+                for (int i = 0; i < _disYayiTakilacakDisler.Count; i++)
+                {
+                    if (_hit.transform.gameObject == _disYayiTakilacakDisler[i])
+                    {
+                        DeactiveDisYayi();
+
+                        _disYayiTakilacakDisler.Remove(_hit.transform.gameObject);
+                        StartingPositionAndRotation();
+                    }
+                }
+
+                if(Vector3.Distance(_disYayi.transform.position , _startingPosition) >= 1)
+                {
+                    StartingPositionAndRotation();
+                }
             }
         }
 
 
         public void DeactiveDisYayi()
         {
-            if(_hit.transform.gameObject == null)
-            {
-                Debug.Log("A");
-            }
-
             if (_hit.transform.gameObject.tag == "Tooth")
             {
                 _tooth = _hit.transform.GetComponent<Tooth>();
@@ -109,26 +170,7 @@ namespace DisYayi
 
             if (_hit.transform.gameObject.tag == "Tooth" && !_hit.transform.GetChild(2).transform.gameObject.activeSelf && _tooth.willWearDisYayi)
             {
-                if (isFirstDisYayi)
-                {
-                    CreateDisYayi();
-                    GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
-                    obje.transform.parent = _hit.transform.GetChild(1).transform;
-                    obje.transform.localPosition = Vector3.zero + Vector3.up * .25f;
-                    _ilkDis = _hit.transform.gameObject;  //ilk disi bulur
-
-                    _tooth.AnimasyonuDurdur();
-                    ilkIsim = _hit.transform.parent.transform.gameObject.name;
-
-                    isAddingDisYayi = true;
-                    isFirstDisYayi = false;
-                    _tooth.willFix = true;
-                    _tooth.willWearDisYayi = false;
-                    _hit.transform.GetChild(1).transform.gameObject.GetComponent<Animation>().Play("BraketAnim");
-
-                    MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
-                }
-                else if (ilkIsim != _hit.transform.parent.transform.gameObject.name)
+                if (ilkIsim != _hit.transform.parent.transform.gameObject.name)
                 {
                     GameObject obje = ins_disYayi.transform.GetChild(0).transform.GetChild(0).transform.gameObject;
                     obje.transform.parent = _hit.transform.GetChild(1).transform;
@@ -140,7 +182,7 @@ namespace DisYayi
                     isAddingDisYayi = false;
                     ins_disYayi = null;
 
-                    _tooth.willFix = true;
+                   // _tooth.willFix = true;
                     _tooth.willWearDisYayi = false;
 
                     _asamaControl.ReduceTelSayisi(2);
@@ -181,12 +223,14 @@ namespace DisYayi
                     isFirstDisYayi = true;
                     isAddingDisYayi = false;
                     _tooth.willWearDisYayi = true;
-                    _tooth.willFix = false;
+                   // _tooth.willFix = false;
 
                     _ilkDis = null; //Bosa cikarmak icin kullanilir
                     _ikinciDis = null;
                     ilkIsim = null;
+                    _disYayiTakilacakDisler.Add(_oncekiTakilanDis);
                 }
+                _disYayiEklenebilir = false;
             }
             else //Dis teli takilamayacak olan objeye takmaya calisirken olur
             {
@@ -195,13 +239,13 @@ namespace DisYayi
                 isFirstDisYayi = true;
                 isAddingDisYayi = false;
 
-                if(_tooth != null)
+                if (_tooth != null)
                 {
-                    _tooth.willFix = false;
+                   // _tooth.willFix = false;
                     _tooth.willWearDisYayi = true;
                 }
+                _disYayiTakilacakDisler.Add(_oncekiTakilanDis);
             }
-
 
             if (isAddingDisYayi)
             {
