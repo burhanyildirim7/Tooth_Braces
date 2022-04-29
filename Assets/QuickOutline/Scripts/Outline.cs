@@ -59,8 +59,8 @@ public class Outline : MonoBehaviour {
   [SerializeField]
   private Color outlineColor = Color.white;
 
-  [SerializeField, Range(0f, 10f)]
-  private float outlineWidth = 2f;
+  [Range(0f, 10f)]
+  public float outlineWidth = 2f;
 
   [Header("Optional")]
 
@@ -269,7 +269,7 @@ public class Outline : MonoBehaviour {
     mesh.SetTriangles(mesh.triangles, mesh.subMeshCount - 1);
   }
 
-  void UpdateMaterialProperties() {
+  public void UpdateMaterialProperties() {
 
     // Apply properties according to mode
     outlineFillMaterial.SetColor("_OutlineColor", outlineColor);

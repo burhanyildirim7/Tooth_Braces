@@ -63243,6 +63243,7 @@ GameObject:
   - component: {fileID: 7558626987927894127}
   - component: {fileID: 7558626987927894125}
   - component: {fileID: 1517627968232911708}
+  - component: {fileID: 5346003541748988487}
   m_Layer: 2
   m_Name: SuGonderen
   m_TagString: Obje
@@ -63301,6 +63302,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.401517, y: 1, z: 0.9110223}
   m_Center: {x: -4.200769, y: 0.0000019114498, z: -0.3973694}
+--- !u!114 &5346003541748988487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7558626987927894121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7558737297195122429
 GameObject:
   m_ObjectHideFlags: 0

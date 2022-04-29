@@ -1131,7 +1131,7 @@ MonoBehaviour:
   - {fileID: 3573702326074255175}
   - {fileID: 5658175073091152606}
   disSayisi: 0
-  disTeliSayisi: 0
+  disTeliSayisi: 26
   disYayiSayisi: 2
   isMoveDentalBraces: 0
   isMoveTooth: 0
@@ -56079,18 +56079,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4346781229612738191, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2550299
-      objectReference: {fileID: 0}
-    - target: {fileID: 4346781229612738191, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2550299
-      objectReference: {fileID: 0}
-    - target: {fileID: 4346781229612738191, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2550299
-      objectReference: {fileID: 0}
-    - target: {fileID: 4346781229612738191, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.42
       objectReference: {fileID: 0}
@@ -56435,18 +56423,6 @@ PrefabInstance:
     - target: {fileID: 7558626987927894126, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7558626987927894126, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.25648722
-      objectReference: {fileID: 0}
-    - target: {fileID: 7558626987927894126, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2189915
-      objectReference: {fileID: 0}
-    - target: {fileID: 7558626987927894126, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7558626987927894126, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
       propertyPath: m_LocalPosition.x

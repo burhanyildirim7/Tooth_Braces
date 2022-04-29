@@ -22,6 +22,11 @@ namespace DisTelim
         [Header("PositionAndRotationSettings")]
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
+        private Vector3 _startingLocalScale;
+
+        [Header("TabaktaBulunanObjeIcinGereklidir")]
+        private GameObject ornekTabaktakiObje;
+        private Outline _outline;
 
         public Asama6()
         {
@@ -34,10 +39,27 @@ namespace DisTelim
 
             _startingPosition = _disTeli.transform.position;
             _startingRotation = _disTeli.transform.rotation;
+            _startingLocalScale = _disTeli.transform.localScale;
         }
 
         public void MoveDisTeli()
         {
+            if (ornekTabaktakiObje == null)
+            {
+                ornekTabaktakiObje = Instantiate(_disTeli, _startingPosition, _startingRotation);
+                _outline = ornekTabaktakiObje.GetComponent<Outline>();
+            }
+            else if (Vector3.Distance(ornekTabaktakiObje.transform.localScale, _startingLocalScale * 1.4f) >= .1f)
+            {
+                ornekTabaktakiObje.transform.localScale = Vector3.Lerp(ornekTabaktakiObje.transform.localScale, _startingLocalScale * 1.5f, Time.deltaTime * 15);
+            }
+            else if (_outline.outlineWidth < 1)
+            {
+                _outline.outlineWidth = 10;
+                _outline.UpdateMaterialProperties();
+            }
+
+
             _disTeli.transform.position = _hit.point;
             _disTeli.transform.rotation = Quaternion.Euler(Vector3.right * -5 + Vector3.up * -10 * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 90);
         }
@@ -58,6 +80,10 @@ namespace DisTelim
 
         public void Deactive()
         {
+            Destroy(ornekTabaktakiObje);
+            ornekTabaktakiObje = null;
+
+
             StartingPositionAndRotation();
         }
 

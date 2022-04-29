@@ -1131,7 +1131,7 @@ MonoBehaviour:
   - {fileID: 3573702326074255175}
   - {fileID: 5658175073091152606}
   disSayisi: 0
-  disTeliSayisi: 0
+  disTeliSayisi: 24
   disYayiSayisi: 4
   isMoveDentalBraces: 0
   isMoveTooth: 0

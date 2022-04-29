@@ -30,6 +30,11 @@ namespace DisYayi
         [Header("PositionAndRotationSettings")]
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
+        private Vector3 _startingLocalScale;
+
+        [Header("TabaktaBulunanObjeIcinGereklidir")]
+        private GameObject ornekTabaktakiObje;
+        private Outline _outline;
 
         [Header("DisYayiAyarlariIcin")]
         private List<GameObject> _disYayiTakilacakDisler = new List<GameObject>();
@@ -66,6 +71,9 @@ namespace DisYayi
 
             _startingPosition = _disYayi.transform.position;
             _startingRotation = _disYayi.transform.rotation;
+            _startingLocalScale = _disYayi.transform.localScale;
+
+
             _disYayiEklenebilir = true;
         }
 
@@ -75,6 +83,11 @@ namespace DisYayi
             if (_hit.transform.gameObject.tag == "Tooth")
             {
                 _tooth = _hit.transform.GetComponent<Tooth>();
+            }
+
+            if (PlayerPrefs.GetInt("level") == 0)
+            {
+                _onBoardingController.PlayOnBoarding(6);
             }
 
 
@@ -105,14 +118,39 @@ namespace DisYayi
                 MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
             }
 
+            Destroy(ornekTabaktakiObje);
+            ornekTabaktakiObje = null;
+
+
             StartingPositionAndRotation();
         }
 
         public void MoveDisYayi()
         {
+           
             if (!isAddingDisYayi)
             {
                 if(_disYayiEklenebilir)
+                {
+                    if (ornekTabaktakiObje == null)
+                    {
+                        ornekTabaktakiObje = Instantiate(_disYayi, _startingPosition, _startingRotation);
+                        _outline = ornekTabaktakiObje.GetComponent<Outline>();
+                    }
+                    else if (Vector3.Distance(ornekTabaktakiObje.transform.localScale, _startingLocalScale * 1.4f) >= .1f)
+                    {
+                        ornekTabaktakiObje.transform.localScale = Vector3.Lerp(ornekTabaktakiObje.transform.localScale, _startingLocalScale * 1.5f, Time.deltaTime * 15);
+                    }
+                    else if (_outline.outlineWidth < 1)
+                    {
+                        _outline.outlineWidth = 10;
+                        _outline.UpdateMaterialProperties();
+                    }
+                }
+               
+
+
+                if (_disYayiEklenebilir)
                 {
                     _disYayi.transform.position = _hit.point;
                     _disYayi.transform.rotation = Quaternion.Euler(Vector3.right * -10 + Vector3.up * -4 * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70);
@@ -160,6 +198,10 @@ namespace DisYayi
 
         public void DeactiveDisYayi()
         {
+            Destroy(ornekTabaktakiObje);
+            ornekTabaktakiObje = null;
+
+
             if (_hit.transform.gameObject.tag == "Tooth")
             {
                 _tooth = _hit.transform.GetComponent<Tooth>();

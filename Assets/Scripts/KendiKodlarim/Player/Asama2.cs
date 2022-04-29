@@ -6,7 +6,7 @@ using PlayerBehaviour;
 
 namespace DisSulama
 {
-    public class Asama2
+    public class Asama2 : MonoBehaviour
     {
         public Vector3 _touchPosition { get; set; }
         public RaycastHit _hit;
@@ -21,6 +21,11 @@ namespace DisSulama
 
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
+        private Vector3 _startingLocalScale;
+
+        [Header("TabaktaBulunanObjeIcinGereklidir")]
+        private GameObject ornekTabaktakiObje;
+        private Outline _outline;
 
         private Asama3 _asama3;
 
@@ -36,6 +41,7 @@ namespace DisSulama
 
             _startingPosition = _waterObj.transform.position;
             _startingRotation = _waterObj.transform.rotation;
+            _startingLocalScale = _waterObj.transform.localScale;
 
             layerMask = 1 << 4 | 1 << 9;
             layerMask = ~layerMask;
@@ -85,6 +91,22 @@ namespace DisSulama
 
         public void MoveWater()
         {
+            if (ornekTabaktakiObje == null)
+            {
+                ornekTabaktakiObje = Instantiate(_waterObj, _startingPosition, _startingRotation);
+                _outline = ornekTabaktakiObje.GetComponent<Outline>();
+            }
+            else if (Vector3.Distance(ornekTabaktakiObje.transform.localScale, _startingLocalScale * 1.4f) >= .1f)
+            {
+                ornekTabaktakiObje.transform.localScale = Vector3.Lerp(ornekTabaktakiObje.transform.localScale, _startingLocalScale * 1.5f, Time.deltaTime * 15);
+            }
+            else if (_outline.outlineWidth < 1)
+            {
+                _outline.outlineWidth = 10;
+                _outline.UpdateMaterialProperties();
+            }
+
+
             if (_waterCollider.activeSelf)
             {
                 WaterCollider();
@@ -100,6 +122,7 @@ namespace DisSulama
 
         public void OnlyMoveWater()
         {
+           
             if (_waterObj.activeSelf && !_waterEffect.activeSelf)
             {
                 _waterObj.transform.position = Vector3.Lerp(_waterObj.transform.position, _hit.point - Vector3.forward * 1.65f + Vector3.right * (Mathf.Abs(_hit.point.x) / _hit.point.x) + Vector3.up * (Mathf.Abs(_hit.point.y) / _hit.point.y), Time.deltaTime * 15);
@@ -124,6 +147,9 @@ namespace DisSulama
 
         public void DeactiveWater()
         {
+            Destroy(ornekTabaktakiObje);
+            ornekTabaktakiObje = null;
+
             StartingPositionAndRotation();
             _waterCollider.SetActive(false);
             _waterEffect.SetActive(false);

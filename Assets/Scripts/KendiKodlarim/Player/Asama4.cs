@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DisYapiskan
 {
-    public class Asama4
+    public class Asama4 : MonoBehaviour
     {
         [Header("DokunmaIslemleri")]
         public RaycastHit _hit;
@@ -16,6 +16,11 @@ namespace DisYapiskan
         [Header("PositionAndRotationSettings")]
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
+        private Vector3 _startingLocalScale;
+
+        [Header("TabaktaBulunanObjeIcinGereklidir")]
+        private GameObject ornekTabaktakiObje;
+        private Outline _outline;
 
         int layerMask;
 
@@ -26,6 +31,7 @@ namespace DisYapiskan
 
             _startingPosition = _sticky.transform.position;
             _startingRotation = _sticky.transform.rotation;
+            _startingLocalScale = _sticky.transform.localScale;
 
             layerMask = 1 << 9;
             layerMask = ~layerMask;
@@ -59,6 +65,21 @@ namespace DisYapiskan
 
         public void OnlyMoveSticky()
         {
+            if (ornekTabaktakiObje == null)
+            {
+                ornekTabaktakiObje = Instantiate(_sticky, _startingPosition, _startingRotation);
+                _outline = ornekTabaktakiObje.GetComponent<Outline>();
+            }
+            else if (Vector3.Distance(ornekTabaktakiObje.transform.localScale, _startingLocalScale * 1.4f) >= .1f)
+            {
+                ornekTabaktakiObje.transform.localScale = Vector3.Lerp(ornekTabaktakiObje.transform.localScale, _startingLocalScale * 1.5f, Time.deltaTime * 15);
+            }
+            else if (_outline.outlineWidth < 1)
+            {
+                _outline.outlineWidth = 10;
+                _outline.UpdateMaterialProperties();
+            }
+
             _sticky.transform.position = Vector3.Lerp(_sticky.transform.position, _hit.point + Vector3.forward * 1f, Time.deltaTime * 50);
             _sticky.transform.rotation = Quaternion.Euler(Vector3.right * -30 + Vector3.up * -7 * (Mathf.Pow(Mathf.Abs(_hit.point.x), 3) / _hit.point.x) + Vector3.forward * 70 + Vector3.up * 100);
         }
@@ -79,6 +100,10 @@ namespace DisYapiskan
 
         public void DeactiveSticky()
         {
+            Destroy(ornekTabaktakiObje);
+            ornekTabaktakiObje = null;
+
+
             StartingPositionAndRotation();
         }
 

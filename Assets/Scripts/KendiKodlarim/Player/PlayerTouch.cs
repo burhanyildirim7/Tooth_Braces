@@ -232,9 +232,11 @@ namespace PlayerBehaviour
                     break;
                 case 5:
                     asama5.DeactiveBraket();
+                    caseNumber = 0;
                     break;
                 case 6:
                     asama6.Deactive();
+                    caseNumber = 0;
                     break;
                 case 7:
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -243,6 +245,7 @@ namespace PlayerBehaviour
                         asama7._hit = hit;
                     }
                     asama7.DeactiveDisYayi();
+                    caseNumber = 0;
                     break;
             }
         }
