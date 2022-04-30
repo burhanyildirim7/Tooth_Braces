@@ -40,7 +40,7 @@ namespace DisYapiskan
 
         public void ActiveSticky()
         {
-            MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+
             _sticky.SetActive(true);
         }
 
@@ -92,8 +92,9 @@ namespace DisYapiskan
             {
                 hitCollider.transform.GetChild(0).transform.localScale += Vector3.one * .00009f;
             }
-            else
+            else if(!hitCollider.transform.GetChild(0).transform.gameObject.activeSelf)
             {
+                MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
                 hitCollider.transform.GetChild(0).transform.gameObject.SetActive(true);
             }
         }
