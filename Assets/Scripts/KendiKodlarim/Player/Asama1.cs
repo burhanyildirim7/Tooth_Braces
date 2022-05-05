@@ -23,7 +23,6 @@ namespace DisFircasi
 
         [Header("TabaktaBulunanObjeIcinGereklidir")]
         private GameObject ornekTabaktakiObje;
-        private Outline _outline;
 
         private bool isEffectActive;
 
@@ -108,16 +107,10 @@ namespace DisFircasi
             {
                 _disFircasi.transform.localScale = _startingLocalScale * 1.2f;
                 ornekTabaktakiObje = Instantiate(_disFircasi, _startingPosition, _startingRotation);
-                _outline = ornekTabaktakiObje.GetComponent<Outline>();
             }
             else if (Vector3.Distance(ornekTabaktakiObje.transform.localScale, _startingLocalScale * 1.4f) >= .1f)
             {
                 ornekTabaktakiObje.transform.localScale = Vector3.Lerp(ornekTabaktakiObje.transform.localScale, _startingLocalScale * 1.5f, Time.deltaTime * 15);
-            }
-            else if (_outline.outlineWidth < 1)
-            {
-                _outline.outlineWidth = 10;
-                _outline.UpdateMaterialProperties();
             }
 
 
