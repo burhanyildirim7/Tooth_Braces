@@ -15889,7 +15889,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4248de3f6095664f97000e850cb9264, type: 2}
+  - {fileID: 2100000, guid: 0978a8aa00ab11646bba62640da15bd9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -56051,7 +56051,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.022
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 525072385182407506, guid: 78385d37821aae941982867954e7213a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 78385d37821aae941982867954e7213a, type: 3}
 --- !u!1 &583188895415839583 stripped
 GameObject:
@@ -56118,7 +56119,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -12.868
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4664826507397349605, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1cb25ab73befeb545983a46c5480dca6, type: 3}
 --- !u!4 &2783029010538797604 stripped
 Transform:
@@ -56185,7 +56187,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DisYayi (Asama8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7389938754560886164, guid: 7d3279cab1156e1409c8e59ab96914ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7d3279cab1156e1409c8e59ab96914ed, type: 3}
 --- !u!4 &2318453621299730737 stripped
 Transform:
@@ -56252,7 +56255,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DisTeli
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3432997873268025130, guid: e35ff858641b0694ab1154bc481c889f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e35ff858641b0694ab1154bc481c889f, type: 3}
 --- !u!4 &2306512048952013369 stripped
 Transform:
@@ -56397,7 +56401,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterEmici
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5048260040573965581, guid: 03833567747fa7043bd7777380c8a3cf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 03833567747fa7043bd7777380c8a3cf, type: 3}
 --- !u!1 &5685013846090343236 stripped
 GameObject:
@@ -56464,7 +56469,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 159.215
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5346003541748988487, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9112702d7cc1e0a42b5976ab7838ac77, type: 3}
 --- !u!1 &2032090868727213195 stripped
 GameObject:
@@ -56536,7 +56542,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 45.082
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6742948736070217601, guid: 5dfc02393f2b70f4195332426a443d38, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5dfc02393f2b70f4195332426a443d38, type: 3}
 --- !u!4 &6132784634150617413 stripped
 Transform:
